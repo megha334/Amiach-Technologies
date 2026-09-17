@@ -15,6 +15,17 @@ export const metadata: Metadata = {
     "AMIACH Technologies",
   ],
   authors: [{ name: "AMIACH Technologies" }],
+  icons: {
+    icon: [
+      { url: "/images/favicon.png", sizes: "32x32", type: "image/png" },
+    ],
+    shortcut: [
+      { url: "/images/favicon.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/images/favicon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   openGraph: {
     title: "AMIACH Technologies | Interactive AV Hardware Manufacturing",
     description:

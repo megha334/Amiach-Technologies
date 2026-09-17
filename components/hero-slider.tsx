@@ -8,15 +8,15 @@ import { SlideNav } from "./slide-nav";
 import { QuoteModal } from "./quote-modal";
 import { Navbar } from "./navbar";
 
-const AUTOPLAY_DURATION = 2000; // 3.0 seconds per slide as requested
+const AUTOPLAY_DURATION = 2000; // 2.0 seconds per slide
 
 export function HeroSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isHovered, setIsHovered] = useState(false);
   const [progressKey, setProgressKey] = useState(0);
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [modalProduct, setModalProduct] = useState("");
+  const [isHovered, setIsHovered] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const totalSlides = heroSlides.length;
@@ -48,9 +48,11 @@ export function HeroSlider() {
     setQuoteModalOpen(true);
   };
 
-  // 3-Second Autoplay Loop
+  // Continuous Autoplay Loop.
+  // Pauses when: the user explicitly toggles play/pause, the quote modal is
+  // open, OR the cursor is hovering over the product/hero content area.
   useEffect(() => {
-    if (isPlaying && !isHovered && !quoteModalOpen) {
+    if (isPlaying && !quoteModalOpen && !isHovered) {
       timerRef.current = setTimeout(() => {
         handleNext();
       }, AUTOPLAY_DURATION);
@@ -61,7 +63,7 @@ export function HeroSlider() {
         clearTimeout(timerRef.current);
       }
     };
-  }, [currentIndex, isPlaying, isHovered, quoteModalOpen, handleNext]);
+  }, [currentIndex, isPlaying, quoteModalOpen, isHovered, handleNext]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -83,8 +85,6 @@ export function HeroSlider() {
   return (
     <div
       className="relative w-screen h-screen max-h-[100dvh] overflow-hidden bg-[#08090B] flex flex-col justify-between select-none"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       aria-roledescription="carousel"
       aria-label="AMIACH Product Solutions Showcase"
     >
@@ -128,15 +128,19 @@ export function HeroSlider() {
         currentModelCode={currentSlide.modelCode}
       />
 
-      {/* Main Single-Screen Hero Content Area */}
-      <main className="relative z-10 flex-1 flex flex-col justify-center pt-14 sm:pt-16 pb-1 sm:pb-2 min-h-0 overflow-hidden">
+      {/* Main Single-Screen Hero Content Area — hovering here pauses autoplay */}
+      <main
+        className="relative z-10 flex-1 flex flex-col justify-center pt-14 sm:pt-16 pb-1 sm:pb-2 min-h-0 overflow-hidden"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <HeroContent
           currentSlide={currentSlide}
           onOpenQuoteModal={handleOpenQuoteModal}
         />
       </main>
 
-      {/* Bottom Dock: Slide Navigation & Live 3-Second Progress Bar */}
+      {/* Bottom Dock: Slide Navigation & Live Progress Bar */}
       <footer className="relative z-20">
         <SlideNav
           slides={heroSlides}

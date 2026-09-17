@@ -95,16 +95,7 @@ export function SlideNav({
         <div className="flex flex-col md:flex-row items-center justify-between gap-2.5">
           {/* Left Control Group: Monogram Logo, Play/Pause, Prev/Next & Counter */}
           <div className="flex items-center gap-2.5 w-full md:w-auto justify-between md:justify-start">
-            {/* Circular Brand Monogram Icon */}
-            <Link
-              href="/"
-              className="w-8 h-8 rounded-full bg-white/5 hover:bg-white/15 border border-white/15 flex items-center justify-center font-display font-black text-xs text-white shadow-inner flex-shrink-0 transition-all hover:border-[#FF2B35]/50 group"
-              title="AMIACH Technologies"
-              aria-label="AMIACH Technologies Home"
-            >
-              <span className="text-white group-hover:text-[#FF2B35] transition-colors">N</span>
-            </Link>
-
+           
             {/* Play/Pause & Nav Arrows */}
             <div className="flex items-center gap-1.5">
               <button
@@ -235,10 +226,10 @@ export function SlideNav({
               aria-label="AMIACH Technologies"
             >
               <span className="text-[#FF2B35] font-black text-sm group-hover:brightness-125 transition-all">
-                AMI
+                AM
               </span>
               <span className="text-white font-medium text-xs tracking-widest ml-0.5">
-                ACH
+                IACH
               </span>
             </Link>
             <span className="text-zinc-200 font-semibold text-xs tracking-tight">
@@ -314,4 +305,3 @@ export function SlideNav({
     </div>
   );
 }
-
