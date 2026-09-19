@@ -1,40 +1,56 @@
 "use client";
 
 import React, { useState, useEffect, useCallback, useRef } from "react";
+
 import { motion, AnimatePresence } from "framer-motion";
+
 import { heroSlides } from "@/lib/data";
+
 import { HeroContent } from "./hero-content";
+
 import { SlideNav } from "./slide-nav";
+
 import { QuoteModal } from "./quote-modal";
+
 import { Navbar } from "./navbar";
 
 const AUTOPLAY_DURATION = 2000; // 2.0 seconds per slide
 
 export function HeroSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
+
   const [isPlaying, setIsPlaying] = useState(true);
+
   const [progressKey, setProgressKey] = useState(0);
+
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
+
   const [modalProduct, setModalProduct] = useState("");
+
   const [isHovered, setIsHovered] = useState(false);
+
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const totalSlides = heroSlides.length;
+
   const currentSlide = heroSlides[currentIndex];
 
   const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % totalSlides);
+
     setProgressKey((prev) => prev + 1);
   }, [totalSlides]);
 
   const handlePrev = useCallback(() => {
     setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
+
     setProgressKey((prev) => prev + 1);
   }, [totalSlides]);
 
   const handleSelectSlide = (index: number) => {
     if (index !== currentIndex) {
       setCurrentIndex(index);
+
       setProgressKey((prev) => prev + 1);
     }
   };
@@ -44,13 +60,19 @@ export function HeroSlider() {
   };
 
   const handleOpenQuoteModal = (productTitle?: string) => {
-    setModalProduct(productTitle || `${currentSlide.title} (${currentSlide.modelCode})`);
+    setModalProduct(
+      productTitle || `${currentSlide.title} (${currentSlide.modelCode})`,
+    );
+
     setQuoteModalOpen(true);
   };
 
   // Continuous Autoplay Loop.
+
   // Pauses when: the user explicitly toggles play/pause, the quote modal is
+
   // open, OR the cursor is hovering over the product/hero content area.
+
   useEffect(() => {
     if (isPlaying && !quoteModalOpen && !isHovered) {
       timerRef.current = setTimeout(() => {
@@ -66,6 +88,7 @@ export function HeroSlider() {
   }, [currentIndex, isPlaying, quoteModalOpen, isHovered, handleNext]);
 
   // Keyboard navigation
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight") {
@@ -74,21 +97,24 @@ export function HeroSlider() {
         handlePrev();
       } else if (e.key === " " && !quoteModalOpen) {
         e.preventDefault();
+
         setIsPlaying((p) => !p);
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
+
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleNext, handlePrev, quoteModalOpen]);
 
   return (
     <div
-      className="relative w-screen h-screen max-h-[100dvh] overflow-hidden bg-[#08090B] flex flex-col justify-between select-none"
+      className="relative w-screen h-screen max-h-dvh overflow-hidden bg-[#08090B] flex flex-col justify-between select-none"
       aria-roledescription="carousel"
       aria-label="AMIACH Product Solutions Showcase"
     >
       {/* Dynamic Ambient Background with Color Blending */}
+
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <AnimatePresence initial={false} mode="sync">
           <motion.div
@@ -100,35 +126,40 @@ export function HeroSlider() {
             className="absolute inset-0"
           >
             {/* Ambient Radial Spotlight matching current product accent */}
+
             <div
-              className="absolute top-1/2 right-[20%] -translate-y-1/2 w-[700px] h-[700px] rounded-full blur-[140px] opacity-20 pointer-events-none"
+              className="absolute top-1/2 right-[20%] -translate-y-1/2 w-175 h-175 rounded-full blur-[140px] opacity-20 pointer-events-none"
               style={{ backgroundColor: currentSlide.accentColor }}
             />
+
             {/* Dark Studio Base Gradients */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#08090B] via-[#08090B]/90 to-[#0A0C10]/80" />
-            <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#08090B] to-transparent" />
-            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#08090B]/90 to-transparent" />
+
+            <div className="absolute inset-0 bg-linear-to-r from-[#08090B] via-[#08090B]/90 to-[#0A0C10]/80" />
+
+            <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-[#08090B] to-transparent" />
+
+            <div className="absolute inset-x-0 top-0 h-32 bg-linear-to-b from-[#08090B]/90 to-transparent" />
           </motion.div>
         </AnimatePresence>
 
         {/* Subtle Luxury Mesh Grid Pattern */}
+
         <div
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
             backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px)`,
+
             backgroundSize: "32px 32px",
           }}
         />
       </div>
 
       {/* Top Navbar */}
-      <Navbar
-        onOpenQuoteModal={handleOpenQuoteModal}
-        currentProductTitle={currentSlide.title}
-        currentModelCode={currentSlide.modelCode}
-      />
+
+      <Navbar />
 
       {/* Main Single-Screen Hero Content Area — hovering here pauses autoplay */}
+
       <main
         className="relative z-10 flex-1 flex flex-col justify-center pt-14 sm:pt-16 pb-1 sm:pb-2 min-h-0 overflow-hidden"
         onMouseEnter={() => setIsHovered(true)}
@@ -141,6 +172,7 @@ export function HeroSlider() {
       </main>
 
       {/* Bottom Dock: Slide Navigation & Live Progress Bar */}
+
       <footer className="relative z-20">
         <SlideNav
           slides={heroSlides}
@@ -157,6 +189,7 @@ export function HeroSlider() {
       </footer>
 
       {/* In-Page Glassmorphic Quote & Specification Request Modal */}
+
       <QuoteModal
         isOpen={quoteModalOpen}
         onClose={() => setQuoteModalOpen(false)}

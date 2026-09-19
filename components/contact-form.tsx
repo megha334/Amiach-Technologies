@@ -1,13 +1,18 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, Send, Building2, User, Mail, Phone, MessageSquare } from "lucide-react";
+import { ArrowRight, CheckCircle2, Building2, User, Mail, Phone, MessageSquare } from "lucide-react";
 
 export function ContactForm() {
   const searchParams = useSearchParams();
   const prefilledProduct = searchParams?.get("product") || "";
+
+  return <ContactFormFields key={prefilledProduct} prefilledProduct={prefilledProduct} />;
+}
+
+function ContactFormFields({ prefilledProduct }: { prefilledProduct: string }) {
 
   const [formState, setFormState] = useState({
     name: "",
@@ -20,12 +25,6 @@ export function ContactForm() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  useEffect(() => {
-    if (prefilledProduct) {
-      setFormState((prev) => ({ ...prev, product: prefilledProduct }));
-    }
-  }, [prefilledProduct]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

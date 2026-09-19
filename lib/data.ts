@@ -1,4 +1,4 @@
-import { HeroSlide, ProductItem, StatItem } from "./types";
+import { HeroSlide, ProductItem } from "./types";
 
 export const heroSlides: HeroSlide[] = [
   {

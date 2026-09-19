@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link"; // <--- Added Next.js Link
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
@@ -21,27 +22,28 @@ interface HeroContentProps {
   onOpenQuoteModal: (product?: string) => void;
 }
 
-// Static, always-visible categories shown on the right rail.
-// These do NOT unmount/remount when the product slide changes.
+// 1. Updated CATEGORIES with matching App Router routes
 const CATEGORIES = [
   {
     icon: AudioWaveform,
     title: "Audio Video Manufacturing",
     desc: "In-house AV hardware engineering & production",
+    href: "/audio-video-manufacturing", // <--- Added route link
   },
   {
     icon: GraduationCap,
     title: "Internship Training / Live Projects",
     desc: "Hands-on industry training with real deliverables",
+    href: "/internship-training", // <--- Added route link
   },
   {
     icon: Code2,
     title: "App & Web Development",
     desc: "Custom software for kiosks, dashboards & the web",
+    href: "/app-web-development", // <--- Added route link
   },
 ];
 
-// Trims copy to a short, punchy sentence without needing to touch the data file.
 function shorten(text: string, maxLen = 92) {
   if (text.length <= maxLen) return text;
   const cut = text.slice(0, maxLen);
@@ -53,7 +55,8 @@ export function HeroContent({ currentSlide, onOpenQuoteModal }: HeroContentProps
   return (
     <div className="w-full h-full max-w-[1780px] mx-auto px-3 sm:px-6 md:px-8 lg:px-10 flex flex-col justify-center select-none py-1 sm:py-2 overflow-y-auto md:overflow-visible">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-3 sm:gap-4 md:gap-5 lg:gap-6 xl:gap-8 items-center h-full">
-        {/* ================= LEFT: Product Text (swaps per slide) ================= */}
+        
+        {/* ================= LEFT: Product Text ================= */}
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide.id}
@@ -96,7 +99,7 @@ export function HeroContent({ currentSlide, onOpenQuoteModal }: HeroContentProps
               </div>
             </motion.div>
 
-            {/* Main Product Heading — sizes reduced for a cleaner, balanced look */}
+            {/* Main Product Heading */}
             <div className="space-y-0.5">
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
@@ -124,7 +127,7 @@ export function HeroContent({ currentSlide, onOpenQuoteModal }: HeroContentProps
               </motion.h1>
             </div>
 
-            {/* Description — shortened & smaller */}
+            {/* Description */}
             <motion.p
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -134,7 +137,7 @@ export function HeroContent({ currentSlide, onOpenQuoteModal }: HeroContentProps
               {shorten(currentSlide.description)}
             </motion.p>
 
-            {/* Technical Specs Grid — tighter */}
+            {/* Technical Specs Grid */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -144,7 +147,7 @@ export function HeroContent({ currentSlide, onOpenQuoteModal }: HeroContentProps
               {currentSlide.specs.slice(0, 4).map((spec, i) => (
                 <div
                   key={i}
-                  className="px-2.5 py-1 rounded-lg bg-white/[0.04] border border-white/10 hover:border-white/20 transition-colors"
+                  className="px-2.5 py-1 rounded-lg bg-white/4 border border-white/10 hover:border-white/20 transition-colors"
                 >
                   <div className="text-[9px] uppercase font-semibold text-zinc-400">
                     {spec.label}
@@ -156,7 +159,7 @@ export function HeroContent({ currentSlide, onOpenQuoteModal }: HeroContentProps
               ))}
             </motion.div>
 
-            {/* Feature Highlights Chips */}
+            {/* Feature Highlights */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -168,7 +171,7 @@ export function HeroContent({ currentSlide, onOpenQuoteModal }: HeroContentProps
                   key={i}
                   className="inline-flex items-center gap-1.5 px-2 py-1 rounded-lg bg-black/40 border border-white/10 text-[10px] text-zinc-300"
                 >
-                  <CheckCircle className="w-3 h-3 flex-shrink-0" style={{ color: currentSlide.accentColor }} />
+                  <CheckCircle className="w-3 h-3 shrink-0" style={{ color: currentSlide.accentColor }} />
                   <span>{feat}</span>
                 </div>
               ))}
@@ -182,6 +185,7 @@ export function HeroContent({ currentSlide, onOpenQuoteModal }: HeroContentProps
               className="flex flex-wrap items-center gap-2 pt-1"
             >
               <button
+                type="button"
                 onClick={() => onOpenQuoteModal(`${currentSlide.title} (${currentSlide.modelCode})`)}
                 className="group relative inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-white font-bold text-[11px] sm:text-xs uppercase tracking-wider transition-all duration-300 shadow-xl hover:-translate-y-0.5"
                 style={{
@@ -194,6 +198,7 @@ export function HeroContent({ currentSlide, onOpenQuoteModal }: HeroContentProps
               </button>
 
               <button
+                type="button"
                 onClick={() => onOpenQuoteModal(`Datasheet: ${currentSlide.title}`)}
                 className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-[11px] sm:text-xs font-semibold text-zinc-300 hover:text-white transition-all"
               >
@@ -204,8 +209,8 @@ export function HeroContent({ currentSlide, onOpenQuoteModal }: HeroContentProps
           </motion.div>
         </AnimatePresence>
 
-        {/* ================= CENTER: Product Image (unchanged) ================= */}
-        <div className="md:col-span-1 lg:col-span-5 xl:col-span-5 relative flex items-center justify-center h-[34vh] sm:h-[44vh] md:h-[42vh] lg:h-[54vh] xl:h-[60vh] 2xl:h-[64vh] max-h-[620px] min-h-[220px] order-2">
+        {/* ================= CENTER: Product Image ================= */}
+        <div className="md:col-span-1 lg:col-span-5 xl:col-span-5 relative flex items-center justify-center h-[34vh] sm:h-[44vh] md:h-[42vh] lg:h-[54vh] xl:h-[60vh] 2xl:h-[64vh] max-h-155 min-h-55 order-2">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide.id}
@@ -215,23 +220,20 @@ export function HeroContent({ currentSlide, onOpenQuoteModal }: HeroContentProps
               transition={{ duration: 0.35 }}
               className="absolute inset-0 flex items-center justify-center"
             >
-              {/* Ambient Radial Spotlight Glow */}
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 0.45 }}
                 transition={{ duration: 0.5 }}
-                className="absolute w-[320px] h-[320px] sm:w-[450px] sm:h-[450px] xl:w-[560px] xl:h-[560px] rounded-full blur-[100px] pointer-events-none"
+                className="absolute w-[320px] h-80 sm:w-112.5 sm:h-112.5 xl:w-140 xl:h-140 rounded-full blur-[100px] pointer-events-none"
                 style={{ backgroundColor: currentSlide.accentColor }}
               />
 
-              {/* Standalone Product Figure with Natural Studio Shadow */}
               <motion.div
                 initial={{ scale: 0.9, y: 20, opacity: 0 }}
                 animate={{ scale: 1, y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 className="relative w-full h-full flex flex-col items-center justify-center"
               >
-                {/* Massive Standalone Product Image */}
                 <div className="relative w-full h-full flex items-center justify-center p-1 sm:p-2">
                   <Image
                     src={currentSlide.image}
@@ -244,7 +246,6 @@ export function HeroContent({ currentSlide, onOpenQuoteModal }: HeroContentProps
                   />
                 </div>
 
-                {/* Floating Quality Certificate Badge */}
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -258,7 +259,6 @@ export function HeroContent({ currentSlide, onOpenQuoteModal }: HeroContentProps
                   </div>
                 </motion.div>
 
-                {/* Realistic Grounded Floor Glow Shadow */}
                 <div
                   className="absolute bottom-0 w-3/5 h-5 rounded-full blur-xl opacity-60 pointer-events-none"
                   style={{ backgroundColor: currentSlide.accentColor }}
@@ -270,9 +270,6 @@ export function HeroContent({ currentSlide, onOpenQuoteModal }: HeroContentProps
         </div>
 
         {/* ================= RIGHT: Persistent Categories Rail ================= */}
-        {/* This block is intentionally OUTSIDE the AnimatePresence key on currentSlide.id,
-            so it never unmounts/remounts when the product slide changes — only its
-            accent color subtly syncs with the active product for visual coordination. */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -283,51 +280,50 @@ export function HeroContent({ currentSlide, onOpenQuoteModal }: HeroContentProps
             What We Do
           </div>
 
-          {/* Row layout on mobile/tablet (more horizontal room below text+image),
-              switches to a vertical rail once the 3-column desktop layout kicks in at lg. */}
           <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-2 sm:gap-2.5">
             {CATEGORIES.map((cat, i) => {
               const Icon = cat.icon;
               return (
-                <motion.div
-                  key={cat.title}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
-                  whileHover={{ y: -2 }}
-                  className="relative flex items-center gap-2.5 sm:gap-3 px-2.5 sm:px-3 py-2 sm:py-2.5 rounded-xl bg-white/[0.04] border overflow-hidden transition-colors duration-500 min-w-0"
-                  style={{
-                    borderColor: `${currentSlide.accentColor}35`,
-                  }}
-                >
-                  {/* subtle coordinated glow that shifts with the active product's accent color */}
+                /* 2. Wrapped category box inside Next.js Link */
+                <Link key={cat.title} href={cat.href} className="block group">
                   <motion.div
-                    className="absolute inset-0 opacity-[0.08] pointer-events-none"
-                    animate={{ backgroundColor: currentSlide.accentColor }}
-                    transition={{ duration: 0.6 }}
-                  />
-
-                  <div
-                    className="relative flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center transition-colors duration-500"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
+                    whileHover={{ y: -2 }}
+                    className="relative flex items-center gap-2.5 sm:gap-3 px-2.5 sm:px-3 py-2 sm:py-2.5 rounded-xl bg-white/4 border overflow-hidden transition-all duration-300 min-w-0 cursor-pointer group-hover:bg-white/8 group-hover:border-white/30"
                     style={{
-                      backgroundColor: `${currentSlide.accentColor}1A`,
+                      borderColor: `${currentSlide.accentColor}35`,
                     }}
                   >
-                    <Icon
-                      className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-colors duration-500"
-                      style={{ color: currentSlide.accentColor }}
+                    <motion.div
+                      className="absolute inset-0 opacity-[0.08] pointer-events-none"
+                      animate={{ backgroundColor: currentSlide.accentColor }}
+                      transition={{ duration: 0.6 }}
                     />
-                  </div>
 
-                  <div className="relative min-w-0">
-                    <div className="text-[10px] sm:text-[11px] lg:text-xs font-bold text-white leading-snug break-words">
-                      {cat.title}
+                    <div
+                      className="relative shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center transition-colors duration-500"
+                      style={{
+                        backgroundColor: `${currentSlide.accentColor}1A`,
+                      }}
+                    >
+                      <Icon
+                        className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-colors duration-500"
+                        style={{ color: currentSlide.accentColor }}
+                      />
                     </div>
-                    <div className="hidden md:block text-[10px] text-zinc-400 leading-snug mt-0.5 line-clamp-2">
-                      {cat.desc}
+
+                    <div className="relative min-w-0">
+                      <div className="text-[10px] sm:text-[11px] lg:text-xs font-bold text-white leading-snug wrap-break-word group-hover:text-white transition-colors">
+                        {cat.title}
+                      </div>
+                      <div className="hidden md:block text-[10px] text-zinc-400 leading-snug mt-0.5 line-clamp-2">
+                        {cat.desc}
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </Link>
               );
             })}
           </div>

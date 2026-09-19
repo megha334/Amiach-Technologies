@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, CheckCircle2, Phone, Mail, MapPin, Sparkles } from "lucide-react";
+import { X, Send, CheckCircle2, Phone, Mail, Sparkles } from "lucide-react";
 import { companyInfo } from "@/lib/data";
 
 interface QuoteModalProps {
@@ -12,6 +12,17 @@ interface QuoteModalProps {
 }
 
 export function QuoteModal({ isOpen, onClose, selectedProduct }: QuoteModalProps) {
+  return (
+    <QuoteModalContent
+      key={selectedProduct || "Smart Digital Podium"}
+      isOpen={isOpen}
+      onClose={onClose}
+      selectedProduct={selectedProduct}
+    />
+  );
+}
+
+function QuoteModalContent({ isOpen, onClose, selectedProduct }: QuoteModalProps) {
   const [product, setProduct] = useState(selectedProduct || "Smart Digital Podium");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -19,13 +30,6 @@ export function QuoteModal({ isOpen, onClose, selectedProduct }: QuoteModalProps
   const [notes, setNotes] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  // Sync selected product if passed
-  React.useEffect(() => {
-    if (selectedProduct) {
-      setProduct(selectedProduct);
-    }
-  }, [selectedProduct]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
