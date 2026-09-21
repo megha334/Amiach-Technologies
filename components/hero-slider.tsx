@@ -1,200 +1,117 @@
 "use client";
 
-import React, { useState, useEffect, useCallback, useRef } from "react";
-
-import { motion, AnimatePresence } from "framer-motion";
-
-import { heroSlides } from "@/lib/data";
-
-import { HeroContent } from "./hero-content";
-
-import { SlideNav } from "./slide-nav";
-
-import { QuoteModal } from "./quote-modal";
-
-import { Navbar } from "./navbar";
-
-const AUTOPLAY_DURATION = 2000; // 2.0 seconds per slide
+import React, { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { heroSlides, whatWeDoCategories } from "@/lib/data";
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
 export function HeroSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const [isPlaying, setIsPlaying] = useState(true);
-
-  const [progressKey, setProgressKey] = useState(0);
-
-  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
-
-  const [modalProduct, setModalProduct] = useState("");
-
-  const [isHovered, setIsHovered] = useState(false);
-
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
-
-  const totalSlides = heroSlides.length;
-
-  const currentSlide = heroSlides[currentIndex];
-
   const handleNext = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % totalSlides);
+    setCurrentIndex((prev) => (prev + 1) % heroSlides.length);
+  }, []);
 
-    setProgressKey((prev) => prev + 1);
-  }, [totalSlides]);
-
-  const handlePrev = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
-
-    setProgressKey((prev) => prev + 1);
-  }, [totalSlides]);
-
-  const handleSelectSlide = (index: number) => {
-    if (index !== currentIndex) {
-      setCurrentIndex(index);
-
-      setProgressKey((prev) => prev + 1);
-    }
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1));
   };
-
-  const togglePlayPause = () => {
-    setIsPlaying((prev) => !prev);
-  };
-
-  const handleOpenQuoteModal = (productTitle?: string) => {
-    setModalProduct(
-      productTitle || `${currentSlide.title} (${currentSlide.modelCode})`,
-    );
-
-    setQuoteModalOpen(true);
-  };
-
-  // Continuous Autoplay Loop.
-
-  // Pauses when: the user explicitly toggles play/pause, the quote modal is
-
-  // open, OR the cursor is hovering over the product/hero content area.
 
   useEffect(() => {
-    if (isPlaying && !quoteModalOpen && !isHovered) {
-      timerRef.current = setTimeout(() => {
-        handleNext();
-      }, AUTOPLAY_DURATION);
-    }
+    const timer = setInterval(() => {
+      handleNext();
+    }, 7000);
 
-    return () => {
-      if (timerRef.current) {
-        clearTimeout(timerRef.current);
-      }
-    };
-  }, [currentIndex, isPlaying, quoteModalOpen, isHovered, handleNext]);
-
-  // Keyboard navigation
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight") {
-        handleNext();
-      } else if (e.key === "ArrowLeft") {
-        handlePrev();
-      } else if (e.key === " " && !quoteModalOpen) {
-        e.preventDefault();
-
-        setIsPlaying((p) => !p);
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [handleNext, handlePrev, quoteModalOpen]);
+    return () => clearInterval(timer);
+  }, [handleNext]);
 
   return (
     <div
-      className="relative w-screen h-screen max-h-dvh overflow-hidden bg-[#08090B] flex flex-col justify-between select-none"
-      aria-roledescription="carousel"
-      aria-label="AMIACH Product Solutions Showcase"
+      id="hero-slider"
+      className="relative w-full min-h-screen lg:h-screen overflow-hidden select-none bg-slate-950 font-sans flex flex-col justify-between"
     >
-      {/* Dynamic Ambient Background with Color Blending */}
-
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <AnimatePresence initial={false} mode="sync">
-          <motion.div
-            key={currentSlide.id}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
-            className="absolute inset-0"
-          >
-            {/* Ambient Radial Spotlight matching current product accent */}
-
-            <div
-              className="absolute top-1/2 right-[20%] -translate-y-1/2 w-175 h-175 rounded-full blur-[140px] opacity-20 pointer-events-none"
-              style={{ backgroundColor: currentSlide.accentColor }}
-            />
-
-            {/* Dark Studio Base Gradients */}
-
-            <div className="absolute inset-0 bg-linear-to-r from-[#08090B] via-[#08090B]/90 to-[#0A0C10]/80" />
-
-            <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-[#08090B] to-transparent" />
-
-            <div className="absolute inset-x-0 top-0 h-32 bg-linear-to-b from-[#08090B]/90 to-transparent" />
-          </motion.div>
-        </AnimatePresence>
-
-        {/* Subtle Luxury Mesh Grid Pattern */}
-
+      {/* Dynamic Background Images */}
+      {heroSlides.map((slide, idx) => (
         <div
-          className="absolute inset-0 opacity-[0.03] pointer-events-none"
-          style={{
-            backgroundImage: `radial-gradient(rgba(255, 255, 255, 0.4) 1px, transparent 1px)`,
+          key={slide.image || idx}
+          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+            idx === currentIndex ? "opacity-100 z-0" : "opacity-0 -z-10"
+          }`}
+        >
+          <Image
+            src={slide.image}
+            alt="Hero Visual"
+            fill
+            priority={idx === 0}
+            sizes="100vw"
+            className="object-cover scale-105"
+          />
+          {/* Subtle Dark Gradient Overlay */}
+          <div className="absolute inset-0 bg-linear-to-r from-slate-950/50 via-slate-950/20 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-transparent to-slate-950/40" />
+        </div>
+      ))}
 
-            backgroundSize: "32px 32px",
-          }}
+      {/* Render imported Navbar component */}
+      <Navbar />
+
+      {/* Center Content Section */}
+      <div className="relative z-20 flex-1 flex items-center justify-end px-6 sm:px-16 md:px-24 py-20">
+        {/* Interactive Floating Category Cards */}
+        <div className="hidden lg:flex flex-col gap-3.5 max-w-xs w-full">
+          <div className="text-[13px] font-mono font-extrabold uppercase tracking-widest text-white mb-1 px-1 flex items-center justify-between">
+            <span>What We Do</span>
+          </div>
+
+          {whatWeDoCategories.map((cat) => (
+            <Link
+              key={cat.href}
+              href={cat.href}
+              className="group relative p-4 rounded-2xl bg-slate-900/40 backdrop-blur-xl border border-white/10 hover:border-[#DC2626]/70 hover:bg-slate-900/80 transition-all duration-300 shadow-xl hover:-translate-x-2 overflow-hidden"
+            >
+              <h3 className="text-sm font-bold text-white mt-2 group-hover:text-[#DC2626] transition-colors flex items-center justify-between">
+                <span>{cat.title}</span>
+              </h3>
+              <p className="text-xs text-slate-300/80 mt-1 line-clamp-1">
+                {cat.description}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      {/* Navigation Controls */}
+      <button
+        onClick={handlePrev}
+        aria-label="Previous Slide"
+        className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 text-white/70 hover:text-white transition-all duration-200 hover:scale-125 focus:outline-none filter drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]"
+      >
+        <ChevronLeft className="w-10 h-10 stroke-[1.5]" />
+      </button>
+
+      <button
+        onClick={handleNext}
+        aria-label="Next Slide"
+        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 text-white/70 hover:text-white transition-all duration-200 hover:scale-125 focus:outline-none filter drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]"
+      >
+        <ChevronRight className="w-10 h-10 stroke-[1.5]" />
+      </button>
+
+      {/* Make In India Image */}
+      <div className="absolute bottom-20 left-8 sm:left-14 z-20 pointer-events-none opacity-90 hover:opacity-100 transition-opacity">
+        <Image
+          src="/images/make-in-india.png"
+          alt="Make in India"
+          width={100}
+          height={50}
+          className="h-15 sm:h-18 w-auto object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]"
         />
       </div>
 
-      {/* Top Navbar */}
-
-      <Navbar />
-
-      {/* Main Single-Screen Hero Content Area — hovering here pauses autoplay */}
-
-      <main
-        className="relative z-10 flex-1 flex flex-col justify-center pt-14 sm:pt-16 pb-1 sm:pb-2 min-h-0 overflow-hidden"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <HeroContent
-          currentSlide={currentSlide}
-          onOpenQuoteModal={handleOpenQuoteModal}
-        />
-      </main>
-
-      {/* Bottom Dock: Slide Navigation & Live Progress Bar */}
-
-      <footer className="relative z-20">
-        <SlideNav
-          slides={heroSlides}
-          currentIndex={currentIndex}
-          onSelectSlide={handleSelectSlide}
-          isPlaying={isPlaying}
-          onTogglePlayPause={togglePlayPause}
-          onPrev={handlePrev}
-          onNext={handleNext}
-          autoplayDuration={AUTOPLAY_DURATION}
-          progressKey={progressKey}
-          isHovered={isHovered}
-        />
-      </footer>
-
-      {/* In-Page Glassmorphic Quote & Specification Request Modal */}
-
-      <QuoteModal
-        isOpen={quoteModalOpen}
-        onClose={() => setQuoteModalOpen(false)}
-        selectedProduct={modalProduct}
-      />
+      {/* Extracted Footer Component */}
+      <Footer />
     </div>
   );
 }

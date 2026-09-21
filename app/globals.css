@@ -77,7 +77,7 @@
 }
 
 .animate-float {
-  animation: float 4s ease-in-out infinite;
+  animation: float 3s ease-in-out infinite;
 }
 
 /* Hide all scrollbars across browsers */
