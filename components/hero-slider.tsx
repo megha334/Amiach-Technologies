@@ -58,18 +58,20 @@ export function HeroSlider() {
       <Navbar />
 
       {/* Center Content Section */}
-      <div className="relative z-20 flex-1 flex items-center justify-end px-6 sm:px-16 md:px-24 py-20 pt-28">
+      {/* Mobile screens par center aligned, Large screens par right aligned */}
+      <div className="relative z-20 flex-1 flex items-center justify-center lg:justify-end px-6 sm:px-16 md:px-24 py-20 pt-28">
         {/* Interactive Floating Category Cards */}
-        <div className="hidden lg:flex flex-col gap-3 max-w-[15rem] w-full translate-y-25">
+        {/* 'hidden lg:flex' ko badal kar 'flex' kiya gaya hai, mobile par center me layout banaya gaya hai */}
+        <div className="flex flex-col gap-3 max-w-[18rem] sm:max-w-[15rem] w-full items-center lg:items-stretch lg:translate-y-25">
           {whatWeDoCategories.map((cat) => (
             <Link
               key={cat.href}
               href={cat.href}
-              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-3 shadow-[0_12px_30px_rgba(15,23,42,0.28)] backdrop-blur-md transition-all duration-300 hover:-translate-x-2 hover:border-[#DC2626]/60 hover:bg-white/10"
+              className="group relative w-full overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-3.5 sm:p-3 shadow-[0_12px_30px_rgba(15,23,42,0.28)] backdrop-blur-md transition-all duration-300 hover:scale-105 lg:hover:scale-100 lg:hover:-translate-x-2 hover:border-[#DC2626]/60 hover:bg-white/10 text-center lg:text-left"
             >
               <div className="absolute inset-0 bg-linear-to-r from-white/5 via-transparent to-[#DC2626]/5 opacity-70" />
               <div className="relative z-10">
-                <h3 className="mt-1 flex items-center justify-between text-[0.72rem] font-bold uppercase tracking-wide text-[#67e3ec] transition-colors group-hover:text-[#F87171]">
+                <h3 className="mt-1 flex items-center justify-center lg:justify-between text-xs sm:text-[0.72rem] font-bold uppercase tracking-wide text-[#67e3ec] transition-colors group-hover:text-[#F87171]">
                   <span>{cat.title}</span>
                 </h3>
               </div>
@@ -82,27 +84,27 @@ export function HeroSlider() {
       <button
         onClick={handlePrev}
         aria-label="Previous Slide"
-        className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 text-white/70 hover:text-white transition-all duration-200 hover:scale-125 focus:outline-none filter drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]"
+        className="absolute left-2 sm:left-8 top-1/2 -translate-y-1/2 z-30 text-white/70 hover:text-white transition-all duration-200 hover:scale-125 focus:outline-none filter drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]"
       >
-        <ChevronLeft className="w-10 h-10 stroke-[1.5]" />
+        <ChevronLeft className="w-8 h-8 sm:w-10 sm:h-10 stroke-[1.5]" />
       </button>
 
       <button
         onClick={handleNext}
         aria-label="Next Slide"
-        className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 text-white/70 hover:text-white transition-all duration-200 hover:scale-125 focus:outline-none filter drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]"
+        className="absolute right-2 sm:right-8 top-1/2 -translate-y-1/2 z-30 text-white/70 hover:text-white transition-all duration-200 hover:scale-125 focus:outline-none filter drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]"
       >
-        <ChevronRight className="w-10 h-10 stroke-[1.5]" />
+        <ChevronRight className="w-8 h-8 sm:w-10 sm:h-10 stroke-[1.5]" />
       </button>
 
       {/* Make In India Image */}
-      <div className="absolute bottom-20 left-8 sm:left-14 z-20 pointer-events-none opacity-90 hover:opacity-100 transition-opacity">
+      <div className="absolute bottom-20 left-4 sm:left-14 z-20 pointer-events-none opacity-90 hover:opacity-100 transition-opacity">
         <Image
           src="/images/make-in-india.png"
           alt="Make in India"
           width={100}
           height={50}
-          className="h-15 sm:h-18 w-auto object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]"
+          className="h-12 sm:h-18 w-auto object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]"
         />
       </div>
 

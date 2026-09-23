@@ -1,16 +1,11 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
-import { MapPin, ArrowUpRight } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { FaFacebookF, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { companyInfo } from "@/lib/data";
 
-interface FooterProps {
-  heroHref?: string;
-}
-
-export function Footer({ heroHref = "/" }: FooterProps) {
+export function Footer() {
   return (
     <footer className="absolute bottom-0 left-0 right-0 z-20 px-6 sm:px-12 py-4 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] pointer-events-auto gap-3 sm:gap-0">
       {/* Social Media Links */}

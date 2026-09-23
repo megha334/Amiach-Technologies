@@ -95,7 +95,7 @@ export default function AudioVideoManufacturingPage() {
   ];
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden text-white font-sans bg-slate-950 flex flex-col justify-between select-none">
+    <div className="relative flex min-h-screen w-full flex-col justify-between overflow-x-hidden bg-slate-950 font-sans text-white lg:h-screen lg:overflow-hidden">
       {/* 1. Background Image Base */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -153,7 +153,7 @@ export default function AudioVideoManufacturingPage() {
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4 items-end my-auto w-full h-full max-h-[62vh]"
+          className="my-auto grid h-auto w-full grid-cols-1 items-end gap-6 sm:grid-cols-2 lg:h-full lg:max-h-[62vh] lg:grid-cols-4 lg:gap-4"
         >
           {products.map((product, index) => (
             <motion.div

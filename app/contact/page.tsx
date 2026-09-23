@@ -7,7 +7,6 @@ import {
   Phone,
   Clock,
   Globe,
-  ShieldCheck,
   ArrowLeft,
 } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";

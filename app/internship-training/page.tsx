@@ -73,7 +73,7 @@ export default function InternshipTrainingPage() {
 
   return (
     // Outer Container: Fixed to screen height, strictly non-scrollable
-    <div className="h-screen w-screen overflow-hidden bg-[#F3F7FF] flex flex-col font-sans text-slate-900 select-none relative">
+    <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-[#F3F7FF] font-sans text-slate-900 lg:h-screen lg:overflow-hidden">
       {/* 1. Navbar (Same as Audio Visual page) */}
       <div className="relative z-30 w-full shrink-0">
         <Navbar variant="category" compact />
@@ -91,7 +91,7 @@ export default function InternshipTrainingPage() {
       {/* 2. Main Content Area (Fills remaining space flexibly) */}
       <main className="relative z-10 flex-1 flex flex-col justify-between w-full max-w-[90rem] mx-auto px-4 sm:px-8 lg:px-12 pt-1 lg:pt-2 pb-3 lg:pb-5 min-h-0 gap-3">
         {/* --- HERO SECTION --- (Allocated ~35% height) */}
-        <div className="flex flex-col lg:flex-row items-center justify-between h-[35%] w-full gap-4 relative">
+        <div className="relative flex w-full flex-col items-center justify-between gap-4 py-3 lg:h-[35%] lg:flex-row lg:py-0">
           {/* Left Text Content */}
           <div className="w-full lg:w-[55%] flex flex-col justify-center space-y-3 lg:space-y-4">
             <span className="inline-flex items-center w-max gap-2 px-3 py-1 rounded-full text-[10px] font-bold bg-red-100/80 border border-red-200 text-[#B30E16]">
@@ -147,7 +147,7 @@ export default function InternshipTrainingPage() {
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 h-[45%] w-full"
+          className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:h-[45%] lg:grid-cols-4"
         >
           {programs.map((prog) => (
             <motion.div
@@ -196,7 +196,7 @@ export default function InternshipTrainingPage() {
         variants={fadeInUp}
         initial="hidden"
         animate="visible"
-        className="relative z-20 h-[18%] w-full bg-[#101b3b] border-t border-b border-slate-800 overflow-hidden shrink-0 flex items-center"
+        className="relative z-20 flex w-full shrink-0 items-center overflow-hidden border-y border-slate-800 bg-[#101b3b] py-6 lg:h-[18%] lg:py-0"
       >
         {/* Red Ambient Backdrop Glow */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#B30E16]/10 blur-3xl pointer-events-none" />

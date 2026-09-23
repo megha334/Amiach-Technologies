@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   ArrowRight,
@@ -23,7 +22,6 @@ import {
   Rocket,
 } from "lucide-react";
 import { Navbar } from "@/components/navbar";
-import { Footer } from "@/components/footer";
 
 export default function AppWebDevelopmentPage() {
   const router = useRouter();
@@ -629,7 +627,7 @@ export default function AppWebDevelopmentPage() {
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>
             <h3 className="text-xl font-extrabold text-white">
-              Let's Build Your Next{" "}
+              Let&apos;s Build Your Next{" "}
               <span className="text-[#ff2a5f]">Great Application</span>
             </h3>
             <p className="text-slate-400 text-xs mt-0.5">
