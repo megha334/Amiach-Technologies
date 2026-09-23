@@ -1,12 +1,12 @@
 export const heroSlides = [
   {
-    image: "/images/banner1.jpg",
+    image: "/images/Banner1.jpg",
   },
   {
-    image: "/images/banner2.jpg",
+    image: "/images/Banner2.jpg",
   },
   {
-    image: "/images/banner3.jpg",
+    image: "/images/Banner3.jpg",
   },
 ];
 
@@ -14,19 +14,16 @@ export const whatWeDoCategories = [
   {
     badge: "Hardware",
     title: "Audio Visual Manufacturing",
-    description: "In-house AV hardware engineering, CNC fabrication & assembly.",
-    href:"/audio-visual-manufacturing",
+    href: "/audio-visual-manufacturing",
   },
   {
     badge: "Academy",
     title: "Internships & Live Projects",
-    description: "Industry-grade practical training on real-world tech hardware.",
     href: "/internship-training",
   },
   {
     badge: "Software",
-    title: "App & Web Development",
-    description: "Custom kiosk software, IoT dashboards & cloud-connected platforms.",
+    title: "Application & Web Development",
     href: "/app-web-development",
   },
 ];

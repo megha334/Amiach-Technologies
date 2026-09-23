@@ -58,25 +58,21 @@ export function HeroSlider() {
       <Navbar />
 
       {/* Center Content Section */}
-      <div className="relative z-20 flex-1 flex items-center justify-end px-6 sm:px-16 md:px-24 py-20">
+      <div className="relative z-20 flex-1 flex items-center justify-end px-6 sm:px-16 md:px-24 py-20 pt-28">
         {/* Interactive Floating Category Cards */}
-        <div className="hidden lg:flex flex-col gap-3.5 max-w-xs w-full">
-          <div className="text-[13px] font-mono font-extrabold uppercase tracking-widest text-white mb-1 px-1 flex items-center justify-between">
-            <span>What We Do</span>
-          </div>
-
+        <div className="hidden lg:flex flex-col gap-3 max-w-[15rem] w-full translate-y-25">
           {whatWeDoCategories.map((cat) => (
             <Link
               key={cat.href}
               href={cat.href}
-              className="group relative p-4 rounded-2xl bg-slate-900/40 backdrop-blur-xl border border-white/10 hover:border-[#DC2626]/70 hover:bg-slate-900/80 transition-all duration-300 shadow-xl hover:-translate-x-2 overflow-hidden"
+              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-3 shadow-[0_12px_30px_rgba(15,23,42,0.28)] backdrop-blur-md transition-all duration-300 hover:-translate-x-2 hover:border-[#DC2626]/60 hover:bg-white/10"
             >
-              <h3 className="text-sm font-bold text-white mt-2 group-hover:text-[#DC2626] transition-colors flex items-center justify-between">
-                <span>{cat.title}</span>
-              </h3>
-              <p className="text-xs text-slate-300/80 mt-1 line-clamp-1">
-                {cat.description}
-              </p>
+              <div className="absolute inset-0 bg-linear-to-r from-white/5 via-transparent to-[#DC2626]/5 opacity-70" />
+              <div className="relative z-10">
+                <h3 className="mt-1 flex items-center justify-between text-[0.72rem] font-bold uppercase tracking-wide text-[#67e3ec] transition-colors group-hover:text-[#F87171]">
+                  <span>{cat.title}</span>
+                </h3>
+              </div>
             </Link>
           ))}
         </div>
