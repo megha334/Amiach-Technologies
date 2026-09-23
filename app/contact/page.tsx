@@ -95,13 +95,14 @@ export default function ContactPage() {
                         Email Inquiries
                       </div>
                       <a
-                        href={`mailto:${companyInfo.email}`}
+
+href="mailto:info@amiach.com"
                         className="text-zinc-400 hover:text-[#FF2B35] transition-colors font-light block"
                       >
-                        {companyInfo.email}
+                        info@amiach.com
                       </a>
                       <div className="text-[11px] text-zinc-500">
-                        Sales: {companyInfo.salesEmail}
+                        Sales inquiries welcome
                       </div>
                     </div>
                   </div>
@@ -115,12 +116,9 @@ export default function ContactPage() {
                       <div className="font-semibold text-white text-sm">
                         Direct Line
                       </div>
-                      <a
-                        href={`tel:${companyInfo.phone}`}
-                        className="text-zinc-400 hover:text-[#FF2B35] transition-colors font-light block"
-                      >
-                        {companyInfo.phone}
-                      </a>
+                      <div className="text-zinc-400 font-light">
+                        Available upon request
+                      </div>
                     </div>
                   </div>
 
@@ -134,7 +132,7 @@ export default function ContactPage() {
                         Operating Hours
                       </div>
                       <div className="text-zinc-400 font-light">
-                        {companyInfo.hours}
+                        Monday - Friday, 9:00 AM - 5:00 PM
                       </div>
                     </div>
                   </div>
