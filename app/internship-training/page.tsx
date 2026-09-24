@@ -82,7 +82,7 @@ export default function InternshipTrainingPage() {
       {/* Internship training background */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat pointer-events-none"
-        style={{ backgroundImage: "url('/images/internship training bg.png')" }}
+        style={{ backgroundImage: "url('/images/internship%20training%20bg.png')" }}
         aria-hidden="true"
       >
         <div className="absolute inset-0 bg-black/15" />

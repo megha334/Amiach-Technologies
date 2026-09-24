@@ -122,7 +122,7 @@ export function HeroSlider() {
       {/* Make In India Image */}
       <div className="absolute bottom-20 left-4 sm:left-14 z-20 pointer-events-none opacity-90 hover:opacity-100 transition-opacity">
         <Image
-          src="/images/make-in-india.png"
+          src="/images/make%20in%20Inida.jpeg"
           alt="Make in India"
           width={100}
           height={50}
