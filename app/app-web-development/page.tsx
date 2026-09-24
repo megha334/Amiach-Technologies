@@ -88,7 +88,7 @@ export default function AppWebDevelopmentPage() {
         {/* Background Image Layer */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image
-            src="/images/custon%20Application%20Web%20solution.png"
+            src="/images/custon Application Web solution.png"
             alt="Custom Application Web Solution Background"
             fill
             priority
@@ -551,7 +551,7 @@ export default function AppWebDevelopmentPage() {
           {/* Left Side Background Image (No Container Box) */}
           <div className="w-full lg:w-5/12 relative h-56 sm:h-64 rounded-lg overflow-hidden bg-transparent">
             <Image
-              src="/images/choose%20what%20we%20doo.png"
+              src="/images/choose what we doo.png"
               alt="Choose What Works For You"
               fill
               className="object-contain object-left"
