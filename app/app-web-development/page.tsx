@@ -551,7 +551,7 @@ export default function AppWebDevelopmentPage() {
           {/* Left Side Background Image (No Container Box) */}
           <div className="w-full lg:w-5/12 relative h-56 sm:h-64 rounded-lg overflow-hidden bg-transparent">
             <Image
-              src="/images/choose what we doo.png"
+              src="/images/choose what we do.png"
               alt="Choose What Works For You"
               fill
               className="object-contain object-left"
