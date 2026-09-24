@@ -5,19 +5,31 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { heroSlides, whatWeDoCategories } from "@/lib/data";
-import { Navbar } from "@/components/navbar";
-import { Footer } from "@/components/footer";
 
 export function HeroSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % heroSlides.length);
   }, []);
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     setCurrentIndex((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1));
-  };
+  }, []);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+
+    const updateScreenType = () => {
+      setIsMobile(mediaQuery.matches);
+    };
+
+    updateScreenType();
+    mediaQuery.addEventListener("change", updateScreenType);
+
+    return () => mediaQuery.removeEventListener("change", updateScreenType);
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -26,6 +38,19 @@ export function HeroSlider() {
 
     return () => clearInterval(timer);
   }, [handleNext]);
+
+  const getSlideImage = (slide: (typeof heroSlides)[number], index: number) => {
+    if (!isMobile) return slide.image;
+
+    if (Array.isArray(slide.mobileImages) && slide.mobileImages.length > 0) {
+      if (index === currentIndex) {
+        return slide.mobileImages[currentIndex % slide.mobileImages.length];
+      }
+      return slide.mobileImages[0];
+    }
+
+    return slide.mobileImage ?? slide.image;
+  };
 
   return (
     <div
@@ -41,7 +66,7 @@ export function HeroSlider() {
           }`}
         >
           <Image
-            src={slide.image}
+            src={getSlideImage(slide, idx)}
             alt="Hero Visual"
             fill
             priority={idx === 0}
@@ -53,9 +78,6 @@ export function HeroSlider() {
           <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-transparent to-slate-950/40" />
         </div>
       ))}
-
-      {/* Render imported Navbar component */}
-      <Navbar />
 
       {/* Center Content Section */}
       {/* Mobile screens par center aligned, Large screens par right aligned */}
@@ -107,9 +129,6 @@ export function HeroSlider() {
           className="h-12 sm:h-18 w-auto object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]"
         />
       </div>
-
-      {/* Extracted Footer Component */}
-      <Footer />
     </div>
   );
 }

@@ -22,6 +22,7 @@ import {
   Rocket,
 } from "lucide-react";
 import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
 export default function AppWebDevelopmentPage() {
   const router = useRouter();
@@ -76,7 +77,7 @@ export default function AppWebDevelopmentPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#060b19] text-slate-800 font-sans selection:bg-[#ff2a5f] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#060b19] text-slate-800 font-sans selection:bg-[#ff2a5f] selection:text-white">
       {/* 1. Static Navbar (Scroll par move nahi karega) */}
       <div className="sticky top-0 z-50 w-full bg-[#060b19]/95 backdrop-blur-md border-b border-slate-800/50">
         <Navbar />
@@ -645,8 +646,7 @@ export default function AppWebDevelopmentPage() {
         </div>
       </section>
 
-      {/* Default Footer Component */}
-      {/* <Footer /> */}
+      <Footer className="relative mt-auto w-full z-20" />
 
       {/* Discuss Project Dialog Modal */}
       {isFormOpen && (

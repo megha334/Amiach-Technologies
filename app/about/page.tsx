@@ -4,22 +4,25 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
-import { 
-  Monitor, 
-  Cpu, 
-  Sun, 
-  Layers, 
+import {
+  Lightbulb,
+  ShieldCheck,
+  Users,
+  TrendingUp,
   ArrowRight,
-  Sparkles,
-  CheckCircle2
 } from "lucide-react";
 import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
 export default function AboutSection() {
   // Animation Variants
   const floatUp: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+    hidden: { opacity: 0, y: 15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4, ease: "easeOut" },
+    },
   };
 
   const staggerList: Variants = {
@@ -30,201 +33,143 @@ export default function AboutSection() {
     },
   };
 
-  const products = [
+  const coreValues = [
     {
-      title: "Smart Interactive Podiums",
-      desc: "Futuristic digital communication systems for smooth presentation flow.",
-      icon: Monitor,
-      badge: "Flagship",
+      title: "Innovation",
+      desc: "Smart & future-ready solutions.",
+      icon: Lightbulb,
     },
     {
-      title: "Interactive Touch Tables",
-      desc: "Ultra-responsive multitouch surfaces for high-engagement collaboration.",
-      icon: Cpu,
-      badge: "Multi-Touch",
+      title: "Quality",
+      desc: "Reliable and durable systems.",
+      icon: ShieldCheck,
     },
     {
-      title: "NFC Enabled Kiosks",
-      desc: "Contactless, instantaneous transaction & media kiosks.",
-      icon: Layers,
-      badge: "Smart RFID",
+      title: "Customer Focus",
+      desc: "Your vision, our priority.",
+      icon: Users,
     },
     {
-      title: "Solar Powered Outdoor Kiosk",
-      desc: "Eco-friendly, weather-tested high brightness digital signage.",
-      icon: Sun,
-      badge: "Eco-Friendly",
+      title: "Growth",
+      desc: "Building a smarter digital future.",
+      icon: TrendingUp,
     },
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-slate-100/80 text-slate-900 font-sans relative overflow-hidden">
-      
-      {/* Header matching original Navbar style */}
-      <header className="sticky top-0 z-50 w-full bg-white border-b-2 border-slate-300 shadow-md transition-all">
+    <div className="relative w-full h-screen overflow-y-auto lg:overflow-hidden bg-slate-50 text-slate-800 font-sans flex flex-col justify-between">
+      {/* Background Image Setup */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <Image
+            src="/images/bgAbout.png"
+            alt="Background Overlay"
+            fill
+            priority
+            className="object-cover object-center opacity-100"
+          />
+        </div>
+        {/* Light Overlay for Crisp Contrast */}
+        <div className="absolute inset-0 bg-white/70 backdrop-blur-[2px]" />
+      </div>
+
+      {/* 1. Header / Navbar */}
+      <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-slate-200/80 shadow-sm shrink-0">
         <Navbar />
       </header>
 
-      {/* Main Section */}
-      <main className="flex-1 relative w-full pt-40 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        
-        {/* Background Animation Orbs (Matching Page 1) */}
-        <motion.div 
-          animate={{ scale: [1, 1.2, 1], x: [0, 40, 0], y: [0, -30, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-12 left-12 w-[450px] h-[450px] bg-[#B30E16]/10 rounded-full blur-[140px] pointer-events-none" 
-        />
-        <motion.div 
-          animate={{ scale: [1, 1.15, 1], x: [0, -50, 0], y: [0, 40, 0] }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-12 right-12 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[160px] pointer-events-none" 
-        />
-
-        <div className="max-w-[90rem] mx-auto relative z-10 space-y-12">
-          
-          {/* Header Block */}
-          <motion.div 
+      {/* 2. Main Hero Section */}
+      <main className="relative z-10 flex-1 flex flex-col justify-center px-4 sm:px-8 lg:px-16 py-4 lg:py-0 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
+          {/* Left Column: Content */}
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={floatUp}
-            className="space-y-3 max-w-2xl"
+            className="lg:col-span-6 space-y-3 sm:space-y-4"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-[#B30E16]/10 border border-[#B30E16]/20 text-[#B30E16]">
-              <Sparkles className="w-3.5 h-3.5" /> Next-Gen Hardware Engineering
+            {/* About Us Sub-heading */}
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#D9232D]">
+                ABOUT THE COMPANY
+              </span>
+              <div className="w-8 h-[2px] bg-[#D9232D]" />
             </div>
 
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 leading-tight">
-              Engineering the{" "}
-              <span className="text-[#B30E16]">
-                Digital Experience
-              </span>
+            {/* Main Title */}
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 leading-tight tracking-tight">
+              Innovative Digital Solutions <br className="hidden sm:inline" />
+              for a <span className="text-[#D9232D]">Smarter Tomorrow</span>
             </h1>
 
-            <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed pt-1">
-              A startup manufacturing company producing Smart Interactive Podiums, Touch Tables, and Digital Kiosks tailored to exceed expectations.
-            </p>
-          </motion.div>
-
-          {/* Main Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            {/* Image Card */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.96 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="lg:col-span-6 relative group"
-            >
-              <div className="relative aspect-[16/10] rounded-3xl overflow-hidden border border-slate-200 bg-white shadow-2xl transition-all duration-300 group-hover:border-[#B30E16]/50">
-                <Image
-                  src="/images/about-pamphlet.jpg"
-                  alt="Amiach Digital Solutions Systems"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent opacity-85 group-hover:opacity-70 transition-opacity" />
-                
-                <div className="absolute bottom-4 left-4 right-4 p-4 backdrop-blur-md bg-white/90 rounded-2xl border border-white/20 shadow-lg">
-                  <p className="text-[10px] font-mono uppercase text-[#B30E16] font-bold tracking-widest">Custom Designing Available</p>
-                  <h3 className="text-sm font-bold text-slate-900">Ergonomic Digital Communication Systems</h3>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Description & Call to Action */}
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={floatUp}
-              className="lg:col-span-6 space-y-5"
-            >
-              <h2 className="text-xl sm:text-3xl font-bold text-slate-900 leading-snug">
-                Redefining Digital Interaction in the Modern Era
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                From basic presentation requirements to advanced enterprise integrations, our systems merge sleek hardware design with robust touch interaction to elevate user engagement across education and corporate setups.
+            {/* Content Paragraphs */}
+            <div className="space-y-2 text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
+              <p>
+                <strong className="text-slate-800">
+                  Amiach Technologies Private Limited
+                </strong>
+                , a StartUp Manufacturing Company producing Digital
+                Communication Tools like Smart Interactive Podiums, Interactive
+                Touch Tables, and various kinds of Digital Kiosks, is devoted to
+                Designing & Creating solutions that exceed Market Expectations.
               </p>
-
-              <div className="space-y-2 pt-1">
-                {["In-house Hardware R&D and Prototyping", "Interactive Multi-Touch Calibration", "Custom Enclosure Design & Branding"].map((feature, i) => (
-                  <div key={i} className="flex items-center gap-2 text-xs text-slate-700 font-medium">
-                    <CheckCircle2 className="w-4 h-4 text-[#B30E16] shrink-0" />
-                    <span>{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="pt-2">
-                <Link 
-                  href="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#B30E16] hover:bg-red-700 text-white font-semibold text-xs transition-all duration-300 shadow-lg shadow-red-900/20 hover:scale-105 cursor-pointer"
-                >
-                  <span>Get Custom Quote</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Specialty Products Lineup */}
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={staggerList}
-            className="space-y-6 pt-6"
-          >
-            <div className="border-b border-slate-300 pb-3 flex items-center justify-between">
-              <div>
-                <span className="text-[10px] font-mono uppercase text-[#B30E16] font-bold tracking-widest">Specialty Products</span>
-                <h2 className="text-lg sm:text-xl font-bold text-slate-900">Core Hardware Lineup</h2>
-              </div>
-              <span className="text-xs text-slate-500 hidden sm:inline-block">Hover cards to explore specs</span>
+              <p className="hidden sm:block text-slate-500">
+                From basic needs to more advanced requirements, our exquisitely
+                designed, ergonomic Digital Systems are an essential
+                communication commodity for the Digital Age we&apos;re in.
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {products.map((item, idx) => {
-                const IconComponent = item.icon;
-                return (
-                  <motion.div
-                    key={idx}
-                    variants={floatUp}
-                    whileHover={{ y: -6, scale: 1.02 }}
-                    className="p-5 rounded-3xl bg-white border border-slate-200/80 shadow-md hover:border-[#B30E16] hover:shadow-xl transition-all duration-300 group relative flex flex-col justify-between cursor-pointer"
-                  >
-                    <div>
-                      <div className="flex justify-between items-start mb-4">
-                        <div className="w-10 h-10 rounded-2xl bg-[#B30E16]/10 border border-[#B30E16]/20 text-[#B30E16] flex items-center justify-center group-hover:bg-[#B30E16] group-hover:text-white transition-colors duration-300 shadow-sm">
-                          <IconComponent className="w-5 h-5" />
-                        </div>
-                        <span className="text-[9px] font-mono font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
-                          {item.badge}
-                        </span>
-                      </div>
-
-                      <h3 className="text-sm font-bold text-slate-900 mb-2 group-hover:text-[#B30E16] transition-colors">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs text-slate-500 leading-relaxed">
-                        {item.desc}
-                      </p>
-                    </div>
-
-                    <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-[#B30E16] font-bold opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span>Inquire Specifications</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </div>
-                  </motion.div>
-                );
-              })}
+            {/* CTA Button */}
+            <div className="pt-2">
+              <Link
+                href="/vision"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#D9232D] hover:bg-red-700 text-white font-medium text-xs sm:text-sm transition-all duration-300 shadow-md shadow-red-500/20 hover:scale-105 cursor-pointer"
+              >
+                <span>Our Vision</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </motion.div>
-
         </div>
+
+        {/* 4 Core Features Cards */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerList}
+          className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-6 sm:mt-8"
+        >
+          {coreValues.map((card, idx) => {
+            const Icon = card.icon;
+            return (
+              <motion.div
+                key={idx}
+                variants={floatUp}
+                whileHover={{ y: -3 }}
+                className="p-3 sm:p-4 rounded-xl bg-white/90 backdrop-blur-md border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 flex items-center space-x-3"
+              >
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-red-50 text-[#D9232D] flex items-center justify-center shrink-0">
+                  <Icon className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2]" />
+                </div>
+                <div className="overflow-hidden">
+                  <h3 className="text-xs sm:text-sm font-bold text-slate-900 truncate">
+                    {card.title}
+                  </h3>
+                  <p className="text-[10px] sm:text-xs text-slate-500 truncate">
+                    {card.desc}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </main>
+
+      {/* 3. Root Default Footer */}
+      <Footer />
     </div>
   );
 }

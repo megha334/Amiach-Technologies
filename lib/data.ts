@@ -1,12 +1,20 @@
 export const heroSlides = [
   {
     image: "/images/Banner1.jpg",
+    mobileImages: [
+      "/images/banner11mobile.jpeg",
+      "/images/banner12mobile.jpeg",
+      "/images/banner13mobile.jpeg",
+      "/images/banner14mobile.jpeg",
+    ],
   },
   {
     image: "/images/Banner2.jpg",
+    mobileImage: "/images/banner2Mobile.jpeg",
   },
   {
     image: "/images/Banner3.jpg",
+    mobileImage: "/images/banner3Mobile.jpeg",
   },
 ];
 
