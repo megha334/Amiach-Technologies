@@ -10,7 +10,7 @@ export const heroSlides = [
   },
   {
     image: "/images/BannerSecond.jpg",
-    mobileImage: "/images/Banner2Mobile.jpeg",
+    mobileImage: "/images/AppwebMobile.jpeg",
   },
   {
     image: "/images/BannerThird.jpg",
