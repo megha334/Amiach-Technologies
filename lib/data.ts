@@ -2,10 +2,10 @@ export const heroSlides = [
   {
     image: "/images/BannerFirst.jpg",
     mobileImages: [
-      "/images/Banner11mobile.jpeg",
-      "/images/Banner12mobile.jpeg",
-      "/images/Banner13mobile.jpeg",
-      "/images/Banner14mobile.jpeg",
+      "/images/standeemobile.jpeg",
+      "/images/kioskmobile.jpeg",
+      "/images/podiummobile.jpeg",
+      "/images/tablemobile.jpeg",
     ],
   },
   {
@@ -14,7 +14,7 @@ export const heroSlides = [
   },
   {
     image: "/images/BannerThird.jpg",
-    mobileImage: "/images/Banner3Mobile.jpeg",
+    mobileImage: "/images/internship.jpeg",
   },
 ];
 
