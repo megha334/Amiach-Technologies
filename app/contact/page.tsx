@@ -72,9 +72,9 @@ export default function ContactPage() {
 
       {/* Main Container */}
       <main className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6 flex-1 flex flex-col justify-center overflow-y-auto lg:overflow-hidden">
-        <div className="space-y-5 mt-6 lg:mt-20">
+        <div className="space-y-5 mt-10 lg:mt-20">
           {/* Header Block */}
-          <div className="space-y-0.5">
+          <div className="relative top-6 space-y-0.5 lg:top-0">
             <div className="flex items-center gap-2">
               <span className="text-[11px] font-bold uppercase tracking-widest text-[#D9232D]">
                 CONTACT US

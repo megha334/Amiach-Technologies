@@ -47,6 +47,7 @@ export default function InternshipTrainingPage() {
   );
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 20 },
@@ -61,6 +62,15 @@ export default function InternshipTrainingPage() {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.12 } },
   };
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     if (!selectedGallery || !isAutoPlaying) return;
@@ -122,13 +132,17 @@ export default function InternshipTrainingPage() {
     ? galleryMap[selectedGallery]
     : null;
 
+  const heroBackground = isMobile
+    ? "url('/images/internship mobile bg.png')"
+    : "url('/images/Bg for internship training.png')";
+
   const programs = [
     {
       id: "rust",
       title: "Rust Development",
       route: "/internship-training/rust",
       gallery: "rust" as GalleryKey,
-      image: "/images/rustdev.png",
+      image: "/images/rust dev.png",
       // Semi-circle position transforms
       arcStyle: "lg:rotate-y-[12deg] lg:-translate-y-2 lg:scale-[0.96]",
     },
@@ -137,7 +151,7 @@ export default function InternshipTrainingPage() {
       title: "App & Web Development",
       route: "/app-web-development",
       gallery: "app-web" as GalleryKey,
-      image: "/images/Appweb.png",
+      image: "/images/AppWeb.png",
       arcStyle: "lg:rotate-y-[4deg] lg:-translate-y-7 lg:scale-[1.02]",
     },
     {
@@ -145,7 +159,7 @@ export default function InternshipTrainingPage() {
       title: "iOS & Android App Development",
       route: "/app-web-development",
       gallery: "app-web" as GalleryKey,
-      image: "/images/ios.png",
+      image: "/images/Ios.png",
       arcStyle: "lg:rotate-y-[-4deg] lg:-translate-y-7 lg:scale-[1.02]",
     },
     {
@@ -153,7 +167,7 @@ export default function InternshipTrainingPage() {
       title: "Live Projects",
       route: "/internship-training/languages",
       gallery: null,
-      image: "/images/live.png",
+      image: "/images/Live.png",
       arcStyle: "lg:rotate-y-[-12deg] lg:-translate-y-2 lg:scale-[0.96]",
     },
   ];
@@ -168,7 +182,7 @@ export default function InternshipTrainingPage() {
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat pointer-events-none"
         style={{
-          backgroundImage: "url('/images/Bg for internship training.png')",
+          backgroundImage: heroBackground,
         }}
         aria-hidden="true"
       >
@@ -225,12 +239,12 @@ export default function InternshipTrainingPage() {
         </div>
 
         {/* 3D Showcase Pods Grid (Shifted Upward, Direct Inclined Text Overlay) */}
-        <div className="w-full lg:h-[55%] flex items-center justify-center [perspective:1200px] -mt-6 lg:-mt-10">
+        <div className="relative -top-37 w-full lg:h-[55%] flex items-center justify-center [perspective:1200px] -mt-6 sm:-top-12 lg:top-0 lg:-mt-10">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 items-center justify-center"
+            className="grid w-full grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4 items-center justify-center"
           >
             {programs.map((prog) => (
               <motion.div
@@ -243,17 +257,17 @@ export default function InternshipTrainingPage() {
                     router.push(prog.route);
                   }
                 }}
-                className={`relative group cursor-pointer transition-all duration-500 ease-out flex flex-col items-center justify-center h-[340px] sm:h-[380px] lg:h-[420px] p-4 text-center rounded-2xl ${prog.arcStyle}`}
+                className={`relative group cursor-pointer transition-all duration-500 ease-out flex flex-col items-center justify-center h-[180px] sm:h-[220px] md:h-[260px] lg:h-[420px] p-2 sm:p-4 text-center rounded-2xl ${prog.arcStyle}`}
               >
                 {/* Product Image Showcase Pod */}
                 <div className="absolute inset-0 z-0 flex items-center justify-center">
-                  <div className="relative w-full h-full transition-transform duration-500 group-hover:scale-105">
+                  <div className="relative h-full w-full -translate-y-6 transition-transform duration-500 group-hover:scale-105 sm:-translate-y-3 lg:translate-y-0">
                     <Image
                       src={prog.image}
                       alt={prog.title}
                       fill
                       priority
-                      className="object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
+                      className="object-contain p-1 sm:p-2 filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
                     />
                   </div>
                 </div>
@@ -268,7 +282,7 @@ export default function InternshipTrainingPage() {
         variants={fadeInUp}
         initial="hidden"
         animate="visible"
-        className="relative z-20 flex w-full shrink-0 items-center overflow-hidden py-4 lg:h-[15%] lg:py-0"
+        className="relative -top-40 z-20 flex w-full shrink-0 items-center overflow-hidden py-4 sm:-top-10 lg:top-0 lg:h-[15%] lg:py-0"
       >
         <div className="relative z-10 flex w-full items-center justify-between gap-4 px-6 lg:px-12">
           <h2 className="text-sm font-bold text-white tracking-tight leading-snug lg:text-base">

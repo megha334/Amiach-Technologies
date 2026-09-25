@@ -87,7 +87,7 @@ export default function AboutSection() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={floatUp}
-            className="lg:col-span-6 space-y-3 sm:space-y-4"
+            className="lg:relative lg:top-8 lg:col-span-6 space-y-3 sm:space-y-4"
           >
             {/* About Us Sub-heading */}
             <div className="flex items-center gap-2">

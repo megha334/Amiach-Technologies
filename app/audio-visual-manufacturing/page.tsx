@@ -34,63 +34,79 @@ export default function AudioVideoManufacturingPage() {
   const products = [
     {
       title: "DIGITAL PODIUM",
-      description: "Interactive podiums for meetings, events and presentations.",
+      description:
+        "Interactive podiums for meetings, events and presentations.",
       image: "/images/Podium.png",
       alt: "Smart Interactive Podium",
-      placeholder: "https://placehold.co/400x600/transparent/white?text=Smart+Podium",
+      placeholder:
+        "https://placehold.co/400x600/transparent/white?text=Smart+Podium",
       route: "/products/podium",
       imageWidth: 480,
       imageHeight: 680,
       imageMaxWidth: "110%",
       imageMaxHeight: "100%",
-      containerHeight: "270px", // Increased container height
-      marginTop: "-25px",       // Applied to inline styles directly
-      marginLeft: "-20px",      // Applied to inline styles directly
+      containerHeight: "390px", // Increased container height
+      marginTop: "-25px", // Applied to inline styles directly
+      marginLeft: "-50px", // Applied to inline styles directly
+      mobileImageHeight: "h-[210px] lg:h-[390px]",
+      textPosition: "lg:top-[28%] lg:left-[34%]",
     },
     {
       title: "TOUCH KIOSK",
-      description: "Self-service kiosks for faster, smarter and hassle-free interactions.",
+      description:
+        "Self-service kiosks for faster, smarter and hassle-free interactions.",
       image: "/images/Touch%20Kiosk.png",
       alt: "Interactive Touch Kiosk",
-      placeholder: "https://placehold.co/400x600/transparent/white?text=Touch+Kiosk",
+      placeholder:
+        "https://placehold.co/400x600/transparent/white?text=Touch+Kiosk",
       route: "/products/kiosk",
       imageWidth: 430,
       imageHeight: 590,
       imageMaxWidth: "100%",
       imageMaxHeight: "94%",
-      containerHeight: "240px",
+      containerHeight: "350px",
       marginTop: "0px",
       marginLeft: "0px",
+      mobileImageHeight: "h-[190px] lg:h-[350px]",
+      textPosition: "lg:top-[34%] lg:left-[42%]",
     },
     {
       title: "STANDEE",
-      description: "Digital standees for high-impact advertising and information.",
+      description:
+        "Digital standees for high-impact advertising and information.",
       image: "/images/standee.png",
       alt: "Digital Standee",
-      placeholder: "https://placehold.co/400x600/transparent/white?text=Digital+Standee",
+      placeholder:
+        "https://placehold.co/400x600/transparent/white?text=Digital+Standee",
       route: "/products/standee",
       imageWidth: 540,
       imageHeight: 760,
       imageMaxWidth: "125%",
       imageMaxHeight: "110%",
-      containerHeight: "260px",
+      containerHeight: "380px",
       marginTop: "0px",
       marginLeft: "0px",
+      mobileImageHeight: "h-[210px] lg:h-[380px]",
+      textPosition: "lg:top-[25%] lg:left-[44%]",
     },
     {
       title: "TOUCH TABLE",
-      description: "Interactive touch tables for immersive and collaborative experiences.",
+      description:
+        "Interactive touch tables for immersive and collaborative experiences.",
       image: "/images/touch table.png",
       alt: "Interactive Touch Table",
-      placeholder: "https://placehold.co/600x400/transparent/white?text=Touch+Table",
+      placeholder:
+        "https://placehold.co/600x400/transparent/white?text=Touch+Table",
       route: "/products/touch-table",
       imageWidth: 620,
       imageHeight: 420,
       imageMaxWidth: "100%",
       imageMaxHeight: "92%",
-      containerHeight: "180px",
+      containerHeight: "290px",
       marginTop: "0px",
       marginLeft: "0px",
+      mobileImageHeight: "h-[150px] lg:h-[290px]",
+      textPosition: "lg:top-[48%] lg:left-[40%]",
     },
   ];
 
@@ -103,7 +119,14 @@ export default function AudioVideoManufacturingPage() {
           alt="Audio Visual Background"
           fill
           priority
-          className="object-cover object-center pointer-events-none"
+          className="pointer-events-none hidden object-cover object-center lg:block"
+        />
+        <Image
+          src="/images/audio%20visual%20bg.png"
+          alt="Audio Visual Mobile Background"
+          fill
+          priority
+          className="pointer-events-none object-cover object-center lg:hidden"
         />
         <div className="absolute inset-0 bg-black/15" />
       </div>
@@ -153,20 +176,19 @@ export default function AudioVideoManufacturingPage() {
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
-          className="my-auto grid h-auto w-full grid-cols-1 items-end gap-6 sm:grid-cols-2 lg:h-full lg:max-h-[62vh] lg:grid-cols-4 lg:gap-4"
+          className="my-auto grid h-auto w-full grid-cols-2 items-start gap-4 sm:gap-6 lg:h-full lg:max-h-[62vh] lg:grid-cols-4 lg:gap-4"
         >
           {products.map((product, index) => (
             <motion.div
               key={index}
               variants={fadeInUp}
-              className="relative group flex flex-col items-center justify-end h-full w-full"
+              className="relative group flex flex-col items-center justify-start h-full w-full"
             >
               {/* Product Image Container */}
               <div
-                className="relative flex items-center justify-center transition-transform duration-500 group-hover:scale-105"
+                className={`relative flex w-full items-center justify-center transition-transform duration-500 group-hover:scale-105 ${product.mobileImageHeight}`}
                 style={{
                   width: "100%",
-                  height: product.containerHeight,
                   marginTop: product.marginTop,
                   marginLeft: product.marginLeft,
                 }}
@@ -176,7 +198,7 @@ export default function AudioVideoManufacturingPage() {
                   alt={product.alt}
                   width={product.imageWidth}
                   height={product.imageHeight}
-                  className="drop-shadow-[0_25px_35px_rgba(0,0,0,0.85)]"
+                  className="scale-[1.15] drop-shadow-[0_25px_35px_rgba(0,0,0,0.85)] sm:scale-[1.2] lg:scale-[1.25]"
                   style={{
                     width: "100%",
                     height: "100%",
@@ -192,7 +214,9 @@ export default function AudioVideoManufacturingPage() {
               </div>
 
               {/* Text Pointer Line & Details */}
-              <div className="static lg:absolute lg:top-1/3 lg:left-[55%] z-20 flex items-center gap-2 mt-2 lg:mt-0 w-full lg:w-max max-w-[200px]">
+              <div
+                className={`static lg:absolute ${product.textPosition} z-20 flex items-center gap-2 mt-2 lg:mt-0 w-full lg:w-max max-w-[200px]`}
+              >
                 <div className="hidden lg:flex items-center">
                   <span className="w-2 h-2 rounded-full bg-[#00F2FE] shadow-[0_0_8px_#00F2FE]" />
                   <span className="w-6 h-[1px] bg-[#00F2FE]/70" />
