@@ -10,9 +10,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Cpu,
-  Globe,
-  Smartphone,
-  Terminal,
   GraduationCap,
   Briefcase,
   Users,
@@ -52,17 +49,17 @@ export default function InternshipTrainingPage() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const fadeInUp: Variants = {
-    hidden: { opacity: 0, y: 15 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.4, ease: "easeOut" },
+      transition: { duration: 0.5, ease: "easeOut" },
     },
   };
 
   const staggerContainer: Variants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+    visible: { opacity: 1, transition: { staggerChildren: 0.12 } },
   };
 
   useEffect(() => {
@@ -129,69 +126,70 @@ export default function InternshipTrainingPage() {
     {
       id: "rust",
       title: "Rust Development",
-      desc: "Industry-level live project expertise covering 4 levels and Capstones.",
-      icon: <Cpu className="w-6 h-6 text-white" />,
-      bg: "bg-gradient-to-br from-[#9B111E] to-[#500000]",
       route: "/internship-training/rust",
       gallery: "rust" as GalleryKey,
+      image: "/images/rustdev.png",
+      // Semi-circle position transforms
+      arcStyle: "lg:rotate-y-[12deg] lg:-translate-y-2 lg:scale-[0.96]",
     },
     {
       id: "web",
       title: "App & Web Development",
-      desc: "Master modern full-stack web architectures, APIs, and microservices.",
-      icon: <Globe className="w-6 h-6 text-white" />,
-      bg: "bg-gradient-to-br from-[#0033A0] to-[#001040]",
       route: "/app-web-development",
       gallery: "app-web" as GalleryKey,
+      image: "/images/Appweb.png",
+      arcStyle: "lg:rotate-y-[4deg] lg:-translate-y-7 lg:scale-[1.02]",
     },
     {
       id: "app",
       title: "iOS & Android App Development",
-      desc: "High-performance cross-platform mobile apps for iOS and Android.",
-      icon: <Smartphone className="w-6 h-6 text-white" />,
-      bg: "bg-gradient-to-br from-[#5A2D81] to-[#200040]",
       route: "/app-web-development",
       gallery: "app-web" as GalleryKey,
+      image: "/images/ios.png",
+      arcStyle: "lg:rotate-y-[-4deg] lg:-translate-y-7 lg:scale-[1.02]",
     },
     {
       id: "languages",
       title: "Live Projects",
-      desc: "Deep dive into Language Fundamentals, DSA, memory management.",
-      icon: <Terminal className="w-6 h-6 text-white" />,
-      bg: "bg-gradient-to-br from-[#007A33] to-[#003010]",
       route: "/internship-training/languages",
       gallery: null,
+      image: "/images/live.png",
+      arcStyle: "lg:rotate-y-[-12deg] lg:-translate-y-2 lg:scale-[0.96]",
     },
   ];
 
   return (
-    <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-[#F3F7FF] font-sans text-slate-900 lg:h-screen lg:overflow-hidden">
+    <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-[#0A0E1A] font-sans text-slate-900 lg:h-screen lg:overflow-hidden">
       <div className="relative z-30 w-full shrink-0">
         <Navbar variant="category" compact />
       </div>
 
+      {/* Main Background Image */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat pointer-events-none"
-        style={{ backgroundImage: "url('/images/bg for internship training.png')" }}
+        style={{
+          backgroundImage: "url('/images/Bg for internship training.png')",
+        }}
         aria-hidden="true"
       >
-        <div className="absolute inset-0 bg-black/15" />
+        <div className="absolute inset-0 bg-black/20" />
       </div>
 
-      <main className="relative z-10 flex-1 flex flex-col justify-between w-full max-w-[90rem] mx-auto px-4 sm:px-8 lg:px-12 pt-1 lg:pt-2 pb-3 lg:pb-5 min-h-0 gap-3">
-        <div className="relative flex w-full flex-col items-center justify-between gap-4 py-3 lg:h-[35%] lg:flex-row lg:py-0">
-          <div className="w-full lg:w-[55%] flex flex-col justify-center space-y-3 lg:space-y-4">
-            <span className="inline-flex items-center w-max gap-2 px-3 py-1 rounded-full text-[10px] font-bold bg-red-100/80 border border-red-200 text-[#B30E16]">
+      <main className="relative z-10 flex-1 flex flex-col justify-between w-full max-w-[92rem] mx-auto px-4 sm:px-8 lg:px-12 pt-1 lg:pt-2 pb-3 lg:pb-5 min-h-0 gap-3">
+        {/* Header Section */}
+        <div className="relative flex w-full flex-col items-center justify-between gap-4 py-2 lg:h-[30%] lg:flex-row lg:py-0">
+          <div className="w-full lg:w-[55%] flex flex-col justify-center space-y-2 lg:space-y-3">
+            <span className="inline-flex items-center w-max gap-2 px-3 py-1 rounded-full text-[10px] font-bold bg-red-500/10 border border-red-500/30 text-red-400 backdrop-blur-md">
               <GraduationCap className="w-3.5 h-3.5" /> Industry-Level Live
               Project Expertise
             </span>
 
-            <h1 className="text-2xl lg:text-4xl font-black tracking-tight leading-tight">
+            <h1 className="text-2xl lg:text-4xl font-black tracking-tight leading-tight text-white drop-shadow-md">
               Learn, Build &amp; Grow with <br />
               <span className="text-[#B30E16]">Amiach Technologies</span>
             </h1>
 
-            <div className="flex items-center gap-2 lg:gap-6 pt-0">
+            <div className="flex items-center gap-3 lg:gap-6 pt-1">
               {[
                 { label: "Real Projects", icon: Target },
                 { label: "Expert Mentors", icon: Users },
@@ -200,9 +198,9 @@ export default function InternshipTrainingPage() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-1.5 text-[10px] lg:text-xs font-bold text-slate-700"
+                  className="flex items-center gap-1.5 text-[10px] lg:text-xs font-bold text-slate-200 drop-shadow"
                 >
-                  <item.icon className="w-4 h-4 text-[#B30E16]" /> {item.label}
+                  <item.icon className="w-4 h-4 text-[#FF4C4C]" /> {item.label}
                 </div>
               ))}
             </div>
@@ -212,13 +210,13 @@ export default function InternshipTrainingPage() {
             <div className="flex items-center gap-3 absolute top-0 right-0 z-20">
               <Link
                 href="/audio-visual-manufacturing"
-                className="rounded-full border border-slate-300 bg-white/50 px-4 py-2 text-[10px] font-bold text-slate-700 hover:bg-[#B30E16] hover:text-white hover:border-[#B30E16] transition-all shadow-sm"
+                className="rounded-full border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2 text-[10px] font-bold text-white hover:bg-[#B30E16] hover:border-[#B30E16] transition-all shadow-sm"
               >
                 Audio Visual Manufacturing
               </Link>
               <Link
                 href="/app-web-development"
-                className="rounded-full border border-slate-300 bg-white/50 px-4 py-2 text-[10px] font-bold text-slate-700 hover:bg-[#B30E16] hover:text-white hover:border-[#B30E16] transition-all shadow-sm"
+                className="rounded-full border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2 text-[10px] font-bold text-white hover:bg-[#B30E16] hover:border-[#B30E16] transition-all shadow-sm"
               >
                 App &amp; Web Development
               </Link>
@@ -226,102 +224,63 @@ export default function InternshipTrainingPage() {
           </div>
         </div>
 
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={staggerContainer}
-          className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:h-[45%] lg:grid-cols-4"
-        >
-          {programs.map((prog) => (
-            <motion.div
-              key={prog.id}
-              variants={fadeInUp}
-              onClick={() => {
-                if (prog.gallery) openGallery(prog.gallery);
-              }}
-              className={`${prog.bg} rounded-3xl p-5 flex flex-col justify-between text-white relative overflow-hidden group cursor-pointer shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ${prog.id === "web" || prog.id === "app" ? "lg:scale-y-[1.04]" : ""}`}
-            >
-              <div className="absolute -right-4 -top-4 opacity-10 scale-150 pointer-events-none">
-                {prog.icon}
-              </div>
-
-              <div
-                className={
-                  prog.id === "web" || prog.id === "app"
-                    ? "lg:-translate-y-1"
-                    : ""
-                }
-              >
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 shrink-0 rounded-xl bg-white/10 flex items-center justify-center backdrop-blur-sm border border-white/20">
-                    {prog.icon}
-                  </div>
-                  <h3 className="text-lg lg:text-xl font-bold drop-shadow-sm">
-                    {prog.title}
-                  </h3>
-                </div>
-                <p className="text-[10px] lg:text-xs text-white/80 leading-relaxed font-medium line-clamp-3">
-                  {prog.desc}
-                </p>
-              </div>
-
-              <button
-                type="button"
-                onClick={(event) => {
-                  event.stopPropagation();
+        {/* 3D Showcase Pods Grid (Shifted Upward, Direct Inclined Text Overlay) */}
+        <div className="w-full lg:h-[55%] flex items-center justify-center [perspective:1200px] -mt-6 lg:-mt-10">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+            className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 items-center justify-center"
+          >
+            {programs.map((prog) => (
+              <motion.div
+                key={prog.id}
+                variants={fadeInUp}
+                onClick={() => {
                   if (prog.gallery) {
                     openGallery(prog.gallery);
-                    return;
+                  } else {
+                    router.push(prog.route);
                   }
-                  router.push(prog.route);
                 }}
-                className={`w-auto mx-1 mt-4 bg-white/10 hover:bg-white text-white hover:text-slate-900 border border-white/20 py-2.5 rounded-full text-[10px] lg:text-xs font-bold transition-colors flex items-center justify-center gap-2 backdrop-blur-sm ${prog.id === "web" || prog.id === "app" ? "lg:-translate-y-1" : ""}`}
+                className={`relative group cursor-pointer transition-all duration-500 ease-out flex flex-col items-center justify-center h-[340px] sm:h-[380px] lg:h-[420px] p-4 text-center rounded-2xl ${prog.arcStyle}`}
               >
-                Explore Curriculum <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </motion.div>
-          ))}
-        </motion.div>
+                {/* Product Image Showcase Pod */}
+                <div className="absolute inset-0 z-0 flex items-center justify-center">
+                  <div className="relative w-full h-full transition-transform duration-500 group-hover:scale-105">
+                    <Image
+                      src={prog.image}
+                      alt={prog.title}
+                      fill
+                      priority
+                      className="object-contain filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </main>
 
+      {/* Footer Banner */}
       <motion.div
         variants={fadeInUp}
         initial="hidden"
         animate="visible"
-        className="relative z-20 flex w-full shrink-0 items-center overflow-hidden border-y border-slate-800 bg-[#101b3b] py-6 lg:h-[18%] lg:py-0"
+        className="relative z-20 flex w-full shrink-0 items-center overflow-hidden py-4 lg:h-[15%] lg:py-0"
       >
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[#B30E16]/10 blur-3xl pointer-events-none" />
+        <div className="relative z-10 flex w-full items-center justify-between gap-4 px-6 lg:px-12">
+          <h2 className="text-sm font-bold text-white tracking-tight leading-snug lg:text-base">
+            Looking for Dedicated Corporate or on-campus workshops?
+          </h2>
 
-        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between w-full max-w-360 mx-auto px-6 lg:px-12 gap-6 lg:gap-8">
-          <div className="flex-1 space-y-1 text-left">
-            <span className="text-[9px] font-bold text-[#FF4C4C] uppercase tracking-wider block">
-              Career Advancement &amp; Mentorship
-            </span>
-            <h2 className="text-base lg:text-lg font-bold text-white tracking-tight leading-snug">
-              Looking for Dedicated{" "}
-              <span className="text-[#FF4C4C]">Corporate</span> or{" "}
-              <br className="hidden lg:block" />
-              On-Campus Workshops?
-            </h2>
-          </div>
-
-          <div className="flex-1 flex items-center border-l-0 lg:border-l border-white/10 lg:pl-6 gap-3">
-            <Users className="w-6 h-6 text-white/50 shrink-0 hidden sm:block" />
-            <p className="text-[10px] lg:text-xs text-slate-300 font-medium leading-relaxed">
-              Get custom live mentorship, dedicated batch scheduling, and
-              hands-on capstone engineering guidance for your team or
-              institution.
-            </p>
-          </div>
-
-          <div className="shrink-0 flex items-center justify-end w-full lg:w-auto">
-            <button
-              onClick={() => router.push("/contact")}
-              className="bg-[#FF4C4C] hover:bg-red-600 text-white px-6 py-3 rounded-full text-xs font-bold transition-all duration-300 shadow-[0_0_15px_rgba(255,76,76,0.3)] flex items-center gap-2 cursor-pointer whitespace-nowrap"
-            >
-              Request Details <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
+          <button
+            onClick={() => router.push("/contact")}
+            className="bg-[#FF4C4C] hover:bg-red-600 text-white px-4 py-2 rounded-full text-[10px] font-bold transition-all duration-300 shadow-[0_0_15px_rgba(255,76,76,0.3)] flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
+          >
+            Request Details <ArrowRight className="w-3 h-3" />
+          </button>
         </div>
       </motion.div>
 
@@ -329,9 +288,10 @@ export default function InternshipTrainingPage() {
         <Footer />
       </div>
 
+      {/* Gallery Modal */}
       {selectedGalleryData && (
         <div className="fixed inset-0 z-[70] flex items-center justify-center p-3 sm:p-5">
-          <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-md" />
 
           <div
             className="relative z-10 w-full max-w-6xl overflow-hidden rounded-3xl bg-transparent shadow-none"

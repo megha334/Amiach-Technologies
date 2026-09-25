@@ -8,14 +8,17 @@ import { heroSlides, whatWeDoCategories } from "@/lib/data";
 
 export function HeroSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [mobileImageIndex, setMobileImageIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
   const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % heroSlides.length);
+    setMobileImageIndex(0);
   }, []);
 
   const handlePrev = useCallback(() => {
     setCurrentIndex((prev) => (prev === 0 ? heroSlides.length - 1 : prev - 1));
+    setMobileImageIndex(0);
   }, []);
 
   useEffect(() => {
@@ -23,6 +26,7 @@ export function HeroSlider() {
 
     const updateScreenType = () => {
       setIsMobile(mediaQuery.matches);
+      setMobileImageIndex(0);
     };
 
     updateScreenType();
@@ -32,20 +36,42 @@ export function HeroSlider() {
   }, []);
 
   useEffect(() => {
+    if (!isMobile) return;
+
+    const activeSlide = heroSlides[currentIndex];
+    const mobileImages = Array.isArray(activeSlide.mobileImages)
+      ? activeSlide.mobileImages
+      : activeSlide.mobileImage
+        ? [activeSlide.mobileImage]
+        : [activeSlide.image];
+
+    if (mobileImages.length <= 1) {
+      return;
+    }
+
     const timer = setInterval(() => {
-      handleNext();
-    }, 7000);
+      setMobileImageIndex((prev) => {
+        const nextIndex = (prev + 1) % mobileImages.length;
+
+        if (nextIndex === 0) {
+          setCurrentIndex((current) => (current + 1) % heroSlides.length);
+        }
+
+        return nextIndex;
+      });
+    }, 1800);
 
     return () => clearInterval(timer);
-  }, [handleNext]);
+  }, [currentIndex, isMobile]);
 
   const getSlideImage = (slide: (typeof heroSlides)[number], index: number) => {
     if (!isMobile) return slide.image;
 
     if (Array.isArray(slide.mobileImages) && slide.mobileImages.length > 0) {
       if (index === currentIndex) {
-        return slide.mobileImages[currentIndex % slide.mobileImages.length];
+        return slide.mobileImages[mobileImageIndex % slide.mobileImages.length];
       }
+
       return slide.mobileImages[0];
     }
 

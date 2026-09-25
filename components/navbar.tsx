@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 
 type CategoryLink = {
   href: string;
@@ -21,6 +22,14 @@ export function Navbar({
   compact = false,
 }: NavbarProps) {
   const isCategoryNavbar = variant === "category";
+  const router = useRouter();
+  const pathname = usePathname();
+  const isAboutActive = pathname === "/about" || pathname.startsWith("/about/");
+  const isContactActive =
+    pathname === "/contact" || pathname.startsWith("/contact/");
+
+  const navButtonClass =
+    "flex h-10 w-10 items-center justify-center rounded-full bg-slate-900/20 text-center text-[8px] font-medium uppercase leading-none text-white shadow-md backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-slate-900/40 hover:text-white sm:h-12 sm:w-12 sm:text-[9px]";
 
   return (
     <header
@@ -37,6 +46,11 @@ export function Navbar({
           {/* Brand Logo */}
           <Link
             href="/"
+            aria-label="Go to home page"
+            onClick={(event) => {
+              event.preventDefault();
+              router.push("/");
+            }}
             className="group flex shrink-0 items-center focus:outline-none pt-1"
           >
             <div className="relative">
@@ -58,13 +72,21 @@ export function Navbar({
           <div className="flex shrink-0 flex-col items-end gap-1.5 sm:gap-2">
             <Link
               href="/about"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-900/20 text-center text-[8px] font-medium uppercase leading-none text-white/90 shadow-md backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-slate-900/40 hover:text-white sm:h-12 sm:w-12 sm:text-[9px]"
+              className={`${navButtonClass} ${
+                isAboutActive
+                  ? "bg-slate-900/50 text-white ring-1 ring-white/80 shadow-[0_0_18px_rgba(255,255,255,0.25)]"
+                  : ""
+              }`}
             >
               About
             </Link>
             <Link
               href="/contact"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-900/20 text-center text-[8px] font-medium uppercase leading-none text-white/90 shadow-md backdrop-blur-md transition-all duration-300 hover:scale-105 hover:bg-slate-900/40 hover:text-white sm:h-12 sm:w-12 sm:text-[9px]"
+              className={`${navButtonClass} ${
+                isContactActive
+                  ? "bg-slate-900/50 text-white ring-1 ring-white/80 shadow-[0_0_18px_rgba(255,255,255,0.25)]"
+                  : ""
+              }`}
             >
               Contact
             </Link>
