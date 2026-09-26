@@ -169,7 +169,7 @@ export default function AboutSection() {
       </main>
 
       {/* 3. Root Default Footer */}
-      <Footer />
+      <Footer tone="dark" />
     </div>
   );
 }

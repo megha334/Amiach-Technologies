@@ -36,7 +36,13 @@ export function HeroSlider() {
   }, []);
 
   useEffect(() => {
-    if (!isMobile) return;
+    if (!isMobile) {
+      const timer = setInterval(() => {
+        setCurrentIndex((current) => (current + 1) % heroSlides.length);
+      }, 5000);
+
+      return () => clearInterval(timer);
+    }
 
     const activeSlide = heroSlides[currentIndex];
     const mobileImages = Array.isArray(activeSlide.mobileImages)
@@ -46,7 +52,12 @@ export function HeroSlider() {
         : [activeSlide.image];
 
     if (mobileImages.length <= 1) {
-      return;
+      const timer = setInterval(() => {
+        setCurrentIndex((current) => (current + 1) % heroSlides.length);
+        setMobileImageIndex(0);
+      }, 1800);
+
+      return () => clearInterval(timer);
     }
 
     const timer = setInterval(() => {

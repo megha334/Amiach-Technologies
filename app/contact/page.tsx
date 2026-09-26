@@ -398,7 +398,7 @@ export default function ContactPage() {
         </div>
       )}
 
-      <Footer className="relative mt-auto w-full z-20" />
+      <Footer className="relative mt-auto w-full z-20" tone="dark" />
     </div>
   );
 }

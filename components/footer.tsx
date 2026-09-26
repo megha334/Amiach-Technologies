@@ -5,12 +5,19 @@ import { MapPin } from "lucide-react";
 import { FaFacebookF, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { companyInfo } from "@/lib/data";
 
-export function Footer({ className = "" }: { className?: string }) {
+export function Footer({
+  className = "",
+  tone = "light",
+}: {
+  className?: string;
+  tone?: "light" | "dark";
+}) {
   const footerClass = className || "absolute bottom-0 left-0 right-0 z-20";
+  const textColor = tone === "dark" ? "text-zinc-900" : "text-white";
 
   return (
     <footer
-      className={`${footerClass} px-6 sm:px-12 py-4 flex flex-col sm:flex-row items-center justify-between text-xs text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] pointer-events-auto gap-3 sm:gap-0`}
+      className={`${footerClass} px-6 sm:px-12 py-4 flex flex-col sm:flex-row items-center justify-between text-xs ${textColor} drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] pointer-events-auto gap-3 sm:gap-0`}
     >
       {/* Social Media Links */}
       <div className="flex items-center gap-3">
@@ -20,7 +27,7 @@ export function Footer({ className = "" }: { className?: string }) {
           rel="noreferrer"
           aria-label="Facebook"
         >
-          <FaFacebookF className="w-4 h-4 text-white" />
+          <FaFacebookF className="w-4 h-4 text-current" />
         </a>
 
         <a
@@ -29,7 +36,7 @@ export function Footer({ className = "" }: { className?: string }) {
           rel="noreferrer"
           aria-label="LinkedIn"
         >
-          <FaLinkedinIn className="w-4 h-4 text-white" />
+          <FaLinkedinIn className="w-4 h-4 text-current" />
         </a>
         <a
           href={companyInfo.socials.instagram}
@@ -37,7 +44,7 @@ export function Footer({ className = "" }: { className?: string }) {
           rel="noreferrer"
           aria-label="Instagram"
         >
-          <FaInstagram className="w-4 h-4 text-white" />
+          <FaInstagram className="w-4 h-4 text-current" />
         </a>
       </div>
 
@@ -47,9 +54,9 @@ export function Footer({ className = "" }: { className?: string }) {
           href={companyInfo.googleMapsUrl}
           target="_blank"
           rel="noreferrer"
-          className="flex items-center gap-1.5 text-white font-medium"
+          className="flex items-center gap-1.5 text-current font-medium"
         >
-          <MapPin className="w-3.5 h-3.5 text-white" />
+          <MapPin className="w-3.5 h-3.5 text-current" />
           <span>{companyInfo.address}</span>
         </a>
 
@@ -57,7 +64,7 @@ export function Footer({ className = "" }: { className?: string }) {
       </div>
 
       {/* Copyright Info */}
-      <div className="text-[11px] font-mono text-white">
+      <div className="text-[11px] font-mono text-current">
         © {new Date().getFullYear()} {companyInfo.name}
       </div>
     </footer>

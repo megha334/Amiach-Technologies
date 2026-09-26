@@ -40,11 +40,11 @@ export const companyInfo = {
   name: "AMIACH TECHNOLOGIES PVT LTD",
   tagline: "Engineering the Future of AV & Digital Infrastructure",
   address: "Agra, Uttar Pradesh, India",
-  googleMapsUrl: "https://maps.google.com/?q=Agra,Uttar+Pradesh,India",
+  googleMapsUrl: "https://maps.google.com/?q=STPI Agra,UttarPradesh,India",
   socials: {
-    linkedin: "https://linkedin.com",
-    facebook: "https://facebook.com",
-    instagram: "https://instagram.com",
+    linkedin: "https://www.linkedin.com/in/amiachagra/",
+    facebook: "https://www.facebook.com/amiachagra/",
+    instagram: "https://www.instagram.com/amiachagra/",
     twitter: "https://twitter.com",
   },
 };

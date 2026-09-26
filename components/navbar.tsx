@@ -103,7 +103,7 @@ export function Navbar({
                   href={link.href}
                   className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-900/20 px-1.5 text-center text-[6.5px] font-medium uppercase leading-[1.1] tracking-wide text-white/90 shadow-md backdrop-blur-md transition-all duration-300 hover:scale-[1.02] hover:bg-slate-900/40 hover:text-white sm:h-12 sm:w-12 sm:text-[7px]"
                 >
-                  <span className="break-words whitespace-normal">
+                  <span className="wrap-break-word whitespace-normal">
                     {link.label}
                   </span>
                 </Link>
