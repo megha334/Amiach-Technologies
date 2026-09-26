@@ -134,7 +134,7 @@ export default function InternshipTrainingPage() {
 
   const heroBackground = isMobile
     ? "url('/images/internship mobile bg.png')"
-    : "url('/images/bg for internship training.png')";
+    : "url('/images/internship training bg.png')";
 
   const programs = [
     {
