@@ -134,7 +134,7 @@ export default function InternshipTrainingPage() {
 
   const heroBackground = isMobile
     ? "url('/images/internship mobile bg.png')"
-    : "url('/images/Bg for internship training.png')";
+    : "url('/images/bg for internship training.png')";
 
   const programs = [
     {
@@ -142,7 +142,7 @@ export default function InternshipTrainingPage() {
       title: "Rust Development",
       route: "/internship-training/rust",
       gallery: "rust" as GalleryKey,
-      image: "/images/rust dev.png",
+      image: "/images/Rust dev.png",
       // Semi-circle position transforms
       arcStyle: "lg:rotate-y-[12deg] lg:-translate-y-2 lg:scale-[0.96]",
     },
@@ -159,7 +159,7 @@ export default function InternshipTrainingPage() {
       title: "iOS & Android App Development",
       route: "/app-web-development",
       gallery: "app-web" as GalleryKey,
-      image: "/images/Ios.png",
+      image: "/images/ios.png",
       arcStyle: "lg:rotate-y-[-4deg] lg:-translate-y-7 lg:scale-[1.02]",
     },
     {
@@ -167,7 +167,7 @@ export default function InternshipTrainingPage() {
       title: "Live Projects",
       route: "/internship-training/languages",
       gallery: null,
-      image: "/images/Live.png",
+      image: "/images/live.png",
       arcStyle: "lg:rotate-y-[-12deg] lg:-translate-y-2 lg:scale-[0.96]",
     },
   ];

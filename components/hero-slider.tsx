@@ -121,7 +121,7 @@ export function HeroSlider() {
       <div className="relative z-20 flex-1 flex items-center justify-center lg:justify-end px-6 sm:px-16 md:px-24 py-20 pt-28">
         {/* Interactive Floating Category Cards */}
         {/* 'hidden lg:flex' ko badal kar 'flex' kiya gaya hai, mobile par center me layout banaya gaya hai */}
-        <div className="flex flex-col gap-3 max-w-[18rem] sm:max-w-[15rem] w-full items-center lg:items-stretch lg:translate-y-25">
+        <div className="flex flex-col gap-3 max-w-[18rem] sm:max-w-60 w-full items-center lg:items-stretch lg:translate-y-25">
           {whatWeDoCategories.map((cat) => (
             <Link
               key={cat.href}
