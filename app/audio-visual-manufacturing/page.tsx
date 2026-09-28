@@ -36,49 +36,59 @@ export default function AudioVideoManufacturingPage() {
       title: "DIGITAL PODIUM",
       description:
         "Interactive podiums for meetings, events and presentations.",
-      image: "/images/Podium.png",
+      image: "/images/digital%20podium.png",
       alt: "Smart Interactive Podium",
       placeholder:
         "https://placehold.co/400x600/transparent/white?text=Smart+Podium",
       route: "/products/podium",
+      arcStyle: "lg:translate-y-8 lg:translate-z-[24px] lg:scale-[0.92]",
       imageWidth: 480,
       imageHeight: 680,
       imageMaxWidth: "110%",
       imageMaxHeight: "100%",
-      containerHeight: "390px", // Increased container height
-      marginTop: "-25px", // Applied to inline styles directly
-      marginLeft: "-50px", // Applied to inline styles directly
+      containerHeight: "390px",
+      marginTop: "-25px",
+      marginLeft: "-50px",
       mobileImageHeight: "h-[210px] lg:h-[390px]",
-      textPosition: "lg:top-[28%] lg:left-[34%]",
+      textPosition: "lg:top-[55%] lg:left-[59%]",
     },
     {
       title: "TOUCH KIOSK",
       description:
         "Self-service kiosks for faster, smarter and hassle-free interactions.",
-      image: "/images/Touch%20Kiosk.png",
+      image: "/images/Digital%20Kiosk.png",
       alt: "Interactive Touch Kiosk",
       placeholder:
         "https://placehold.co/400x600/transparent/white?text=Touch+Kiosk",
       route: "/products/kiosk",
-      imageWidth: 430,
-      imageHeight: 590,
-      imageMaxWidth: "100%",
-      imageMaxHeight: "94%",
-      containerHeight: "350px",
+      arcStyle: "lg:-translate-y-16 lg:translate-z-[-80px] lg:scale-[0.76]",
+      disableContainerHover: true,
+      imageWidth: 540,
+      imageHeight: 760,
+      imageMaxWidth: "125%",
+      imageMaxHeight: "110%",
+      containerHeight: "380px",
       marginTop: "0px",
       marginLeft: "0px",
-      mobileImageHeight: "h-[190px] lg:h-[350px]",
-      textPosition: "lg:top-[34%] lg:left-[42%]",
+      mobileImageHeight: "h-[260px] lg:h-[450px]",
+      textPosition: "lg:top-[80%] lg:left-[42%]",
+      // Larger Text Specific Props
+      titleClass: "text-base sm:text-lg lg:text-xl font-black",
+      descClass: "text-xs sm:text-sm font-normal max-w-[220px]",
+      containerClass: "max-w-[250px]",
+      buttonClass: "px-3.5 py-1.5 text-xs",
     },
     {
-      title: "STANDEE",
+      title: "DIGITAL STANDEE",
       description:
         "Digital standees for high-impact advertising and information.",
-      image: "/images/standee.png",
+      image: "/images/Digital%20Standee.png",
       alt: "Digital Standee",
       placeholder:
         "https://placehold.co/400x600/transparent/white?text=Digital+Standee",
       route: "/products/standee",
+      arcStyle: "lg:-translate-y-16 lg:translate-z-[-80px] lg:scale-[0.76]",
+      disableContainerHover: true,
       imageWidth: 540,
       imageHeight: 760,
       imageMaxWidth: "125%",
@@ -87,17 +97,23 @@ export default function AudioVideoManufacturingPage() {
       marginTop: "0px",
       marginLeft: "0px",
       mobileImageHeight: "h-[210px] lg:h-[380px]",
-      textPosition: "lg:top-[25%] lg:left-[44%]",
+      textPosition: "lg:top-[82%] lg:left-[44%]",
+      // Larger Text Specific Props
+      titleClass: "text-base sm:text-lg lg:text-xl font-black",
+      descClass: "text-xs sm:text-sm font-normal max-w-[220px]",
+      containerClass: "max-w-[250px]",
+      buttonClass: "px-3.5 py-1.5 text-xs",
     },
     {
       title: "TOUCH TABLE",
       description:
         "Interactive touch tables for immersive and collaborative experiences.",
-      image: "/images/touch table.png",
+      image: "/images/Touch%20table.png",
       alt: "Interactive Touch Table",
       placeholder:
         "https://placehold.co/600x400/transparent/white?text=Touch+Table",
       route: "/products/touch-table",
+      arcStyle: "lg:translate-y-8 lg:translate-z-[24px] lg:scale-[0.92]",
       imageWidth: 620,
       imageHeight: 420,
       imageMaxWidth: "100%",
@@ -106,13 +122,13 @@ export default function AudioVideoManufacturingPage() {
       marginTop: "0px",
       marginLeft: "0px",
       mobileImageHeight: "h-[150px] lg:h-[290px]",
-      textPosition: "lg:top-[48%] lg:left-[40%]",
+      textPosition: "lg:top-[58%] lg:left-[20%]",
     },
   ];
 
   return (
     <div className="relative flex min-h-screen w-full flex-col justify-between overflow-x-hidden bg-slate-950 font-sans text-white lg:h-screen lg:overflow-hidden">
-      {/* 1. Background Image Base */}
+      {/* Background Image Base */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/bg%20for%20Audio%20Visual.png"
@@ -131,28 +147,24 @@ export default function AudioVideoManufacturingPage() {
         <div className="absolute inset-0 bg-black/15" />
       </div>
 
-      {/* 2. Navbar */}
+      {/* Navbar */}
       <div className="relative z-30 w-full">
         <Navbar variant="category" compact />
       </div>
 
-      {/* 3. Hero Content Section */}
+      {/* Hero Content Section */}
       <main className="relative z-10 flex-1 flex flex-col justify-between px-4 sm:px-8 lg:px-14 pt-1 pb-2 w-full max-w-[100rem] mx-auto overflow-y-auto lg:overflow-visible">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between lg:pr-3">
           <div className="max-w-xl space-y-1 mt-1 sm:mt-2 -translate-y-3 sm:-translate-y-4 lg:-translate-y-6">
             <p className="text-[9px] sm:text-[11px] font-bold tracking-[0.25em] text-slate-300 uppercase">
               Interactive Solutions for a Smarter Tomorrow
             </p>
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight uppercase">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight uppercase">
               OUR{" "}
               <span className="text-[#00f1fede] drop-shadow-[0_0_15px_rgba(0,242,254,0.8)]">
                 PRODUCTS
               </span>
             </h1>
-            <p className="text-[11px] sm:text-xs lg:text-sm text-slate-200 font-light leading-relaxed max-w-md hidden sm:block">
-              Explore our range of interactive digital solutions designed to
-              engage, inform and elevate your brand experience.
-            </p>
           </div>
 
           <div className="flex flex-col items-start gap-2 sm:items-end -translate-y-3 sm:-translate-y-4 lg:-translate-y-6">
@@ -171,22 +183,23 @@ export default function AudioVideoManufacturingPage() {
           </div>
         </div>
 
-        {/* 4. Products Grid */}
+        {/* Products Grid */}
         <motion.div
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
-          className="my-auto grid h-auto w-full grid-cols-2 items-start gap-4 sm:gap-6 lg:h-full lg:max-h-[62vh] lg:grid-cols-4 lg:gap-4 -translate-y-3 sm:-translate-y-4 lg:-translate-y-6"
+          className="my-auto grid h-auto w-full grid-cols-2 items-start gap-4 sm:gap-6 lg:h-full lg:max-h-[62vh] lg:grid-cols-4 lg:gap-4 -translate-y-3 sm:-translate-y-4 lg:-translate-y-6 lg:perspective-distant lg:transform-3d"
         >
           {products.map((product, index) => (
             <motion.div
               key={index}
               variants={fadeInUp}
-              className="relative group flex flex-col items-center justify-start h-full w-full"
+              className={`relative group flex flex-col items-center justify-start h-full w-full transition-transform duration-500 lg:transform-3d ${product.arcStyle}`}
             >
               {/* Product Image Container */}
               <div
-                className={`relative flex w-full items-center justify-center transition-transform duration-500 group-hover:scale-105 ${product.mobileImageHeight}`}
+                onClick={() => router.push(product.route)}
+                className={`relative flex w-full cursor-pointer items-center justify-center transition-transform duration-500 ${product.disableContainerHover ? "" : "group-hover:scale-105"} ${product.mobileImageHeight}`}
                 style={{
                   width: "100%",
                   marginTop: product.marginTop,
@@ -198,7 +211,7 @@ export default function AudioVideoManufacturingPage() {
                   alt={product.alt}
                   width={product.imageWidth}
                   height={product.imageHeight}
-                  className="scale-[1.15] drop-shadow-[0_25px_35px_rgba(0,0,0,0.85)] sm:scale-[1.2] lg:scale-[1.25]"
+                  className="scale-[0.9] drop-shadow-[0_25px_35px_rgba(0,0,0,0.85)] transition-transform duration-500 ease-out group-hover:scale-[1.08] sm:scale-[0.95] lg:scale-[0.9]"
                   style={{
                     width: "100%",
                     height: "100%",
@@ -215,24 +228,28 @@ export default function AudioVideoManufacturingPage() {
 
               {/* Text Pointer Line & Details */}
               <div
-                className={`static lg:absolute ${product.textPosition} z-20 flex items-center gap-2 mt-2 lg:mt-0 w-full lg:w-max max-w-[200px]`}
+                className={`static lg:absolute ${product.textPosition} z-30 pointer-events-auto flex items-center gap-2 mt-2 lg:mt-0 w-full lg:w-max transform-[translateZ(50px)] ${product.containerClass || "max-w-50"}`}
               >
-                <div className="hidden lg:flex items-center">
+                <div className="hidden lg:flex items-center pointer-events-none">
                   <span className="w-2 h-2 rounded-full bg-[#00F2FE] shadow-[0_0_8px_#00F2FE]" />
-                  <span className="w-6 h-[1px] bg-[#00F2FE]/70" />
+                  <span className="w-6 h-px bg-[#00F2FE]/70" />
                 </div>
 
                 <div className="text-left space-y-1">
-                  <h3 className="text-xs sm:text-sm lg:text-base font-extrabold text-white tracking-wider uppercase drop-shadow-md">
+                  <h3 className={`tracking-wider uppercase text-white ${product.titleClass || "text-xs sm:text-sm lg:text-base font-extrabold"}`}>
                     {product.title}
                   </h3>
-                  <p className="text-[10px] sm:text-[11px] text-slate-200 font-light leading-snug drop-shadow-sm max-w-[170px]">
+                  <p className={`text-white leading-snug ${product.descClass || "text-[10px] sm:text-[11px] font-light max-w-42.5"}`}>
                     {product.description}
                   </p>
 
                   <button
-                    onClick={() => router.push(product.route)}
-                    className="mt-1.5 px-3 py-1 rounded-full border border-[#00F2FE]/60 bg-black/40 hover:bg-[#00F2FE] hover:text-black text-cyan-300 text-[10px] sm:text-[11px] font-bold tracking-wider transition-all duration-300 flex items-center gap-1.5 cursor-pointer backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)]"
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      router.push(product.route);
+                    }}
+                    className={`relative z-40 mt-1.5 rounded-full border border-[#00F2FE]/60 bg-black/40 hover:bg-[#00F2FE] hover:text-black text-cyan-300 font-bold tracking-wider transition-all duration-300 flex items-center gap-1.5 cursor-pointer backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)] ${product.buttonClass || "px-3 py-1 text-[10px] sm:text-[11px]"}`}
                   >
                     <span>EXPLORE</span>
                     <ArrowRight className="w-3 h-3" />
@@ -244,7 +261,7 @@ export default function AudioVideoManufacturingPage() {
         </motion.div>
       </main>
 
-      {/* 5. Footer */}
+      {/* Footer */}
       <div>
         <Footer />
       </div>

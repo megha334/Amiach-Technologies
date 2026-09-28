@@ -94,7 +94,7 @@ export default function AppWebDevelopmentPage() {
             priority
             className="object-cover object-center opacity-30 mix-blend-screen"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#122461] via-[#060b19]/90 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#122461] via-[#060b19]/90 to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
@@ -107,7 +107,7 @@ export default function AppWebDevelopmentPage() {
 
             <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold tracking-tight leading-tight">
               Custom Applications <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff2a5f] to-rose-400">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-[#ff2a5f] to-rose-400">
                 &amp; Web Solutions
               </span>{" "}
               <br />
@@ -379,8 +379,6 @@ export default function AppWebDevelopmentPage() {
       {/* 4. Modern Tech Stack (Blueish Dark Background with 2 Horizontal Lines) */}
       <section className="py-9 px-4 sm:px-8 lg:px-14 bg-[#0a1128] text-white">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start justify-between gap-7">
-          <br />
-
           {/* Left Text Header */}
           <div className="lg:w-1/3 space-y-2">
             <p className="text-[11px] font-bold tracking-[0.2em] text-[#ff2a5f] uppercase">
@@ -399,12 +397,13 @@ export default function AppWebDevelopmentPage() {
                 key={idx}
                 onClick={() => router.push(tech.route)}
                 className="
+              relative
             group
             bg-[#101b3b]
             border border-slate-700/60
             rounded-lg
             p-2.5
-            min-h-[72px]
+            min-h-18
             flex flex-col
             items-center
             justify-center

@@ -100,7 +100,7 @@ function ContactFormFields({ prefilledProduct }: { prefilledProduct: string }) {
               value={formState.name}
               onChange={(e) => setFormState({ ...formState, name: e.target.value })}
               placeholder="Alex Henderson"
-              className="w-full pl-11 pr-4 py-3 bg-white/[0.04] border border-white/10 rounded-xl text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-[#FF2B35] focus:ring-1 focus:ring-[#FF2B35] transition-all"
+              className="w-full pl-11 pr-4 py-3 bg-white/4 border border-white/10 rounded-xl text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-[#FF2B35] focus:ring-1 focus:ring-[#FF2B35] transition-all"
             />
           </div>
         </div>
@@ -122,7 +122,7 @@ function ContactFormFields({ prefilledProduct }: { prefilledProduct: string }) {
               value={formState.email}
               onChange={(e) => setFormState({ ...formState, email: e.target.value })}
               placeholder="alex@enterprise.com"
-              className="w-full pl-11 pr-4 py-3 bg-white/[0.04] border border-white/10 rounded-xl text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-[#FF2B35] focus:ring-1 focus:ring-[#FF2B35] transition-all"
+              className="w-full pl-11 pr-4 py-3 bg-white/4 border border-white/10 rounded-xl text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-[#FF2B35] focus:ring-1 focus:ring-[#FF2B35] transition-all"
             />
           </div>
         </div>
@@ -143,7 +143,7 @@ function ContactFormFields({ prefilledProduct }: { prefilledProduct: string }) {
               value={formState.phone}
               onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
               placeholder="+1 (555) 019-2834"
-              className="w-full pl-11 pr-4 py-3 bg-white/[0.04] border border-white/10 rounded-xl text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-[#FF2B35] focus:ring-1 focus:ring-[#FF2B35] transition-all"
+              className="w-full pl-11 pr-4 py-3 bg-white/4 border border-white/10 rounded-xl text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-[#FF2B35] focus:ring-1 focus:ring-[#FF2B35] transition-all"
             />
           </div>
         </div>
@@ -164,7 +164,7 @@ function ContactFormFields({ prefilledProduct }: { prefilledProduct: string }) {
               value={formState.company}
               onChange={(e) => setFormState({ ...formState, company: e.target.value })}
               placeholder="Acme Global Inc."
-              className="w-full pl-11 pr-4 py-3 bg-white/[0.04] border border-white/10 rounded-xl text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-[#FF2B35] focus:ring-1 focus:ring-[#FF2B35] transition-all"
+              className="w-full pl-11 pr-4 py-3 bg-white/4 border border-white/10 rounded-xl text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-[#FF2B35] focus:ring-1 focus:ring-[#FF2B35] transition-all"
             />
           </div>
         </div>
@@ -210,7 +210,7 @@ function ContactFormFields({ prefilledProduct }: { prefilledProduct: string }) {
             value={formState.message}
             onChange={(e) => setFormState({ ...formState, message: e.target.value })}
             placeholder="Tell us about your installation environment, display size requirements, timeline, and deployment targets..."
-            className="w-full pl-11 pr-4 py-3 bg-white/[0.04] border border-white/10 rounded-xl text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-[#FF2B35] focus:ring-1 focus:ring-[#FF2B35] transition-all resize-none"
+            className="w-full pl-11 pr-4 py-3 bg-white/4 border border-white/10 rounded-xl text-white placeholder-zinc-500 text-sm focus:outline-none focus:border-[#FF2B35] focus:ring-1 focus:ring-[#FF2B35] transition-all resize-none"
           />
         </div>
       </div>

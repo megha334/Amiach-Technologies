@@ -94,7 +94,7 @@ export default function AboutSection() {
               <span className="text-xs font-bold uppercase tracking-widest text-[#D9232D]">
                 ABOUT THE COMPANY
               </span>
-              <div className="w-8 h-[2px] bg-[#D9232D]" />
+              <div className="w-8 h-0.5g-[#D9232D]" />
             </div>
 
             {/* Content Paragraphs */}
@@ -146,7 +146,7 @@ export default function AboutSection() {
                 className="p-3 sm:p-4 rounded-xl bg-white/90 backdrop-blur-md border border-slate-200/80 shadow-sm hover:shadow-md transition-all duration-300 flex items-center space-x-3"
               >
                 <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-red-50 text-[#D9232D] flex items-center justify-center shrink-0">
-                  <Icon className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2]" />
+                  <Icon className="w-4 h-4 sm:w-5 sm:h-5 stroke-2" />
                 </div>
                 <div className="overflow-hidden">
                   <h3 className="text-xs sm:text-sm font-bold text-slate-900 truncate">
