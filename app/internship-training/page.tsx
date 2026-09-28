@@ -292,7 +292,7 @@ export default function InternshipTrainingPage() {
 
           <button
             onClick={() => router.push("/contact")}
-            className="shrink-0 bg-[#FF4C4C] hover:bg-red-600 text-white px-3 py-1.5 rounded-full text-[9px] font-bold transition-all duration-300 shadow-[0_0_15px_rgba(255,76,76,0.3)] flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
+            className="shrink-0 bg-[#B30E16] hover:bg-red-600 text-white px-3 py-1.5 rounded-full text-[9px] font-bold transition-all duration-300 shadow-[0_0_15px_rgba(255,76,76,0.3)] flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
           >
             Request Details <ArrowRight className="w-3 h-3" />
           </button>
@@ -300,7 +300,7 @@ export default function InternshipTrainingPage() {
       </motion.div>
 
       <div className="relative z-30 w-full shrink-0">
-        <Footer className="relative w-full !py-2" />
+        <Footer className="relative w-full py-2!" />
       </div>
 
       {/* Gallery Modal */}
