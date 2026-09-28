@@ -92,6 +92,7 @@ export default function AppWebDevelopmentPage() {
             alt="Custom Application Web Solution Background"
             fill
             priority
+            sizes="100vw"
             className="object-cover object-center opacity-30 mix-blend-screen"
           />
           <div className="absolute inset-0 bg-linear-to-r from-[#122461] via-[#060b19]/90 to-transparent" />
@@ -553,6 +554,7 @@ export default function AppWebDevelopmentPage() {
               src="/images/choose what.png"
               alt="Choose What Works For You"
               fill
+              sizes="(max-width: 1023px) 100vw, 42vw"
               className="object-contain object-left"
             />
           </div>

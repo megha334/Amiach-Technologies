@@ -89,7 +89,7 @@ export function CategoryPage({ type }: { type: CategoryType }) {
   return (
     <div className="min-h-screen w-full bg-[#08090B] text-white">
       <Navbar variant="category" categoryLinks={categoryLinks} />
-      <main className="relative min-h-[calc(100svh-8.5rem)] w-full overflow-hidden">
+      <main className="relative min-h-[calc(100svh-8.5rem)] w-full overflow-hidden sm:min-h-[calc(100svh-7rem)]">
         {/* Ambient background */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 rounded-full bg-[#FF2B35]/10 blur-[130px]" />
@@ -165,7 +165,7 @@ export function CategoryPage({ type }: { type: CategoryType }) {
                   {data.description}
                 </p>
 
-                <div className="grid grid-cols-2 gap-2 sm:gap-3 max-w-2xl">
+                <div className="grid grid-cols-1 min-[420px]:grid-cols-2 gap-2 sm:gap-3 max-w-2xl">
                   {data.points.map((point) => (
                     <div
                       key={point}

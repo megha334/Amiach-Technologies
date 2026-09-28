@@ -57,7 +57,7 @@ export default function AboutSection() {
   ];
 
   return (
-    <div className="relative w-full h-screen overflow-y-auto lg:overflow-hidden bg-slate-50 text-slate-800 font-sans flex flex-col justify-between">
+    <div className="relative flex min-h-screen w-full flex-col bg-slate-50 font-sans text-slate-800">
       {/* Background Image Setup */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 z-0 pointer-events-none">
@@ -163,7 +163,7 @@ export default function AboutSection() {
       </main>
 
       {/* 3. Root Default Footer */}
-      <Footer tone="dark" />
+      <Footer className="relative mt-auto w-full" tone="dark" />
     </div>
   );
 }

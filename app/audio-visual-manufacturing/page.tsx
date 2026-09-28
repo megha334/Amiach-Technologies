@@ -127,7 +127,7 @@ export default function AudioVideoManufacturingPage() {
   ];
 
   return (
-    <div className="relative flex min-h-screen w-full flex-col justify-between overflow-x-hidden bg-slate-950 font-sans text-white lg:h-screen lg:overflow-hidden">
+    <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-slate-950 font-sans text-white">
       {/* Background Image Base */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -211,6 +211,7 @@ export default function AudioVideoManufacturingPage() {
                   alt={product.alt}
                   width={product.imageWidth}
                   height={product.imageHeight}
+                  sizes="(max-width: 639px) 46vw, (max-width: 1023px) 42vw, 25vw"
                   className="scale-[0.9] drop-shadow-[0_25px_35px_rgba(0,0,0,0.85)] transition-transform duration-500 ease-out group-hover:scale-[1.08] sm:scale-[0.95] lg:scale-[0.9]"
                   style={{
                     width: "100%",

@@ -173,7 +173,7 @@ export default function InternshipTrainingPage() {
   ];
 
   return (
-    <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-[#0A0E1A] font-sans text-slate-900 lg:h-screen lg:overflow-hidden">
+    <div className="relative flex h-dvh max-h-dvh w-full flex-col overflow-hidden bg-[#0A0E1A] font-sans text-slate-900">
       <div className="relative z-30 w-full shrink-0">
         <Navbar variant="category" compact />
       </div>
@@ -189,9 +189,9 @@ export default function InternshipTrainingPage() {
         <div className="absolute inset-0 bg-black/20" />
       </div>
 
-      <main className="relative z-10 flex-1 flex flex-col justify-between w-full max-w-368 mx-auto px-4 sm:px-8 lg:px-12 pt-1 lg:pt-2 pb-3 lg:pb-5 min-h-0 gap-3">
+      <main className="relative z-10 mx-auto flex min-h-0 w-full max-w-368 flex-1 flex-col justify-start gap-2 overflow-hidden px-3 py-1 sm:px-8 lg:gap-3 lg:px-12">
         {/* Header Section */}
-        <div className="relative flex w-full flex-col items-center justify-between gap-4 py-2 lg:h-[30%] lg:flex-row lg:py-0">
+        <div className="relative flex w-full shrink-0 flex-col items-center justify-between gap-2 py-1 lg:flex-row lg:py-0">
           <div className="w-full lg:w-[55%] flex flex-col justify-center space-y-2 lg:space-y-3">
             <span className="relative top-2 inline-flex items-center w-max gap-2 px-3 py-1 rounded-full text-[10px] font-bold bg-red-500/10 border border-red-500/30 text-red-400 backdrop-blur-md">
               <GraduationCap className="w-3.5 h-3.5" /> Industry-Level Live
@@ -203,7 +203,7 @@ export default function InternshipTrainingPage() {
               <span className="text-[#B30E16]">Amiach Technologies</span>
             </h1>
 
-            <div className="flex items-center gap-3 lg:gap-6 pt-1">
+            <div className="grid grid-cols-2 gap-x-3 gap-y-2 pt-1 sm:flex sm:flex-wrap sm:items-center sm:gap-3 lg:gap-6">
               {[
                 { label: "Real Projects", icon: Target },
                 { label: "Expert Mentors", icon: Users },
@@ -212,7 +212,7 @@ export default function InternshipTrainingPage() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-1.5 text-[10px] lg:text-xs font-bold text-slate-200 drop-shadow"
+                  className="flex min-w-0 items-center gap-1.5 text-[10px] lg:text-xs font-bold text-slate-200 drop-shadow"
                 >
                   <item.icon className="w-4 h-4 text-[#FF4C4C]" /> {item.label}
                 </div>
@@ -220,17 +220,17 @@ export default function InternshipTrainingPage() {
             </div>
           </div>
 
-          <div className="w-full lg:w-[45%] h-full flex flex-col items-end justify-center relative">
-            <div className="flex items-center gap-3 absolute top-0 right-0 z-20">
+          <div className="w-full lg:w-[45%] flex flex-col items-stretch justify-center lg:items-end">
+            <div className="flex flex-wrap items-center justify-start gap-2 sm:gap-3 lg:justify-end">
               <Link
                 href="/audio-visual-manufacturing"
-                className="rounded-full border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2 text-[10px] font-bold text-white transition-all duration-300 ease-out shadow-sm hover:-translate-y-0.5 hover:scale-[1.03] hover:bg-[#B30E16] hover:border-[#B30E16] hover:shadow-[0_0_18px_rgba(179,14,22,0.45)] active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C4C] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none"
+                className="rounded-full border border-white/20 bg-black/40 backdrop-blur-md px-3 sm:px-4 py-2 text-[9px] sm:text-[10px] font-bold text-white transition-all duration-300 ease-out shadow-sm hover:-translate-y-0.5 hover:scale-[1.03] hover:bg-[#B30E16] hover:border-[#B30E16] hover:shadow-[0_0_18px_rgba(179,14,22,0.45)] active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C4C] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none"
               >
                 Audio Visual Manufacturing
               </Link>
               <Link
                 href="/app-web-development"
-                className="rounded-full border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2 text-[10px] font-bold text-white transition-all duration-300 ease-out shadow-sm hover:-translate-y-0.5 hover:scale-[1.03] hover:bg-[#B30E16] hover:border-[#B30E16] hover:shadow-[0_0_18px_rgba(179,14,22,0.45)] active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C4C] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none"
+                className="rounded-full border border-white/20 bg-black/40 backdrop-blur-md px-3 sm:px-4 py-2 text-[9px] sm:text-[10px] font-bold text-white transition-all duration-300 ease-out shadow-sm hover:-translate-y-0.5 hover:scale-[1.03] hover:bg-[#B30E16] hover:border-[#B30E16] hover:shadow-[0_0_18px_rgba(179,14,22,0.45)] active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C4C] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none"
               >
                 App &amp; Web Development
               </Link>
@@ -239,12 +239,12 @@ export default function InternshipTrainingPage() {
         </div>
 
         {/* 3D Showcase Pods Grid (Shifted Upward, Direct Inclined Text Overlay) */}
-        <div className="relative top-7 w-full lg:h-[55%] flex items-center justify-center perspective-distant -mt-8 sm:top-6 lg:top-5 lg:-mt-1">
+        <div className="relative flex min-h-0 w-full flex-1 items-center justify-center overflow-hidden perspective-distant">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="grid w-full grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4 items-center justify-center"
+            className="grid h-full w-full grid-cols-2 grid-rows-2 items-center justify-center gap-1.5 sm:gap-6 lg:grid-cols-4 lg:grid-rows-1"
           >
             {programs.map((prog) => (
               <motion.div
@@ -257,16 +257,17 @@ export default function InternshipTrainingPage() {
                     router.push(prog.route);
                   }
                 }}
-                className={`relative group cursor-pointer transition-all duration-500 ease-out flex flex-col items-center justify-center h-45 sm:h-55 md:h-65 lg:h-105 p-2 sm:p-4 text-center rounded-2xl ${prog.arcStyle}`}
+                className={`relative group flex h-full min-h-0 cursor-pointer flex-col items-center justify-center rounded-2xl p-1 text-center transition-all duration-500 ease-out sm:p-4 ${prog.arcStyle}`}
               >
                 {/* Product Image Showcase Pod */}
                 <div className="absolute inset-0 z-0 flex items-center justify-center">
-                  <div className="relative h-full w-full -translate-y-6 transition-transform duration-500 group-hover:scale-105 sm:-translate-y-3 lg:translate-y-0">
+                  <div className="relative h-full w-full -translate-y-1 transition-transform duration-500 group-hover:scale-105 sm:translate-y-0">
                     <Image
                       src={prog.image}
                       alt={prog.title}
                       fill
                       priority
+                      sizes="(max-width: 639px) 48vw, (max-width: 1023px) 44vw, 25vw"
                       className="object-contain p-1 sm:p-2 filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
                     />
                   </div>
@@ -282,16 +283,16 @@ export default function InternshipTrainingPage() {
         variants={fadeInUp}
         initial="hidden"
         animate="visible"
-        className="relative -top-52 z-20 flex w-full shrink-0 items-center overflow-hidden py-4 sm:-top-12 lg:-top-2 lg:h-[15%] lg:py-0"
+        className="relative z-20 flex w-full shrink-0 items-center py-2"
       >
-        <div className="relative z-10 flex w-full items-center justify-between gap-4 px-6 lg:px-12">
-          <h2 className="text-sm font-bold text-white tracking-tight leading-snug lg:text-base">
+        <div className="relative z-10 flex w-full flex-col items-start justify-between gap-1.5 px-4 sm:flex-row sm:items-center sm:gap-4 sm:px-6 lg:px-12">
+          <h2 className="text-xs font-bold text-white tracking-tight leading-snug sm:text-sm lg:text-base">
             Looking for Dedicated Corporate or on-campus workshops?
           </h2>
 
           <button
             onClick={() => router.push("/contact")}
-            className="bg-[#FF4C4C] hover:bg-red-600 text-white px-3 py-1.5 rounded-full text-[9px] font-bold transition-all duration-300 shadow-[0_0_15px_rgba(255,76,76,0.3)] flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
+            className="shrink-0 bg-[#FF4C4C] hover:bg-red-600 text-white px-3 py-1.5 rounded-full text-[9px] font-bold transition-all duration-300 shadow-[0_0_15px_rgba(255,76,76,0.3)] flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
           >
             Request Details <ArrowRight className="w-3 h-3" />
           </button>
@@ -299,7 +300,7 @@ export default function InternshipTrainingPage() {
       </motion.div>
 
       <div className="relative z-30 w-full shrink-0">
-        <Footer />
+        <Footer className="relative w-full !py-2" />
       </div>
 
       {/* Gallery Modal */}
