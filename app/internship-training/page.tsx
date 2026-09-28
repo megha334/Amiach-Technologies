@@ -193,7 +193,7 @@ export default function InternshipTrainingPage() {
         {/* Header Section */}
         <div className="relative flex w-full flex-col items-center justify-between gap-4 py-2 lg:h-[30%] lg:flex-row lg:py-0">
           <div className="w-full lg:w-[55%] flex flex-col justify-center space-y-2 lg:space-y-3">
-            <span className="inline-flex items-center w-max gap-2 px-3 py-1 rounded-full text-[10px] font-bold bg-red-500/10 border border-red-500/30 text-red-400 backdrop-blur-md">
+            <span className="relative top-2 inline-flex items-center w-max gap-2 px-3 py-1 rounded-full text-[10px] font-bold bg-red-500/10 border border-red-500/30 text-red-400 backdrop-blur-md">
               <GraduationCap className="w-3.5 h-3.5" /> Industry-Level Live
               Project Expertise
             </span>
@@ -224,13 +224,13 @@ export default function InternshipTrainingPage() {
             <div className="flex items-center gap-3 absolute top-0 right-0 z-20">
               <Link
                 href="/audio-visual-manufacturing"
-                className="rounded-full border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2 text-[10px] font-bold text-white hover:bg-[#B30E16] hover:border-[#B30E16] transition-all shadow-sm"
+                className="rounded-full border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2 text-[10px] font-bold text-white transition-all duration-300 ease-out shadow-sm hover:-translate-y-0.5 hover:scale-[1.03] hover:bg-[#B30E16] hover:border-[#B30E16] hover:shadow-[0_0_18px_rgba(179,14,22,0.45)] active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C4C] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none"
               >
                 Audio Visual Manufacturing
               </Link>
               <Link
                 href="/app-web-development"
-                className="rounded-full border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2 text-[10px] font-bold text-white hover:bg-[#B30E16] hover:border-[#B30E16] transition-all shadow-sm"
+                className="rounded-full border border-white/20 bg-black/40 backdrop-blur-md px-4 py-2 text-[10px] font-bold text-white transition-all duration-300 ease-out shadow-sm hover:-translate-y-0.5 hover:scale-[1.03] hover:bg-[#B30E16] hover:border-[#B30E16] hover:shadow-[0_0_18px_rgba(179,14,22,0.45)] active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C4C] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none"
               >
                 App &amp; Web Development
               </Link>
@@ -239,7 +239,7 @@ export default function InternshipTrainingPage() {
         </div>
 
         {/* 3D Showcase Pods Grid (Shifted Upward, Direct Inclined Text Overlay) */}
-        <div className="relative -top-37 w-full lg:h-[55%] flex items-center justify-center [perspective:1200px] -mt-6 sm:-top-12 lg:top-0 lg:-mt-10">
+        <div className="relative top-7 w-full lg:h-[55%] flex items-center justify-center perspective-distant -mt-8 sm:top-6 lg:top-5 lg:-mt-1">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -257,7 +257,7 @@ export default function InternshipTrainingPage() {
                     router.push(prog.route);
                   }
                 }}
-                className={`relative group cursor-pointer transition-all duration-500 ease-out flex flex-col items-center justify-center h-[180px] sm:h-[220px] md:h-[260px] lg:h-[420px] p-2 sm:p-4 text-center rounded-2xl ${prog.arcStyle}`}
+                className={`relative group cursor-pointer transition-all duration-500 ease-out flex flex-col items-center justify-center h-45 sm:h-55 md:h-65 lg:h-105 p-2 sm:p-4 text-center rounded-2xl ${prog.arcStyle}`}
               >
                 {/* Product Image Showcase Pod */}
                 <div className="absolute inset-0 z-0 flex items-center justify-center">
@@ -282,7 +282,7 @@ export default function InternshipTrainingPage() {
         variants={fadeInUp}
         initial="hidden"
         animate="visible"
-        className="relative -top-40 z-20 flex w-full shrink-0 items-center overflow-hidden py-4 sm:-top-10 lg:top-0 lg:h-[15%] lg:py-0"
+        className="relative -top-52 z-20 flex w-full shrink-0 items-center overflow-hidden py-4 sm:-top-12 lg:-top-2 lg:h-[15%] lg:py-0"
       >
         <div className="relative z-10 flex w-full items-center justify-between gap-4 px-6 lg:px-12">
           <h2 className="text-sm font-bold text-white tracking-tight leading-snug lg:text-base">
@@ -291,7 +291,7 @@ export default function InternshipTrainingPage() {
 
           <button
             onClick={() => router.push("/contact")}
-            className="bg-[#FF4C4C] hover:bg-red-600 text-white px-4 py-2 rounded-full text-[10px] font-bold transition-all duration-300 shadow-[0_0_15px_rgba(255,76,76,0.3)] flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
+            className="bg-[#FF4C4C] hover:bg-red-600 text-white px-3 py-1.5 rounded-full text-[9px] font-bold transition-all duration-300 shadow-[0_0_15px_rgba(255,76,76,0.3)] flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
           >
             Request Details <ArrowRight className="w-3 h-3" />
           </button>

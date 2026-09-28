@@ -139,7 +139,7 @@ export default function AudioVideoManufacturingPage() {
       {/* 3. Hero Content Section */}
       <main className="relative z-10 flex-1 flex flex-col justify-between px-4 sm:px-8 lg:px-14 pt-1 pb-2 w-full max-w-[100rem] mx-auto overflow-y-auto lg:overflow-visible">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between lg:pr-3">
-          <div className="max-w-xl space-y-1 mt-1 sm:mt-2">
+          <div className="max-w-xl space-y-1 mt-1 sm:mt-2 -translate-y-3 sm:-translate-y-4 lg:-translate-y-6">
             <p className="text-[9px] sm:text-[11px] font-bold tracking-[0.25em] text-slate-300 uppercase">
               Interactive Solutions for a Smarter Tomorrow
             </p>
@@ -155,7 +155,7 @@ export default function AudioVideoManufacturingPage() {
             </p>
           </div>
 
-          <div className="flex flex-col items-start gap-2 sm:items-end">
+          <div className="flex flex-col items-start gap-2 sm:items-end -translate-y-3 sm:-translate-y-4 lg:-translate-y-6">
             <Link
               href="/internship-training"
               className="rounded-full border border-[#00F2FE]/60 bg-black/35 px-3 py-2 text-[9px] font-bold uppercase tracking-[0.2em] text-cyan-300 transition-all duration-300 hover:bg-[#00F2FE] hover:text-black backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)]"
@@ -176,7 +176,7 @@ export default function AudioVideoManufacturingPage() {
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
-          className="my-auto grid h-auto w-full grid-cols-2 items-start gap-4 sm:gap-6 lg:h-full lg:max-h-[62vh] lg:grid-cols-4 lg:gap-4"
+          className="my-auto grid h-auto w-full grid-cols-2 items-start gap-4 sm:gap-6 lg:h-full lg:max-h-[62vh] lg:grid-cols-4 lg:gap-4 -translate-y-3 sm:-translate-y-4 lg:-translate-y-6"
         >
           {products.map((product, index) => (
             <motion.div
@@ -245,7 +245,7 @@ export default function AudioVideoManufacturingPage() {
       </main>
 
       {/* 5. Footer */}
-      <div className="relative z-30 w-full">
+      <div>
         <Footer />
       </div>
     </div>

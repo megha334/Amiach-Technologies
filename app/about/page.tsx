@@ -87,7 +87,7 @@ export default function AboutSection() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={floatUp}
-            className="lg:relative lg:top-8 lg:col-span-6 space-y-3 sm:space-y-4"
+            className="lg:relative lg:top-10 lg:col-span-6 space-y-3 sm:space-y-4"
           >
             {/* About Us Sub-heading */}
             <div className="flex items-center gap-2">
@@ -96,12 +96,6 @@ export default function AboutSection() {
               </span>
               <div className="w-8 h-[2px] bg-[#D9232D]" />
             </div>
-
-            {/* Main Title */}
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 leading-tight tracking-tight">
-              Innovative Digital Solutions <br className="hidden sm:inline" />
-              for a <span className="text-[#D9232D]">Smarter Tomorrow</span>
-            </h1>
 
             {/* Content Paragraphs */}
             <div className="space-y-2 text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
@@ -122,7 +116,7 @@ export default function AboutSection() {
             </div>
 
             {/* CTA Button */}
-            <div className="pt-2">
+            {/* <div className="pt-2">
               <Link
                 href="/vision"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#D9232D] hover:bg-red-700 text-white font-medium text-xs sm:text-sm transition-all duration-300 shadow-md shadow-red-500/20 hover:scale-105 cursor-pointer"
@@ -130,7 +124,7 @@ export default function AboutSection() {
                 <span>Our Vision</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
-            </div>
+            </div> */}
           </motion.div>
         </div>
 
@@ -140,7 +134,7 @@ export default function AboutSection() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={staggerList}
-          className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-6 sm:mt-8"
+          className="relative top-2 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-6 sm:mt-8 sm:top-3"
         >
           {coreValues.map((card, idx) => {
             const Icon = card.icon;
