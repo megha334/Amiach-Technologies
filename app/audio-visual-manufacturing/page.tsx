@@ -136,7 +136,7 @@ export default function AudioVideoManufacturingPage() {
       marginTop: "0px",
       marginLeft: "0px",
 
-      mobileMarginTop: "5px",
+      mobileMarginTop: "0px",
       mobileMarginLeft: "0px",
       mobileImageHeight: "h-[210px] lg:h-[380px]",
 
