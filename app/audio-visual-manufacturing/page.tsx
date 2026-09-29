@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -8,6 +8,33 @@ import { motion, Variants } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+
+interface Product {
+  title: string;
+  description: string;
+  image: string;
+  alt: string;
+  placeholder: string;
+  route: string;
+  arcStyle: string;
+  imageWidth: number;
+  imageHeight: number;
+  imageMaxWidth: string;
+  imageMaxHeight: string;
+  marginTop: string;
+  marginLeft: string;
+  mobileMarginTop: string;
+  mobileMarginLeft: string;
+  mobileImageHeight: string;
+  textPosition: string;
+  mobileTextPosition: string;
+  mobileTextAlign: string;
+  disableContainerHover?: boolean;
+  titleClass?: string;
+  descClass?: string;
+  containerClass?: string;
+  buttonClass?: string;
+}
 
 export default function AudioVideoManufacturingPage() {
   const router = useRouter();
@@ -31,7 +58,7 @@ export default function AudioVideoManufacturingPage() {
     },
   };
 
-  const products = [
+  const products: Product[] = [
     {
       title: "DIGITAL PODIUM",
       description:
@@ -46,11 +73,17 @@ export default function AudioVideoManufacturingPage() {
       imageHeight: 680,
       imageMaxWidth: "110%",
       imageMaxHeight: "100%",
-      containerHeight: "390px",
+
       marginTop: "-25px",
       marginLeft: "-50px",
+
+      mobileMarginTop: "0px",
+      mobileMarginLeft: "0px",
       mobileImageHeight: "h-[210px] lg:h-[390px]",
+
       textPosition: "lg:top-[55%] lg:left-[59%]",
+      mobileTextPosition: "relative top-0 left-0",
+      mobileTextAlign: "items-center text-center lg:items-start lg:text-left",
     },
     {
       title: "TOUCH KIOSK",
@@ -67,12 +100,18 @@ export default function AudioVideoManufacturingPage() {
       imageHeight: 760,
       imageMaxWidth: "125%",
       imageMaxHeight: "110%",
-      containerHeight: "380px",
+
       marginTop: "0px",
       marginLeft: "0px",
+
+      mobileMarginTop: "10px",
+      mobileMarginLeft: "0px",
       mobileImageHeight: "h-[260px] lg:h-[450px]",
+
       textPosition: "lg:top-[80%] lg:left-[42%]",
-      // Larger Text Specific Props
+      mobileTextPosition: "relative top-0 left-0",
+      mobileTextAlign: "items-center text-center lg:items-start lg:text-left",
+
       titleClass: "text-base sm:text-lg lg:text-xl font-black",
       descClass: "text-xs sm:text-sm font-normal max-w-[220px]",
       containerClass: "max-w-[250px]",
@@ -93,12 +132,18 @@ export default function AudioVideoManufacturingPage() {
       imageHeight: 760,
       imageMaxWidth: "125%",
       imageMaxHeight: "110%",
-      containerHeight: "380px",
+
       marginTop: "0px",
       marginLeft: "0px",
+
+      mobileMarginTop: "5px",
+      mobileMarginLeft: "0px",
       mobileImageHeight: "h-[210px] lg:h-[380px]",
+
       textPosition: "lg:top-[82%] lg:left-[44%]",
-      // Larger Text Specific Props
+      mobileTextPosition: "relative top-0 left-0",
+      mobileTextAlign: "items-center text-center lg:items-start lg:text-left",
+
       titleClass: "text-base sm:text-lg lg:text-xl font-black",
       descClass: "text-xs sm:text-sm font-normal max-w-[220px]",
       containerClass: "max-w-[250px]",
@@ -108,7 +153,7 @@ export default function AudioVideoManufacturingPage() {
       title: "TOUCH TABLE",
       description:
         "Interactive touch tables for immersive and collaborative experiences.",
-      image: "/images/Touch%20table.png",
+      image: "/images/touch%20table.png",
       alt: "Interactive Touch Table",
       placeholder:
         "https://placehold.co/600x400/transparent/white?text=Touch+Table",
@@ -118,13 +163,24 @@ export default function AudioVideoManufacturingPage() {
       imageHeight: 420,
       imageMaxWidth: "100%",
       imageMaxHeight: "92%",
-      containerHeight: "290px",
+
       marginTop: "0px",
       marginLeft: "0px",
+
+      mobileMarginTop: "-10px",
+      mobileMarginLeft: "0px",
       mobileImageHeight: "h-[150px] lg:h-[290px]",
+
       textPosition: "lg:top-[58%] lg:left-[20%]",
+      mobileTextPosition: "relative top-0 left-0",
+      mobileTextAlign: "items-center text-center lg:items-start lg:text-left",
     },
   ];
+
+  // Image Source state to safely handle fallback images
+  const [imgSources, setImgSources] = useState<Record<string, string>>(() =>
+    products.reduce((acc, p) => ({ ...acc, [p.route]: p.image }), {})
+  );
 
   return (
     <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-slate-950 font-sans text-white">
@@ -199,15 +255,22 @@ export default function AudioVideoManufacturingPage() {
               {/* Product Image Container */}
               <div
                 onClick={() => router.push(product.route)}
-                className={`relative flex w-full cursor-pointer items-center justify-center transition-transform duration-500 ${product.disableContainerHover ? "" : "group-hover:scale-105"} ${product.mobileImageHeight}`}
-                style={{
-                  width: "100%",
-                  marginTop: product.marginTop,
-                  marginLeft: product.marginLeft,
-                }}
+                className={`relative flex w-full cursor-pointer items-center justify-center transition-transform duration-500 ${
+                  product.disableContainerHover ? "" : "group-hover:scale-105"
+                } ${product.mobileImageHeight}`}
+                style={
+                  {
+                    "--mobile-margin-top": product.mobileMarginTop || product.marginTop,
+                    "--mobile-margin-left": product.mobileMarginLeft || product.marginLeft,
+                    "--desktop-margin-top": product.marginTop,
+                    "--desktop-margin-left": product.marginLeft,
+                    marginTop: "var(--margin-top)",
+                    marginLeft: "var(--margin-left)",
+                  } as React.CSSProperties
+                }
               >
                 <Image
-                  src={product.image}
+                  src={imgSources[product.route] || product.image}
                   alt={product.alt}
                   width={product.imageWidth}
                   height={product.imageHeight}
@@ -221,26 +284,42 @@ export default function AudioVideoManufacturingPage() {
                     objectFit: "contain",
                     objectPosition: "center",
                   }}
-                  onError={(e) => {
-                    e.currentTarget.src = product.placeholder;
+                  onError={() => {
+                    setImgSources((prev) => ({
+                      ...prev,
+                      [product.route]: product.placeholder,
+                    }));
                   }}
                 />
               </div>
 
               {/* Text Pointer Line & Details */}
               <div
-                className={`static lg:absolute ${product.textPosition} z-30 pointer-events-auto flex items-center gap-2 mt-2 lg:mt-0 w-full lg:w-max transform-[translateZ(50px)] ${product.containerClass || "max-w-50"}`}
+                className={`${product.mobileTextPosition} ${product.textPosition} lg:absolute z-30 pointer-events-auto flex items-center gap-2 mt-2 lg:mt-0 w-full lg:w-max transform-[translateZ(50px)] ${
+                  product.containerClass || "max-w-[200px]"
+                }`}
               >
+                {/* Dot pointerline (Only visible on Desktop) */}
                 <div className="hidden lg:flex items-center pointer-events-none">
                   <span className="w-2 h-2 rounded-full bg-[#00F2FE] shadow-[0_0_8px_#00F2FE]" />
                   <span className="w-6 h-px bg-[#00F2FE]/70" />
                 </div>
 
-                <div className="text-left space-y-1">
-                  <h3 className={`tracking-wider uppercase text-white ${product.titleClass || "text-xs sm:text-sm lg:text-base font-extrabold"}`}>
+                <div className={`flex flex-col ${product.mobileTextAlign} space-y-1 w-full`}>
+                  <h3
+                    className={`tracking-wider uppercase text-white ${
+                      product.titleClass ||
+                      "text-xs sm:text-sm lg:text-base font-extrabold"
+                    }`}
+                  >
                     {product.title}
                   </h3>
-                  <p className={`text-white leading-snug ${product.descClass || "text-[10px] sm:text-[11px] font-light max-w-42.5"}`}>
+                  <p
+                    className={`text-white leading-snug ${
+                      product.descClass ||
+                      "text-[10px] sm:text-[11px] font-light max-w-[170px]"
+                    }`}
+                  >
                     {product.description}
                   </p>
 
@@ -250,7 +329,9 @@ export default function AudioVideoManufacturingPage() {
                       e.stopPropagation();
                       router.push(product.route);
                     }}
-                    className={`relative z-40 mt-1.5 rounded-full border border-[#00F2FE]/60 bg-black/40 hover:bg-[#00F2FE] hover:text-black text-cyan-300 font-bold tracking-wider transition-all duration-300 flex items-center gap-1.5 cursor-pointer backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)] ${product.buttonClass || "px-3 py-1 text-[10px] sm:text-[11px]"}`}
+                    className={`relative z-40 mt-1.5 rounded-full border border-[#00F2FE]/60 bg-black/40 hover:bg-[#00F2FE] hover:text-black text-cyan-300 font-bold tracking-wider transition-all duration-300 flex items-center gap-1.5 cursor-pointer backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)] ${
+                      product.buttonClass || "px-3 py-1 text-[10px] sm:text-[11px]"
+                    }`}
                   >
                     <span>EXPLORE</span>
                     <ArrowRight className="w-3 h-3" />

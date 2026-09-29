@@ -268,7 +268,8 @@ export default function InternshipTrainingPage() {
                       fill
                       priority
                       sizes="(max-width: 639px) 48vw, (max-width: 1023px) 44vw, 25vw"
-                      className="object-contain p-1 sm:p-2 filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
+                      className="object-contain p-1 sm:p-2 filter "
+                      //"object-contain p-1 sm:p-2 filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]"
                     />
                   </div>
                 </div>
