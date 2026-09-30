@@ -157,7 +157,7 @@ export default function AudioVideoManufacturingPage() {
       alt: "Interactive Touch Table",
       placeholder:
         "https://placehold.co/600x400/transparent/white?text=Touch+Table",
-      route: "/products/touch-table",
+      route: "#touch-table",
       arcStyle: "lg:translate-y-8 lg:translate-z-[24px] lg:scale-[0.92]",
       imageWidth: 620,
       imageHeight: 420,
