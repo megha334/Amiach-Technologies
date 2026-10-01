@@ -101,7 +101,7 @@ export function HeroSlider() {
   return (
     <div
       id="hero-slider"
-      className="relative w-full min-h-screen lg:h-screen overflow-hidden select-none bg-slate-950 font-sans flex flex-col justify-between"
+      className="relative w-full min-h-dvh lg:h-screen overflow-hidden select-none bg-slate-950 font-sans flex flex-col justify-between"
     >
       {/* Background Images */}
       {heroSlides.map((slide, idx) => (
@@ -119,13 +119,13 @@ export function HeroSlider() {
             sizes="100vw"
             className="object-cover scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/50 via-slate-950/20 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40" />
+          <div className="absolute inset-0 bg-linear-to-r from-slate-950/50 via-slate-950/20 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-transparent to-slate-950/40" />
         </div>
       ))}
 
       {/* Center / Bottom Content Section */}
-      <div className="relative z-20 flex-1 flex items-end justify-center pb-24 lg:pb-0 lg:items-center lg:justify-end px-4 sm:px-16 md:px-24 py-10 lg:py-20 lg:pt-28">
+      <div className="relative z-20 flex-1 flex items-end justify-center pb-36 sm:pb-40 lg:pb-10 lg:items-center lg:justify-end px-4 sm:px-16 md:px-24 py-10 lg:py-20 lg:pt-28">
         {/* Container: Tilted towards right on mobile with gaps */}
         <div className="flex w-full sm:w-auto flex-row lg:flex-col items-end lg:items-stretch justify-center gap-6 sm:gap-8 lg:gap-3 lg:max-w-60 lg:translate-y-25 overflow-x-auto lg:overflow-visible px-2 py-4">
           {whatWeDoCategories.map((cat, idx) => {
@@ -138,7 +138,7 @@ export function HeroSlider() {
                 className="group relative transition-all duration-300 bg-transparent border-none shadow-none p-2 lg:p-3.5 transform -skew-x-12 lg:skew-x-0 lg:overflow-hidden lg:rounded-2xl lg:border lg:border-white/10 lg:bg-white/5 lg:shadow-[0_12px_30px_rgba(15,23,42,0.28)] lg:backdrop-blur-md lg:hover:scale-100 lg:hover:-translate-x-2 lg:hover:border-[#DC2626]/60 lg:hover:bg-white/10"
               >
                 {/* Desktop Overlay Background */}
-                <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-white/5 via-transparent to-[#DC2626]/5 opacity-70" />
+                <div className="hidden lg:block absolute inset-0 bg-linear-to-r from-white/5 via-transparent to-[#DC2626]/5 opacity-70" />
 
                 <div className="relative z-10">
                   <h3
@@ -147,7 +147,7 @@ export function HeroSlider() {
                       isMobile ? "rotate-180 whitespace-nowrap" : ""
                     } ${
                       isGlowing
-                        ? "text-[#38bdf8] drop-shadow-[0_0_14px_rgba(56,189,248,1)] scale-105"
+                        ? "text-[#38bdf8] scale-105"
                         : "text-[#67e3ec] opacity-90"
                     } lg:hover:text-[#F87171] lg:scale-100`}
                   >
@@ -178,26 +178,15 @@ export function HeroSlider() {
       </button>
 
       {/* Make In India Image */}
-      {/* <div className="absolute bottom-4 sm:bottom-8 left-4 sm:left-8 z-20 pointer-events-none opacity-90 hover:opacity-100 transition-opacity">
+      <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-8 lg:bottom-12 lg:left-12 z-20 pointer-events-none opacity-90 hover:opacity-100 transition-opacity">
         <Image
           src="/images/make-in-india.png"
           alt="Make in India"
-          width={100}
-          height={50}
-          className="h-8 sm:h-12 w-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]"
+          width={160}
+          height={80}
+          className="h-9 sm:h-14 lg:h-20 w-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]"
         />
-      </div> */}
-
-      {/* Make In India Image */}
-<div className="absolute bottom-10 left-4 sm:bottom-10 sm:left-8 lg:bottom-14 lg:left-12 z-20 pointer-events-none opacity-90 hover:opacity-100 transition-opacity">
-  <Image
-    src="/images/make-in-india.png"
-    alt="Make in India"
-    width={160}
-    height={80}
-    className="h-12 sm:h-16 lg:h-20 w-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]"
-  />
-</div>
+      </div>
     </div>
   );
 }
