@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   ArrowRight,
@@ -53,37 +54,19 @@ export default function AppWebDevelopmentPage() {
       companyName: "",
       mobileNumber: "",
       email: "",
-      category: "Select Category",
+      category: "iOS Application",
       description: "",
     });
   };
 
-  // Modern Tech Stack Items - 14 Items arranged in 2 Horizontal Rows of 7
-  const techStack = [
-    { name: "React", route: "/tech/react" },
-    { name: "Angular", route: "/tech/angular" },
-    { name: "Vue.js", route: "/tech/vue" },
-    { name: "Node.js", route: "/tech/nodejs" },
-    { name: "Java", route: "/tech/java" },
-    { name: "Spring Boot", route: "/tech/springboot" },
-    { name: ".NET", route: "/tech/dotnet" },
-    { name: "Python", route: "/tech/python" },
-    { name: "PHP", route: "/tech/php" },
-    { name: "JavaScript", route: "/tech/javascript" },
-    { name: "TypeScript", route: "/tech/typescript" },
-    { name: "AWS", route: "/tech/aws" },
-    { name: "Azure", route: "/tech/azure" },
-    { name: "Firebase", route: "/tech/firebase" },
-  ];
-
   return (
     <div className="min-h-screen flex flex-col bg-[#060b19] text-slate-800 font-sans selection:bg-[#ff2a5f] selection:text-white">
-      {/* 1. Static Navbar (Scroll par move nahi karega) */}
+      {/* 1. Static Navbar */}
       <div className="sticky top-0 z-50 w-full bg-[#060b19]/95 backdrop-blur-md border-b border-slate-800/50">
         <Navbar />
       </div>
 
-      {/* 2. Custom Applications & Web Solutions (Compact Hero Section) */}
+      {/* 2. Custom Applications & Web Solutions (Hero Section) */}
       <section className="relative py-12 px-4 sm:px-8 lg:px-14 bg-[#060b19] text-white overflow-hidden">
         {/* Background Image Layer */}
         <div className="absolute inset-0 z-0 pointer-events-none">
@@ -98,8 +81,8 @@ export default function AppWebDevelopmentPage() {
           <div className="absolute inset-0 bg-linear-to-r from-[#122461] via-[#060b19]/90 to-transparent" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
-          {/* Left Side Content (Text Size Made Small & Compact) */}
+        <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+          {/* Left Side Content */}
           <div className="flex-1 space-y-4">
             <div className="inline-flex items-center gap-1.5 px-2.5 py-1 mt-12 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[11px] font-medium tracking-wide">
               <Code2 className="w-3.5 h-3.5 text-[#ff2a5f]" />
@@ -152,7 +135,7 @@ export default function AppWebDevelopmentPage() {
               </div>
             </div>
 
-            {/* CTA Button - Route to /contact */}
+            {/* CTA Button */}
             <div className="pt-2">
               <button
                 onClick={() => router.push("/contact")}
@@ -164,28 +147,27 @@ export default function AppWebDevelopmentPage() {
             </div>
           </div>
 
-          {/* Right Top Specific Page Link Buttons */}
-          <div className="flex flex-col items-end gap-2.5 self-start lg:self-center">
-            <button
-              onClick={() => router.push("/audio-visual-manufacturing")}
-              className="px-4 py-2 rounded-full bg-white/10 hover:bg-[#ff2a5f] hover:text-white border border-white/20 backdrop-blur-md text-[11px] font-bold uppercase tracking-wider text-slate-200 transition-all duration-300 shadow-sm cursor-pointer"
+          {/* Right Top Action Buttons */}
+          <div className="flex flex-col items-end gap-2 shrink-0 self-end lg:self-center w-full lg:w-auto -translate-y-2 sm:-translate-y-4 lg:-translate-y-6">
+            <Link
+              href="/audio-visual-manufacturing"
+              className="inline-flex items-center justify-center rounded-full border border-[#00F2FE]/60 bg-black/35 px-3.5 py-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-300 transition-all duration-300 hover:bg-[#00F2FE] hover:text-black backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)] text-right"
             >
               Audio Visual Manufacturing
-            </button>
-            <button
-              onClick={() => router.push("/internship-training")}
-              className="px-4 py-2 rounded-full bg-white/10 hover:bg-[#ff2a5f] hover:text-white border border-white/20 backdrop-blur-md text-[11px] font-bold uppercase tracking-wider text-slate-200 transition-all duration-300 shadow-sm cursor-pointer"
+            </Link>
+            <Link
+              href="/internship-training"
+              className="inline-flex items-center justify-center rounded-full border border-[#00F2FE]/60 bg-black/35 px-3.5 py-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-300 transition-all duration-300 hover:bg-[#00F2FE] hover:text-black backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)] text-right"
             >
               Internship Training
-            </button>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* 3. End-to-End Application Services (White Background Section) */}
+      {/* 3. End-to-End Application Services */}
       <section className="py-9 px-4 sm:px-8 lg:px-14 bg-[#f8fafc] text-slate-900 border-t border-slate-200">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start justify-between gap-8">
-          {/* Left Side Header */}
           <div className="lg:w-1/3 space-y-3">
             <p className="text-[11px] font-bold tracking-[0.2em] text-[#ff2a5f] uppercase">
               WHY CHOOSE AMIACH
@@ -195,7 +177,6 @@ export default function AppWebDevelopmentPage() {
               End-to-End Application <br /> Development Services
             </h2>
 
-            {/* Consultation Button */}
             <button
               onClick={() => setIsFormOpen(true)}
               className="
@@ -217,9 +198,7 @@ export default function AppWebDevelopmentPage() {
             </button>
           </div>
 
-          {/* Right Side 4 Service Cards */}
           <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-            {/* Card 1 - Pink */}
             <div className="group bg-white border border-pink-100 rounded-xl p-4 shadow-sm flex items-start gap-3 transition-all duration-300 hover:-translate-y-1.5 hover:border-pink-300 hover:shadow-[0_10px_30px_rgba(236,72,153,0.15)] cursor-pointer">
               <div className="w-10 h-10 rounded-lg bg-pink-100 text-pink-600 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-pink-500 group-hover:text-white group-hover:scale-110 group-hover:shadow-[0_0_18px_rgba(236,72,153,0.4)]">
                 <Globe className="w-5 h-5" />
@@ -235,7 +214,6 @@ export default function AppWebDevelopmentPage() {
               </div>
             </div>
 
-            {/* Card 2 - Purple */}
             <div className="group bg-white border border-purple-100 rounded-xl p-4 shadow-sm flex items-start gap-3 transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-300 hover:shadow-[0_10px_30px_rgba(168,85,247,0.15)] cursor-pointer">
               <div className="w-10 h-10 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-purple-500 group-hover:text-white group-hover:scale-110 group-hover:shadow-[0_0_18px_rgba(168,85,247,0.4)]">
                 <Smartphone className="w-5 h-5" />
@@ -251,7 +229,6 @@ export default function AppWebDevelopmentPage() {
               </div>
             </div>
 
-            {/* Card 3 - Blue */}
             <div className="group bg-white border border-blue-100 rounded-xl p-4 shadow-sm flex items-start gap-3 transition-all duration-300 hover:-translate-y-1.5 hover:border-blue-300 hover:shadow-[0_10px_30px_rgba(59,130,246,0.15)] cursor-pointer">
               <div className="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-blue-500 group-hover:text-white group-hover:scale-110 group-hover:shadow-[0_0_18px_rgba(59,130,246,0.4)]">
                 <Layers className="w-5 h-5" />
@@ -266,7 +243,6 @@ export default function AppWebDevelopmentPage() {
               </div>
             </div>
 
-            {/* Card 4 - Emerald */}
             <div className="group bg-white border border-emerald-100 rounded-xl p-4 shadow-sm flex items-start gap-3 transition-all duration-300 hover:-translate-y-1.5 hover:border-emerald-300 hover:shadow-[0_10px_30px_rgba(16,185,129,0.15)] cursor-pointer">
               <div className="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-emerald-500 group-hover:text-white group-hover:scale-110 group-hover:shadow-[0_0_18px_rgba(16,185,129,0.4)]">
                 <Layout className="w-5 h-5" />
@@ -284,33 +260,16 @@ export default function AppWebDevelopmentPage() {
         </div>
       </section>
 
-      {/* 4. Modern Tech Stack */}
-      <section className="py-9 px-4 sm:px-8 lg:px-14 bg-[#0a1128] text-white">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start justify-between gap-7">
-          <div className="lg:w-1/3 space-y-2">
-            <p className="text-[11px] font-bold tracking-[0.2em] text-[#ff2a5f] uppercase">
-              TECHNOLOGIES WE WORK WITH
-            </p>
-            <h2 className="text-xl sm:text-2xl font-extrabold text-white leading-tight">
-              Modern Tech Stack for <br /> Powerful Solutions
-            </h2>
-          </div>
-
-          <div className="lg:w-2/3 w-full grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5">
-            {techStack.map((tech, idx) => (
-              <div
-                key={idx}
-                onClick={() => router.push(tech.route)}
-                className="relative group bg-[#101b3b] border border-slate-700/60 rounded-lg p-2.5 min-h-18 flex flex-col items-center justify-center gap-1.5 cursor-pointer text-center transition-all duration-300 ease-out hover:-translate-y-1.5 hover:bg-[#16234b] hover:border-[#ff2a5f]/60 hover:shadow-[0_10px_25px_rgba(255,42,95,0.18)]"
-              >
-                <Cpu className="w-6 h-6 text-cyan-400 transition-all duration-300 ease-out group-hover:text-[#ff2a5f] group-hover:scale-125 group-hover:rotate-6 group-hover:drop-shadow-[0_0_8px_rgba(255,42,95,0.6)]" />
-                <span className="text-[10px] font-semibold text-slate-300 transition-all duration-300 group-hover:text-white group-hover:scale-105">
-                  {tech.name}
-                </span>
-                <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-[inset_0_0_20px_rgba(255,42,95,0.08)]" />
-              </div>
-            ))}
-          </div>
+      {/* Tech Stack Banner */}
+      <section className="py-9 px-4 sm:px-8 lg:px-14">
+        <div className="max-w-7xl mx-auto flex items-center justify-center">
+          <Image
+            src="/images/tech stack.png"
+            alt="Tech Stack"
+            width={1024}
+            height={400}
+            className="w-full h-auto max-w-xs sm:max-w-xl lg:max-w-5xl object-contain rounded-lg"
+          />
         </div>
       </section>
 
@@ -464,7 +423,7 @@ export default function AppWebDevelopmentPage() {
         </div>
       </section>
 
-      {/* Bottom CTA Banner - Route to /contact */}
+      {/* Bottom CTA Banner */}
       <section className="py-10 px-4 sm:px-8 lg:px-14 bg-[#090f20] border-t border-slate-800 text-white">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div>

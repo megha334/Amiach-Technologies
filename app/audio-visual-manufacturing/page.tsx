@@ -209,8 +209,9 @@ export default function AudioVideoManufacturingPage() {
       </div>
 
       {/* Hero Content Section */}
-      <main className="relative z-10 flex-1 flex flex-col justify-between px-4 sm:px-8 lg:px-14 pt-1 pb-2 w-full max-w-[100rem] mx-auto overflow-y-auto lg:overflow-visible">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between lg:pr-3">
+      <main className="relative z-10 flex-1 flex flex-col justify-between px-4 sm:px-8 lg:px-14 pt-4 pb-2 w-full max-w-[100rem] mx-auto overflow-y-auto lg:overflow-visible">
+        {/* Header Title on Left & Buttons shifted to Right-Top on Mobile */}
+        <div className="flex flex-row items-start justify-between gap-2 lg:pr-3">
           <div className="max-w-xl space-y-1 mt-1 sm:mt-2 -translate-y-3 sm:-translate-y-4 lg:-translate-y-6">
             <p className="text-[9px] sm:text-[11px] font-bold tracking-[0.25em] text-slate-300 uppercase">
               Interactive Solutions for a Smarter Tomorrow
@@ -223,16 +224,17 @@ export default function AudioVideoManufacturingPage() {
             </h1>
           </div>
 
-          <div className="flex flex-col items-start gap-2 sm:items-end -translate-y-3 sm:-translate-y-4 lg:-translate-y-6">
+          {/* Shifted to top right corner on mobile screen */}
+          <div className="flex flex-col items-end gap-2 shrink-0 -translate-y-3 sm:-translate-y-4 lg:-translate-y-6">
             <Link
               href="/internship-training"
-              className="rounded-full border border-[#00F2FE]/60 bg-black/35 px-3 py-2 text-[9px] font-bold uppercase tracking-[0.2em] text-cyan-300 transition-all duration-300 hover:bg-[#00F2FE] hover:text-black backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)]"
+              className="rounded-full border border-[#00F2FE]/60 bg-black/35 px-3 py-2 text-[9px] font-bold uppercase tracking-[0.2em] text-cyan-300 transition-all duration-300 hover:bg-[#00F2FE] hover:text-black backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)] text-right"
             >
               Internship Training
             </Link>
             <Link
               href="/app-web-development"
-              className="inline-flex items-center justify-center rounded-full border border-[#00F2FE]/60 bg-black/35 px-3 py-2 text-[9px] font-bold uppercase tracking-[0.2em] text-cyan-300 transition-all duration-300 hover:bg-[#00F2FE] hover:text-black backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)]"
+              className="inline-flex items-center justify-center rounded-full border border-[#00F2FE]/60 bg-black/35 px-3 py-2 text-[9px] font-bold uppercase tracking-[0.2em] text-cyan-300 transition-all duration-300 hover:bg-[#00F2FE] hover:text-black backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)] text-right"
             >
               App &amp; Web Development
             </Link>

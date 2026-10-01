@@ -134,40 +134,44 @@ export default function InternshipTrainingPage() {
 
   const heroBackground = isMobile
     ? "url('/images/internship mobile bg.png')"
-    : "url('/images/internship training bg.png')";
+    : "url('/images/bg for internship.png')";
 
   const programs = [
     {
       id: "rust",
       title: "Rust Development",
+      description: "systems language, performance, and backend infrastructure.",
       route: "/internship-training/rust",
       gallery: "rust" as GalleryKey,
-      image: "/images/internshiprust.png",
+      image: "/images/rust%20development.png",
       // Semi-circle position transforms
       arcStyle: "lg:rotate-y-[12deg] lg:-translate-y-2 lg:scale-[0.96]",
     },
     {
       id: "web",
       title: "App & Web Development",
+      description: "mobile apps, web interfaces, cloud, and global reach",
       route: "/app-web-development",
       gallery: "app-web" as GalleryKey,
-      image: "/images/internshipappweb.png",
+      image: "/images/web%20development.png",
       arcStyle: "lg:rotate-y-[4deg] lg:-translate-y-7 lg:scale-[1.02]",
     },
     {
       id: "app",
       title: "iOS & Android App Development",
+      description: "native mobile for both platforms",
       route: "/app-web-development",
       gallery: "app-web" as GalleryKey,
-      image: "/images/internshipios.png",
+      image: "/images/ios%20development.png",
       arcStyle: "lg:rotate-y-[-4deg] lg:-translate-y-7 lg:scale-[1.02]",
     },
     {
       id: "languages",
       title: "Live Projects",
+      description: "real-time collaboration, demos, and delivery",
       route: "/internship-training/languages",
       gallery: null,
-      image: "/images/internshiplive.png",
+      image: "/images/live%20projects.png",
       arcStyle: "lg:rotate-y-[-12deg] lg:-translate-y-2 lg:scale-[0.96]",
     },
   ];
@@ -191,8 +195,8 @@ export default function InternshipTrainingPage() {
 
       <main className="relative z-10 mx-auto flex min-h-0 w-full max-w-368 flex-1 flex-col justify-start gap-2 overflow-hidden px-3 py-1 sm:px-8 lg:gap-3 lg:px-12">
         {/* Header Section */}
-        <div className="relative flex w-full shrink-0 flex-col items-center justify-between gap-2 py-1 lg:flex-row lg:py-0">
-          <div className="w-full lg:w-[55%] flex flex-col justify-center space-y-2 lg:space-y-3">
+        <div className="relative flex w-full shrink-0 flex-row items-start justify-between gap-2 py-1 lg:py-0">
+          <div className="flex min-w-0 flex-1 flex-col justify-center space-y-2 lg:w-[55%] lg:flex-none lg:space-y-3">
             <span className="relative top-2 inline-flex items-center w-max gap-2 px-3 py-1 rounded-full text-[10px] font-bold bg-red-500/10 border border-red-500/30 text-red-400 backdrop-blur-md">
               <GraduationCap className="w-3.5 h-3.5" /> Industry-Level Live
               Project Expertise
@@ -220,21 +224,19 @@ export default function InternshipTrainingPage() {
             </div>
           </div>
 
-          <div className="w-full lg:w-[45%] flex flex-col items-stretch justify-center lg:items-end">
-            <div className="flex flex-wrap items-center justify-start gap-2 sm:gap-3 lg:justify-end">
-              <Link
-                href="/audio-visual-manufacturing"
-                className="rounded-full border border-white/20 bg-black/40 backdrop-blur-md px-3 sm:px-4 py-2 text-[9px] sm:text-[10px] font-bold text-white transition-all duration-300 ease-out shadow-sm hover:-translate-y-0.5 hover:scale-[1.03] hover:bg-[#B30E16] hover:border-[#B30E16] hover:shadow-[0_0_18px_rgba(179,14,22,0.45)] active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C4C] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none"
-              >
-                Audio Visual Manufacturing
-              </Link>
-              <Link
-                href="/app-web-development"
-                className="rounded-full border border-white/20 bg-black/40 backdrop-blur-md px-3 sm:px-4 py-2 text-[9px] sm:text-[10px] font-bold text-white transition-all duration-300 ease-out shadow-sm hover:-translate-y-0.5 hover:scale-[1.03] hover:bg-[#B30E16] hover:border-[#B30E16] hover:shadow-[0_0_18px_rgba(179,14,22,0.45)] active:translate-y-0 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C4C] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 motion-reduce:transition-none"
-              >
-                App &amp; Web Development
-              </Link>
-            </div>
+          <div className="flex shrink-0 flex-col items-end gap-2 -translate-y-3 sm:-translate-y-4 lg:w-[45%] lg:translate-y-0">
+            <Link
+              href="/audio-visual-manufacturing"
+              className="rounded-full border border-[#00F2FE]/60 bg-black/35 px-3 py-2 text-[9px] font-bold uppercase tracking-[0.2em] text-cyan-300 text-right backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)] transition-all duration-300 hover:bg-[#00F2FE] hover:text-black"
+            >
+              Audio Visual Manufacturing
+            </Link>
+            <Link
+              href="/app-web-development"
+              className="inline-flex items-center justify-center rounded-full border border-[#00F2FE]/60 bg-black/35 px-3 py-2 text-[9px] font-bold uppercase tracking-[0.2em] text-cyan-300 text-right backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)] transition-all duration-300 hover:bg-[#00F2FE] hover:text-black"
+            >
+              App &amp; Web Development
+            </Link>
           </div>
         </div>
 
@@ -273,6 +275,12 @@ export default function InternshipTrainingPage() {
                     />
                   </div>
                 </div>
+                <div className="pointer-events-none absolute inset-x-1 bottom-1 z-10 bg-gradient-to-t from-[#050810]/95 via-[#050810]/85 to-transparent px-2 pb-2 pt-7 text-left sm:inset-x-3 sm:bottom-3 sm:px-3 sm:pb-3 sm:pt-10">
+                  <div className="mb-1.5 h-0.5 w-7 rounded-full bg-cyan-300 shadow-[0_0_10px_rgba(103,232,249,0.8)] sm:mb-2 sm:w-9" />
+                  <p className="text-[9px] font-medium leading-snug text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] sm:text-[10px] lg:text-xs">
+                    {prog.description}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -293,9 +301,10 @@ export default function InternshipTrainingPage() {
 
           <button
             onClick={() => router.push("/contact")}
-            className="shrink-0 bg-[#B30E16] hover:bg-red-600 text-white px-3 py-1.5 rounded-full text-[9px] font-bold transition-all duration-300 shadow-[0_0_15px_rgba(255,76,76,0.3)] flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
+            className="shrink-0 bg-[#B30E16] hover:bg-red-600 text-white px-4 py-2 rounded-full text-[10px] font-bold transition-all duration-300 ease-out shadow-[0_0_15px_rgba(255,76,76,0.4)] hover:shadow-[0_0_25px_rgba(255,76,76,0.7)] hover:scale-105 active:scale-95 flex items-center gap-1.5 cursor-pointer whitespace-nowrap group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950"
           >
-            Request Details <ArrowRight className="w-3 h-3" />
+            <span>Request Details</span>
+            <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" />
           </button>
         </div>
       </motion.div>
@@ -317,7 +326,7 @@ export default function InternshipTrainingPage() {
               type="button"
               aria-label="Close gallery"
               onClick={closeGallery}
-              className="absolute right-4 top-4 z-20 rounded-full border border-white/15 bg-black/40 p-2 text-white transition hover:bg-white/10"
+              className="absolute right-4 top-4 z-20 rounded-full border border-white/20 bg-black/50 p-2 text-white transition-all duration-300 hover:bg-[#B30E16] hover:border-[#B30E16] hover:scale-110 active:scale-95 shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C4C]"
             >
               <X className="h-5 w-5" />
             </button>
@@ -327,7 +336,7 @@ export default function InternshipTrainingPage() {
                 type="button"
                 aria-label="Previous image"
                 onClick={goToPreviousSlide}
-                className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/15 bg-black/35 p-3 text-white transition hover:bg-black/50"
+                className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/20 bg-black/50 p-3 text-white transition-all duration-300 hover:bg-[#B30E16] hover:border-[#B30E16] hover:scale-110 active:scale-95 shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C4C]"
               >
                 <ChevronLeft className="h-6 w-6" />
               </button>
@@ -336,7 +345,7 @@ export default function InternshipTrainingPage() {
                 type="button"
                 aria-label="Next image"
                 onClick={goToNextSlide}
-                className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/15 bg-black/35 p-3 text-white transition hover:bg-black/50"
+                className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/20 bg-black/50 p-3 text-white transition-all duration-300 hover:bg-[#B30E16] hover:border-[#B30E16] hover:scale-110 active:scale-95 shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF4C4C]"
               >
                 <ChevronRight className="h-6 w-6" />
               </button>
