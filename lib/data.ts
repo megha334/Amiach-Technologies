@@ -9,6 +9,10 @@ export const heroSlides = [
     ],
   },
   {
+    image: "/images/businesss.jpeg",
+    mobileImage: "/images/business mobile.png",
+  },
+  {
     image: "/images/BannerSecond.jpg",
     mobileImage: "/images/AppwebMobile.jpeg",
   },
@@ -23,6 +27,11 @@ export const whatWeDoCategories = [
     badge: "Hardware",
     title: "Audio Visual Manufacturing",
     href: "/audio-visual-manufacturing",
+  },
+  {
+    badge: "Business",
+    title: "Business Automation",
+    href: "/business-automation",
   },
   {
     badge: "Academy",
