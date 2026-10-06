@@ -266,13 +266,13 @@ function ProcessSection() {
             {/* hero */}
             <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
               <div>
-                <h1 className="max-w-[720px] text-[23px] font-black leading-[0.98] tracking-[-0.045em] text-[#101529] sm:text-[34px] lg:text-[42px]">
-                  From idea to
+                <h1 className="max-w-[720px] text-[23px] font-black leading-[0.98] tracking-[-0.045em] text-[#101529] sm:text-[30px] lg:text-[38px]">
+                  From Idea to
                   <span className="block bg-gradient-to-r from-[#236BFF] via-[#5366E8] to-[#9A57E8] bg-clip-text text-transparent">
-                    solution
+                    Solution
                   </span>
                   <span className="block">
-                    for your process
+                    for your Process
                   </span>
                 </h1>
               </div>
@@ -316,9 +316,7 @@ function ProcessSection() {
 
         {/* process cards */}
         {/* process cards — editorial 4-column layout */}
-       {/* process cards */}
-{/* process cards — editorial 4-column layout */}
-<div className="relative mt-16 bg-[#151b2b7a]">
+<div className="relative mt-9 bg-[#151b2b7a]">
   <div className="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-4">
     {steps.map((step, index) => {
       return (
@@ -340,12 +338,26 @@ function ProcessSection() {
           )}
 
           {/* Step label */}
-          <div className="flex w-full items-center justify-between">
+          {/* <div className="flex w-full items-center justify-between">
             <span
               className="text-[9px] font-bold uppercase tracking-[0.18em] transition-all duration-300 group-hover:tracking-[0.24em] text-[#00F2FE]"
             >
               SITE-{step.number}
-            </span>
+            </span> */}
+
+            {/* Step label / Arrow */}
+<div className="flex w-full items-center justify-between">
+  <div className="flex items-center gap-1.5 text-[#00F2FE]">
+    {/* Solid animated arrow */}
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+    >
+      <path d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" />
+    </svg>
+  </div>
+
 
             {/* small arrow appears on hover */}
             <span
@@ -397,11 +409,12 @@ function ProjectsSection() {
               Projects
             </div>
 
-            <h2 className="mt-6 text-[30px] font-black leading-[0.98] tracking-[-0.045em] text-[#101529] sm:text-[35px]">
-              Application that perform — 
+            <h2 className="mt-6 text-[25px] font-black leading-[0.98] tracking-[-0.045em] text-[#101529] sm:text-[35px]">
+              Application that Performs -
           
               <span className="bg-linear-to-r from-[#236BFF] to-[#865BEA] bg-clip-text text-transparent">
-                not just a concept.
+                
+                &nbsp;Not just a Concept.
               </span>
             </h2>
 
@@ -414,187 +427,65 @@ function ProjectsSection() {
 
           {/* production dashboard */}
           <div className="relative">
-            <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-[#DDE2FF] blur-3xl" />
+  {/* Background blur glow */}
+  <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-[#DDE2FF] blur-3xl" />
 
-            <div className="relative rounded-[18px] border border-[#DFE1ED] bg-white/90 backdrop-blur-md p-2 shadow-[0_22px_60px_rgba(35,45,95,0.12)]">
-              {/* browser bar */}
-              <div className="flex h-8 items-center justify-between border-b border-[#ECEEF4] px-3">
-                <div className="flex items-center gap-3">
-                  <BrowserDots />
+  {/* Outer window frame */}
+  <div className="relative rounded-[18px] border border-[#DFE1ED] bg-white/90 backdrop-blur-md p-2 shadow-[0_22px_60px_rgba(35,45,95,0.12)]">
+    {/* Browser header bar */}
+    <div className="flex h-8 items-center justify-between border-b border-[#ECEEF4] px-3">
+      <div className="flex items-center gap-3">
+        <BrowserDots />
 
-                  <span className="hidden text-[7px] font-semibold text-[#979AAA] sm:block">
-                    production-app-v2.1
-                  </span>
-                </div>
+        <span className="hidden text-[7px] font-semibold text-[#979AAA] sm:block">
+          production-app-v2.1
+        </span>
+      </div>
 
-                <span className="rounded-full bg-[#EAF8F2] px-2 py-1 text-[6px] font-bold text-[#14805D]">
-                  LIVE
-                </span>
-              </div>
+      <span className="rounded-full bg-[#EAF8F2] px-2 py-1 text-[6px] font-bold text-[#14805D]">
+        LIVE
+      </span>
+    </div>
 
-              <div className="grid min-h-[310px] grid-cols-[105px_1fr]">
-                {/* sidebar */}
-                <aside className="border-r border-[#ECEEF4] bg-[#F8F9FD]/90 p-3">
-                  <div className="mb-6 flex items-center gap-2">
-                    <div className="flex h-5 w-5 items-center justify-center rounded-md bg-gradient-to-br from-[#4969FF] to-[#8A58E8]">
-                      <Sparkles className="h-2.5 w-2.5 text-white" />
-                    </div>
+    {/* Image container matching exact min-height and bounds */}
+    <div className="relative min-h-[310px] w-full overflow-hidden rounded-b-[12px]">
+      <img
+        src="/images/businessproject.jpeg"
+        alt="Business Project Dashboard"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+    </div>
+  </div>
 
-                    <span className="text-[8px] font-black">
-                      Nexora
-                    </span>
-                  </div>
+  {/* Floating project indicators */}
+  <div className="absolute -bottom-4 -left-4 rounded-xl border border-[#E4E5EE] bg-white px-3 py-2 shadow-xl sm:-left-7">
+    <div className="flex items-center gap-2">
+      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
 
-                  <div className="space-y-1 text-[7px] font-semibold text-[#8B8FA1]">
-                    <div className="rounded-md bg-[#EEF1FF] px-2 py-2 text-[#4969FF]">
-                      Dashboard
-                    </div>
+      <span className="text-[7px] font-bold text-[#555A6B]">
+        Real project
+      </span>
+    </div>
 
-                    <div className="px-2 py-2">
-                      Projects
-                    </div>
+    <div className="mt-1 text-[6px] text-[#999DAC]">
+      Built & deployed
+    </div>
+  </div>
 
-                    <div className="px-2 py-2">
-                      Analytics
-                    </div>
+  <div className="absolute -right-2 top-7 rounded-xl border border-[#E4E5EE] bg-white px-3 py-2 shadow-xl sm:-right-5">
+    <div className="flex items-center gap-2">
+      <TrendingUp className="h-3.5 w-3.5 text-[#4969FF]" />
 
-                    <div className="px-2 py-2">
-                      Team
-                    </div>
+      <span className="text-[8px] font-bold">
+        +24%
+      </span>
+    </div>
 
-                    <div className="px-2 py-2">
-                      Settings
-                    </div>
-                  </div>
-                </aside>
-
-                {/* dashboard */}
-                <div className="p-4">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <div className="text-[7px] text-[#9A9EAE]">
-                        Overview
-                      </div>
-
-                      <h3 className="mt-1 text-[16px] font-black text-[#15192B]">
-                        Project performance
-                      </h3>
-                    </div>
-
-                    <div className="rounded-lg border border-[#ECEEF4] px-2.5 py-1.5 text-[7px] text-[#898D9F]">
-                      This month
-                    </div>
-                  </div>
-
-                  {/* stats */}
-                  <div className="mt-4 grid grid-cols-3 gap-2">
-                    {[
-                      ["24", "Total Projects", "+12%"],
-                      ["18", "Active Clients", "+8%"],
-                      ["$12.4k", "Revenue", "+22%"],
-                    ].map(([value, label, growth]) => (
-                      <div
-                        key={label}
-                        className="rounded-lg border border-[#ECEEF4] bg-white p-2.5 shadow-sm"
-                      >
-                        <div className="text-[13px] font-black text-[#161A2B]">
-                          {value}
-                        </div>
-
-                        <div className="mt-1 text-[6px] text-[#999DAC]">
-                          {label}
-                        </div>
-
-                        <div className="mt-2 text-[6px] font-bold text-emerald-500">
-                          {growth} from last month
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* graph */}
-                  <div className="mt-3 rounded-lg border border-[#ECEEF4] p-3">
-                    <div className="mb-2 flex items-center justify-between">
-                      <span className="text-[7px] font-bold">
-                        Project performance
-                      </span>
-
-                      <BarChart3 className="h-3.5 w-3.5 text-[#4969FF]" />
-                    </div>
-
-                    <svg
-                      viewBox="0 0 600 130"
-                      className="h-[95px] w-full"
-                      fill="none"
-                    >
-                      <path
-                        d="M5 105 C70 92 75 70 135 82 C200 95 220 45 280 60 C335 75 355 30 405 48 C470 70 500 18 595 32"
-                        stroke="#4969FF"
-                        strokeWidth="4"
-                        strokeLinecap="round"
-                      />
-
-                      <path
-                        d="M5 105 C70 92 75 70 135 82 C200 95 220 45 280 60 C335 75 355 30 405 48 C470 70 500 18 595 32 V130 H5 Z"
-                        fill="url(#projectArea)"
-                        opacity=".3"
-                      />
-
-                      <defs>
-                        <linearGradient
-                          id="projectArea"
-                          x1="0"
-                          y1="0"
-                          x2="0"
-                          y2="1"
-                        >
-                          <stop
-                            stopColor="#4969FF"
-                            stopOpacity=".4"
-                          />
-
-                          <stop
-                            offset="1"
-                            stopColor="#4969FF"
-                            stopOpacity="0"
-                          />
-                        </linearGradient>
-                      </defs>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* floating project indicators */}
-            <div className="absolute -bottom-4 -left-4 rounded-xl border border-[#E4E5EE] bg-white px-3 py-2 shadow-xl sm:-left-7">
-              <div className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-
-                <span className="text-[7px] font-bold text-[#555A6B]">
-                  Real project
-                </span>
-              </div>
-
-              <div className="mt-1 text-[6px] text-[#999DAC]">
-                Built & deployed
-              </div>
-            </div>
-
-            <div className="absolute -right-2 top-7 rounded-xl border border-[#E4E5EE] bg-white px-3 py-2 shadow-xl sm:-right-5">
-              <div className="flex items-center gap-2">
-                <TrendingUp className="h-3.5 w-3.5 text-[#4969FF]" />
-
-                <span className="text-[8px] font-bold">
-                  +24%
-                </span>
-              </div>
-
-              <div className="mt-1 text-[6px] text-[#999DAC]">
-                monthly growth
-              </div>
-            </div>
-          </div>
+    <div className="mt-1 text-[6px] text-[#999DAC]">
+      monthly growth
+    </div>
+  </div>
+</div>
         </div>
       </div>
     </section>

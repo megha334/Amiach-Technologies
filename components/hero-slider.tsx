@@ -178,13 +178,13 @@ export function HeroSlider() {
       </button>
 
       {/* Make In India Image */}
-      <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-8 lg:bottom-12 lg:left-12 z-20 pointer-events-none opacity-90 hover:opacity-100 transition-opacity">
+      <div className="absolute bottom-10 left-4 sm:bottom-6 sm:left-8 lg:bottom-12 lg:left-12 z-20 pointer-events-none opacity-90 hover:opacity-100 transition-opacity">
         <Image
           src="/images/make-in-india.png"
           alt="Make in India"
           width={160}
           height={80}
-          className="h-9 sm:h-14 lg:h-20 w-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]"
+          className="h-11 sm:h-14 lg:h-20 w-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]"
         />
       </div>
     </div>
