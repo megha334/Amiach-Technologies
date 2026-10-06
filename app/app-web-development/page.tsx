@@ -40,7 +40,7 @@ export default function AppWebDevelopmentPage() {
   const handleInputChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
+    >,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -155,6 +155,12 @@ export default function AppWebDevelopmentPage() {
             >
               Audio Visual Manufacturing
             </Link>
+             <Link
+              href="/business-automation"
+              className="inline-flex items-center justify-center rounded-full border border-[#00F2FE]/60 bg-black/35 px-3.5 py-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-300 transition-all duration-300 hover:bg-[#00F2FE] hover:text-black backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)] text-right"
+            >
+              Business Automation
+            </Link>
             <Link
               href="/internship-training"
               className="inline-flex items-center justify-center rounded-full border border-[#00F2FE]/60 bg-black/35 px-3.5 py-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-300 transition-all duration-300 hover:bg-[#00F2FE] hover:text-black backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)] text-right"
@@ -166,105 +172,105 @@ export default function AppWebDevelopmentPage() {
       </section>
 
       {/* 3. End-to-End Application Services */}
-      <section className="py-9 px-4 sm:px-8 lg:px-14 bg-[#f8fafc] text-slate-900 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start justify-between gap-8">
-          <div className="lg:w-1/3 space-y-3">
-            <p className="text-[11px] font-bold tracking-[0.2em] text-[#ff2a5f] uppercase">
-              WHY CHOOSE AMIACH
-            </p>
+     <section className="py-9 px-4 sm:px-8 lg:px-14 bg-[#f8fafc] text-slate-900 border-t border-slate-200">
+  <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start justify-between gap-8">
+    <div className="lg:w-1/3 space-y-3">
+      <p className="text-[11px] font-bold tracking-[0.2em] text-[#ff2a5f] uppercase">
+        WHY CHOOSE AMIACH
+      </p>
 
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight">
-              End-to-End Application <br /> Development Services
-            </h2>
+      <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight">
+        End-to-End Application <br /> Development Services
+      </h2>
 
-            <button
-              onClick={() => setIsFormOpen(true)}
-              className="
-                mt-1 px-4 py-2 rounded-full
-                bg-[#ff2a5f] text-white
-                font-bold text-xs tracking-wide
-                flex items-center gap-1.5
-                shadow-md cursor-pointer
-                transition-all duration-300
-                hover:bg-rose-600
-                hover:scale-105
-                hover:shadow-[0_8px_25px_rgba(255,42,95,0.35)]
-                active:scale-95
-                animate-[pulse_2.5s_ease-in-out_infinite]
-              "
-            >
-              <span>Get a Free Consultation</span>
-              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
-          </div>
+      <button
+        onClick={() => setIsFormOpen(true)}
+        className="
+          mt-1 px-4 py-2 rounded-full
+          bg-[#ff2a5f] text-white
+          font-bold text-xs tracking-wide
+          flex items-center gap-1.5
+          shadow-md cursor-pointer
+          transition-all duration-300
+          hover:bg-rose-600
+          hover:scale-105
+          hover:shadow-[0_8px_25px_rgba(255,42,95,0.35)]
+          active:scale-95
+          animate-[pulse_2.5s_ease-in-out_infinite]
+        "
+      >
+        <span>Get a Free Consultation</span>
+        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+      </button>
+    </div>
 
-          <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-            <div className="group bg-white border border-pink-100 rounded-xl p-4 shadow-sm flex items-start gap-3 transition-all duration-300 hover:-translate-y-1.5 hover:border-pink-300 hover:shadow-[0_10px_30px_rgba(236,72,153,0.15)] cursor-pointer">
-              <div className="w-10 h-10 rounded-lg bg-pink-100 text-pink-600 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-pink-500 group-hover:text-white group-hover:scale-110 group-hover:shadow-[0_0_18px_rgba(236,72,153,0.4)]">
-                <Globe className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="text-xs font-bold text-slate-900 group-hover:text-pink-600 transition-colors">
-                  Custom Web Applications
-                </h3>
-                <p className="text-slate-500 text-[11px] mt-1 leading-snug">
-                  Modern, responsive and user-friendly web applications tailored
-                  to your business needs.
-                </p>
-              </div>
-            </div>
-
-            <div className="group bg-white border border-purple-100 rounded-xl p-4 shadow-sm flex items-start gap-3 transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-300 hover:shadow-[0_10px_30px_rgba(168,85,247,0.15)] cursor-pointer">
-              <div className="w-10 h-10 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-purple-500 group-hover:text-white group-hover:scale-110 group-hover:shadow-[0_0_18px_rgba(168,85,247,0.4)]">
-                <Smartphone className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="text-xs font-bold text-slate-900 group-hover:text-purple-600 transition-colors">
-                  Mobile App Development
-                </h3>
-                <p className="text-slate-500 text-[11px] mt-1 leading-snug">
-                  iOS &amp; Android apps with seamless performance and great
-                  user experience.
-                </p>
-              </div>
-            </div>
-
-            <div className="group bg-white border border-blue-100 rounded-xl p-4 shadow-sm flex items-start gap-3 transition-all duration-300 hover:-translate-y-1.5 hover:border-blue-300 hover:shadow-[0_10px_30px_rgba(59,130,246,0.15)] cursor-pointer">
-              <div className="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-blue-500 group-hover:text-white group-hover:scale-110 group-hover:shadow-[0_0_18px_rgba(59,130,246,0.4)]">
-                <Layers className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
-                  Enterprise Solutions
-                </h3>
-                <p className="text-slate-500 text-[11px] mt-1 leading-snug">
-                  Scalable and secure solutions for enterprise-grade operations.
-                </p>
-              </div>
-            </div>
-
-            <div className="group bg-white border border-emerald-100 rounded-xl p-4 shadow-sm flex items-start gap-3 transition-all duration-300 hover:-translate-y-1.5 hover:border-emerald-300 hover:shadow-[0_10px_30px_rgba(16,185,129,0.15)] cursor-pointer">
-              <div className="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-emerald-500 group-hover:text-white group-hover:scale-110 group-hover:shadow-[0_0_18px_rgba(16,185,129,0.4)]">
-                <Layout className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="text-xs font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">
-                  UI/UX Design &amp; Development
-                </h3>
-                <p className="text-slate-500 text-[11px] mt-1 leading-snug">
-                  Intuitive designs that engage users and drive better results.
-                </p>
-              </div>
-            </div>
-          </div>
+    <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+      <div className="group bg-white border border-pink-100 rounded-xl p-4 shadow-sm flex items-start gap-3 transition-all duration-300 hover:-translate-y-1.5 hover:border-pink-300 hover:shadow-[0_10px_30px_rgba(236,72,153,0.15)] cursor-pointer">
+        <div className="w-10 h-10 rounded-lg bg-pink-100 text-pink-600 flex items-center justify-center shrink-0">
+          <Globe className="w-5 h-5" />
         </div>
-      </section>
+        <div>
+          <h3 className="text-xs font-bold text-slate-900">
+            Custom Web Applications
+          </h3>
+          <p className="text-slate-500 text-[11px] mt-1 leading-snug">
+            Modern, responsive and user-friendly web applications tailored
+            to your business needs.
+          </p>
+        </div>
+      </div>
+
+      <div className="group bg-white border border-purple-100 rounded-xl p-4 shadow-sm flex items-start gap-3 transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-300 hover:shadow-[0_10px_30px_rgba(168,85,247,0.15)] cursor-pointer">
+        <div className="w-10 h-10 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center shrink-0">
+          <Smartphone className="w-5 h-5" />
+        </div>
+        <div>
+          <h3 className="text-xs font-bold text-slate-900">
+            Mobile App Development
+          </h3>
+          <p className="text-slate-500 text-[11px] mt-1 leading-snug">
+            iOS &amp; Android apps with seamless performance and great
+            user experience.
+          </p>
+        </div>
+      </div>
+
+      <div className="group bg-white border border-blue-100 rounded-xl p-4 shadow-sm flex items-start gap-3 transition-all duration-300 hover:-translate-y-1.5 hover:border-blue-300 hover:shadow-[0_10px_30px_rgba(59,130,246,0.15)] cursor-pointer">
+        <div className="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+          <Layers className="w-5 h-5" />
+        </div>
+        <div>
+          <h3 className="text-xs font-bold text-slate-900">
+            Enterprise Solutions
+          </h3>
+          <p className="text-slate-500 text-[11px] mt-1 leading-snug">
+            Scalable and secure solutions for enterprise-grade operations.
+          </p>
+        </div>
+      </div>
+
+      <div className="group bg-white border border-emerald-100 rounded-xl p-4 shadow-sm flex items-start gap-3 transition-all duration-300 hover:-translate-y-1.5 hover:border-emerald-300 hover:shadow-[0_10px_30px_rgba(16,185,129,0.15)] cursor-pointer">
+        <div className="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+          <Layout className="w-5 h-5" />
+        </div>
+        <div>
+          <h3 className="text-xs font-bold text-slate-900">
+            UI/UX Design &amp; Development
+          </h3>
+          <p className="text-slate-500 text-[11px] mt-1 leading-snug">
+            Intuitive designs that engage users and drive better results.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Tech Stack Banner */}
-      <section className="py-9 px-4 sm:px-8 lg:px-14">
+      <section className="py-0 px-0 sm:px-8 lg:px-14">
         <div className="max-w-7xl mx-auto flex items-center justify-center">
           <Image
-            src="/images/tech stack.png"
+            src="/images/tech stackk.png"
             alt="Tech Stack"
             width={1024}
             height={400}
@@ -384,7 +390,7 @@ export default function AppWebDevelopmentPage() {
                 <h3 className="text-xs font-bold text-white">
                   Flexible Pricing
                 </h3>
-                <p className="text-slate-400 text-[10px] leading-snug">
+                <p className="text-slate-300 text-[10px] leading-snug">
                   Pricing that suits your requirements.
                 </p>
               </div>
@@ -399,7 +405,7 @@ export default function AppWebDevelopmentPage() {
                 <h3 className="text-xs font-bold text-white">
                   Time Bound Development
                 </h3>
-                <p className="text-slate-400 text-[10px] leading-snug">
+                <p className="text-slate-300 text-[10px] leading-snug">
                   Ideal for evolving needs and long-term projects.
                 </p>
               </div>
@@ -414,7 +420,7 @@ export default function AppWebDevelopmentPage() {
                 <h3 className="text-xs font-bold text-white">
                   Experienced Team
                 </h3>
-                <p className="text-slate-400 text-[10px] leading-snug">
+                <p className="text-slate-300 text-[10px] leading-snug">
                   Dedicated team of experts, aligned with your goals.
                 </p>
               </div>
@@ -542,7 +548,9 @@ export default function AppWebDevelopmentPage() {
                   className="w-full px-3 py-2 bg-[#101b3b] border border-slate-700/60 rounded-lg text-xs text-white focus:outline-none focus:border-[#ff2a5f]"
                 >
                   <option value="iOS Application">iOS Application</option>
-                  <option value="Android Application">Android Application</option>
+                  <option value="Android Application">
+                    Android Application
+                  </option>
                   <option value="Web Application">Web Application</option>
                   <option value="Custom Software">Custom Software</option>
                   <option value="UI/UX Design">UI/UX Design</option>

@@ -169,7 +169,7 @@ export default function InternshipTrainingPage() {
       id: "languages",
       title: "Live Projects",
       description: "real-time collaboration, demos, and delivery",
-      route: "/internship-training/languages",
+      route: "/#internship-training/languages",
       gallery: null,
       image: "/images/live%20projects.png",
       arcStyle: "lg:rotate-y-[-12deg] lg:-translate-y-2 lg:scale-[0.96]",
@@ -231,12 +231,19 @@ export default function InternshipTrainingPage() {
             >
               Audio Visual Manufacturing
             </Link>
+              <Link
+              href="/business-automation"
+              className="inline-flex items-center justify-center rounded-full border border-[#00F2FE]/60 bg-black/35 px-3.5 py-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-300 transition-all duration-300 hover:bg-[#00F2FE] hover:text-black backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)] text-right"
+            >
+              Business Automation
+            </Link>
             <Link
               href="/app-web-development"
               className="inline-flex items-center justify-center rounded-full border border-[#00F2FE]/60 bg-black/35 px-3 py-2 text-[9px] font-bold uppercase tracking-[0.2em] text-cyan-300 text-right backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)] transition-all duration-300 hover:bg-[#00F2FE] hover:text-black"
             >
               App &amp; Web Development
             </Link>
+            
           </div>
         </div>
 

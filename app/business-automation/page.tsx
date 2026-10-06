@@ -1,343 +1,628 @@
-import React from 'react';
-import { 
-  Play, 
-  Zap, 
-  ShieldCheck, 
-  TrendingUp, 
-  FileText, 
-  Filter, 
-  Settings, 
-  Mail, 
-  UserCheck, 
-  Calendar, 
-  Bell, 
-  ArrowRight,
-  Search,
-  LayoutDashboard,
-  Users,
-  Layers,
-  BarChart3
-} from 'lucide-react';
+"use client";
 
-export default function BusinessAutomationPage() {
+import React from "react";
+import Link from "next/link";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  BarChart3,
+  CheckCircle2,
+  Code2,
+  FileText,
+  Lightbulb,
+  MessageSquare,
+  Rocket,
+  Sparkles,
+  TrendingUp,
+  Database,
+  Server,
+  Network,
+  Radio,
+  Gauge,
+  ShieldCheck,
+  Workflow,
+  Layers3,
+} from "lucide-react";
+
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+
+/* =========================================================
+   ORIGINAL CONTENT — PRESERVED
+========================================================= */
+
+const steps = [
+  {
+    number: "01",
+    title: "Tell Us What You Need",
+    text: "Share your idea, requirements, or business challenge in your own words. No technical knowledge or complicated terminology needed.",
+    accent: "#4969FF",
+    icon: MessageSquare,
+    visual: "idea",
+  },
+  {
+    number: "02",
+    title: "Visualize Your Solution",
+    text: "We turn your requirements into a functional preview of your website, dashboard, or digital product — so you can experience the concept before development begins.",
+    accent: "#7257E8",
+    icon: FileText,
+    visual: "design",
+  },
+  {
+    number: "03",
+    title: "Build It Right",
+    text: "Using reliable, reusable components and proven development practices, we transform the approved concept into a robust working product.",
+    accent: "#27B68A",
+    icon: Code2,
+    visual: "code",
+  },
+  {
+    number: "04",
+    title: "Launch, Support & Scale",
+    text: "Once your product is live, we're still here — improving features, supporting users, and helping the solution grow with your business.",
+    accent: "#F5A623",
+    icon: Rocket,
+    visual: "launch",
+  },
+];
+
+/* =========================================================
+   SMALL UI COMPONENTS
+========================================================= */
+
+function BrowserDots() {
   return (
-    <div 
-      className="min-h-screen text-white font-sans overflow-x-hidden selection:bg-red-500 selection:text-white bg-cover bg-center bg-no-repeat relative"
-      style={{ backgroundImage: "url('/images/business bg.png')" }}
+    <div className="flex items-center gap-1.5">
+      <span className="h-2 w-2 rounded-full bg-[#C9CCE0]" />
+      <span className="h-2 w-2 rounded-full bg-[#C9CCE0]" />
+      <span className="h-2 w-2 rounded-full bg-[#C9CCE0]" />
+    </div>
+  );
+}
+
+/* =========================================================
+   PROCESS VISUALS
+========================================================= */
+
+function StepVisual({
+  type,
+  accent,
+}: {
+  type: string;
+  accent: string;
+}) {
+  if (type === "idea") {
+    return (
+      <div className="relative h-[104px] overflow-hidden rounded-xl border border-[#E9EAF2] bg-white p-3">
+        <div className="flex items-center justify-between border-b border-[#F0F1F6] pb-2">
+          <BrowserDots />
+
+          <span className="text-[7px] font-medium text-[#969AAA]">
+            project-brief
+          </span>
+        </div>
+
+        <div className="mt-3 flex gap-2.5">
+          <div
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg"
+            style={{
+              backgroundColor: `${accent}12`,
+              color: accent,
+            }}
+          >
+            <Lightbulb className="h-4 w-4" />
+          </div>
+
+          <div className="flex-1 space-y-1.5 pt-1">
+            <div className="h-1.5 w-3/4 rounded-full bg-[#E4E6EF]" />
+            <div className="h-1.5 w-full rounded-full bg-[#F0F1F6]" />
+            <div className="h-1.5 w-1/2 rounded-full bg-[#F0F1F6]" />
+          </div>
+        </div>
+
+        <div
+          className="absolute bottom-2 right-2 rounded-md px-2 py-1 text-[6px] font-bold text-white"
+          style={{ backgroundColor: accent }}
+        >
+          Idea captured
+        </div>
+      </div>
+    );
+  }
+
+  if (type === "design") {
+    return (
+      <div className="relative h-[104px] overflow-hidden rounded-xl border border-[#E7E2FA] bg-white p-3">
+        <div className="mb-2 flex items-center justify-between">
+          <div className="h-1.5 w-16 rounded-full bg-[#E7E2FA]" />
+          <div className="h-4 w-4 rounded-full bg-[#F0EDFF]" />
+        </div>
+
+        <div className="grid grid-cols-[1fr_35px] gap-2">
+          <div className="rounded-md border border-[#ECE8FB] p-1.5">
+            <div className="mb-2 h-6 rounded bg-gradient-to-r from-[#F1EEFF] to-[#EEF4FF]" />
+
+            <div className="space-y-1">
+              <div className="h-1 w-full rounded bg-[#E8E3FA]" />
+              <div className="h-1 w-4/5 rounded bg-[#E8E3FA]" />
+            </div>
+          </div>
+
+          <div className="rounded-md border-2 border-[#DDD6FE] p-1">
+            <div className="h-full rounded bg-[#F4F1FF]" />
+          </div>
+        </div>
+
+        <div className="absolute bottom-2 left-3 rounded-md bg-[#7257E8] px-2 py-1 text-[6px] font-bold text-white">
+          Preview
+        </div>
+      </div>
+    );
+  }
+
+  if (type === "code") {
+    return (
+      <div className="relative h-[104px] overflow-hidden rounded-xl bg-[#0D1530] p-3">
+        <div className="flex items-center justify-between border-b border-white/10 pb-2">
+          <BrowserDots />
+
+          <span className="text-[7px] text-slate-500">
+            build-ready
+          </span>
+        </div>
+
+        <div className="mt-3 space-y-1.5 font-mono text-[7px]">
+          <div>
+            <span className="text-violet-300">const</span>{" "}
+            <span className="text-white">product</span>{" "}
+            <span className="text-slate-500">=</span>{" "}
+            <span className="text-emerald-300">true</span>
+          </div>
+
+          <div className="pl-3 text-slate-400">
+            components.map(render)
+          </div>
+
+          <div>
+            <span className="text-blue-300">deploy</span>
+            <span className="text-slate-400">();</span>
+          </div>
+        </div>
+
+        <div
+          className="absolute bottom-2 right-2 flex items-center gap-1 rounded-md px-2 py-1 text-[6px] font-bold text-white"
+          style={{ backgroundColor: accent }}
+        >
+          <CheckCircle2 className="h-2.5 w-2.5" />
+          Built
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative h-[104px] overflow-hidden rounded-xl border border-[#F1E6C9] bg-white p-3">
+      <div className="flex items-center justify-between">
+        <span className="rounded-full bg-[#E9F8F1] px-2 py-1 text-[6px] font-bold text-[#17855F]">
+          LIVE
+        </span>
+
+        <TrendingUp className="h-3.5 w-3.5 text-[#F5A623]" />
+      </div>
+
+      <div className="mt-4 flex h-11 items-end gap-1.5">
+        {[35, 52, 44, 68, 58, 82].map((height, index) => (
+          <div
+            key={index}
+            className="flex-1 rounded-t-md bg-gradient-to-t from-[#F9DCA0] to-[#F5A623]"
+            style={{ height: `${height / 2}px` }}
+          />
+        ))}
+      </div>
+
+      <div className="absolute bottom-2 right-2 rounded-lg border border-[#EEF0F5] bg-white px-2 py-1 shadow-sm">
+        <span className="text-[7px] font-bold text-[#333746]">
+          +248%
+        </span>
+
+        <span className="ml-1 text-[6px] text-[#999DAD]">
+          growth
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/* =========================================================
+   HERO / PROCESS
+========================================================= */
+
+function ProcessSection() {
+  return (
+    <section
+      id="process"
+      className="relative overflow-hidden"
     >
-      {/* Main Container */}
-      <main className="max-w-7xl mx-auto px-6 py-12 relative z-10">
-        
-        {/* Top Hero Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
-          
-          {/* Left Column: Typography & CTAs */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="inline-flex items-center gap-2">
-              <span className="h-0.5 w-6 bg-red-500"></span>
-              <span className="text-xs uppercase tracking-widest text-red-500 font-semibold">
-                BUSINESS AUTOMATION
+      {/* ambient background */}
+      <div className="pointer-events-none absolute left-[20%] top-0 h-[100px] w-[100px] rounded-full bg-[#E8E7FF]/60 blur-[120px]" />
+
+      <div className="pointer-events-none absolute -right-32 top-[35%] h-[350px] w-[350px] rounded-full bg-[#EEE8FF]/70 blur-[110px]" />
+
+      {/* Added pt-28 sm:pt-32 lg:pt-36 to prevent navbar overlap on mobile */}
+      <div className="relative mx-auto max-w-[1400px] px-6 pb-12 pt-28 sm:pt-32 lg:pt-36 sm:px-8 lg:px-10">
+        {/* Eyebrow & Hero Container */}
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
+          <div className="max-w-4xl lg:ml-[8%]">
+            {/* eyebrow */}
+            <div className="mb-5 flex items-center gap-3 text-[9px] font-bold uppercase tracking-[0.23em] text-[#4969FF]">
+              <span className="h-px w-8 bg-[#4969FF]" />
+              Your idea
+              <span className="text-[#C5C7D4]">→</span>
+              <span className="text-[#F27C72]">
+                Our process
               </span>
             </div>
 
-            <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight leading-[1.1]">
-              Automate <br />
-              Smarter. <br />
-              <span className="text-white">Grow Faster.</span>
-            </h1>
+            {/* hero */}
+            <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+              <div>
+                <h1 className="max-w-[720px] text-[23px] font-black leading-[0.98] tracking-[-0.045em] text-[#101529] sm:text-[34px] lg:text-[42px]">
+                  From idea to
+                  <span className="block bg-gradient-to-r from-[#236BFF] via-[#5366E8] to-[#9A57E8] bg-clip-text text-transparent">
+                    solution
+                  </span>
+                  <span className="block">
+                    for your process
+                  </span>
+                </h1>
+              </div>
 
-            <p className="text-gray-400 text-base leading-relaxed max-w-md">
-              Connect your tools. Automate your workflows. Save time and scale your business — all in one platform.
-            </p>
+              <div className="max-w-[470px]">
+                <p className="text-[13px] leading-6 text-[#383d53] sm:text-[14px]">
+                  From your initial requirements to a working prototype — without
+                  long proposals or endless meetings.
+                </p>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <button className="flex items-center gap-2 bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-400 text-white font-medium px-6 py-3 rounded-xl shadow-lg shadow-red-600/30 transition-all transform hover:-translate-y-0.5">
-                <span>Get Started</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-
-              <button className="flex items-center gap-2 bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-800 text-gray-200 font-medium px-6 py-3 rounded-xl transition-all">
-                <div className="w-5 h-5 rounded-full bg-neutral-800 flex items-center justify-center border border-neutral-700">
-                  <Play className="w-2.5 h-2.5 fill-current text-white ml-0.5" />
+                <div className="mt-4 flex items-center gap-2 text-[10px] font-semibold text-[#3F4354]">
+                  <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                  Four clear stages. One continuous flow.
                 </div>
-                <span>Watch Demo</span>
-              </button>
-            </div>
-
-            {/* Feature Bullets */}
-            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-neutral-800/80">
-              <div className="flex items-center gap-2 text-xs text-gray-400">
-                <Zap className="w-4 h-4 text-gray-300 shrink-0" />
-                <span>No-code automation</span>
-              </div>
-              <div className="flex items-center gap-2 text-xs text-gray-400">
-                <ShieldCheck className="w-4 h-4 text-gray-300 shrink-0" />
-                <span>Secure & reliable</span>
-              </div>
-              <div className="flex items-center gap-2 text-xs text-gray-400">
-                <TrendingUp className="w-4 h-4 text-gray-300 shrink-0" />
-                <span>Built for business growth</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Interactive Workflow Diagram */}
-          <div className="lg:col-span-7 relative">
-            <div className="flex flex-nowrap items-center justify-between gap-3 overflow-x-auto pb-4 pt-2">
-              
-              {/* Step 1: Form Submission */}
-              <div className="bg-neutral-900/80 border border-neutral-800 rounded-xl p-3 min-w-[120px] flex-1 backdrop-blur-md">
-                <div className="bg-neutral-800/60 w-8 h-8 rounded-lg flex items-center justify-center mb-2">
-                  <FileText className="w-4 h-4 text-cyan-400" />
-                </div>
-                <h4 className="text-xs font-semibold text-white">Form Submission</h4>
-                <p className="text-[10px] text-gray-400 mt-1">New lead captured from website</p>
-              </div>
-
-              {/* Connecting Line 1 */}
-              <div className="h-[2px] w-6 bg-cyan-500/50 shrink-0 relative">
-                <div className="absolute -top-1 right-0 w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee]" />
-              </div>
-
-              {/* Step 2: Qualify Lead */}
-              <div className="bg-neutral-900/80 border border-neutral-800 rounded-xl p-3 min-w-[120px] flex-1 backdrop-blur-md relative">
-                <span className="absolute -top-2 -right-2 bg-blue-600 text-[9px] px-1.5 py-0.5 rounded-full font-bold text-white flex items-center gap-0.5">
-                  <Zap className="w-2.5 h-2.5 fill-current" /> AI
-                </span>
-                <div className="bg-neutral-800/60 w-8 h-8 rounded-lg flex items-center justify-center mb-2">
-                  <Filter className="w-4 h-4 text-blue-400" />
-                </div>
-                <h4 className="text-xs font-semibold text-white">Qualify Lead</h4>
-                <p className="text-[10px] text-gray-400 mt-1">AI analyzes and enriches data</p>
-              </div>
-
-              {/* Connecting Line 2 */}
-              <div className="h-[2px] w-6 bg-green-500/50 shrink-0 relative">
-                <div className="absolute -top-1 right-0 w-2 h-2 rounded-full bg-green-400 shadow-[0_0_8px_#4ade80]" />
-              </div>
-
-              {/* Step 3: Central Hub */}
-              <div className="bg-neutral-900/90 border border-green-500/40 rounded-xl p-3 min-w-[120px] flex-1 backdrop-blur-md shadow-[0_0_20px_rgba(34,197,94,0.15)]">
-                <div className="bg-neutral-800/80 w-8 h-8 rounded-lg flex items-center justify-center mb-2">
-                  <Settings className="w-4 h-4 text-green-400 animate-spin-slow" />
-                </div>
-                <h4 className="text-xs font-semibold text-white">Automate</h4>
-                <p className="text-[10px] text-gray-400 mt-1">Trigger workflows across your tools</p>
-              </div>
-
-              {/* Connecting Branch Line */}
-              <div className="h-[2px] w-6 bg-green-500/50 shrink-0 relative" />
-
-              {/* Step 4: Actions Column */}
-              <div className="flex flex-col gap-2 shrink-0">
-                <div className="bg-neutral-900/80 border border-neutral-800 rounded-lg p-2 flex items-center gap-2 min-w-[130px]">
-                  <Mail className="w-3.5 h-3.5 text-blue-400 shrink-0" />
-                  <div>
-                    <div className="text-[11px] font-semibold">Send Email</div>
-                    <div className="text-[9px] text-gray-400">Personalized outreach</div>
-                  </div>
-                </div>
-
-                <div className="bg-neutral-900/80 border border-neutral-800 rounded-lg p-2 flex items-center gap-2 min-w-[130px]">
-                  <UserCheck className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
-                  <div>
-                    <div className="text-[11px] font-semibold">Update CRM</div>
-                    <div className="text-[9px] text-gray-400">Sync customer data</div>
-                  </div>
-                </div>
-
-                <div className="bg-neutral-900/80 border border-neutral-800 rounded-lg p-2 flex items-center gap-2 min-w-[130px]">
-                  <Calendar className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                  <div>
-                    <div className="text-[11px] font-semibold">Schedule Meeting</div>
-                    <div className="text-[9px] text-gray-400">Book on calendar</div>
-                  </div>
-                </div>
-
-                <div className="bg-neutral-900/80 border border-neutral-800 rounded-lg p-2 flex items-center gap-2 min-w-[130px]">
-                  <Bell className="w-3.5 h-3.5 text-purple-400 shrink-0" />
-                  <div>
-                    <div className="text-[11px] font-semibold">Notify Team</div>
-                    <div className="text-[9px] text-gray-400">Instant alerts</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Connecting Branch Line */}
-              <div className="h-[2px] w-6 bg-cyan-500/50 shrink-0 relative" />
-
-              {/* Step 5: Business Growth */}
-              <div className="bg-neutral-900/80 border border-neutral-800 rounded-xl p-3 min-w-[120px] flex-1 backdrop-blur-md">
-                <div className="bg-neutral-800/60 w-8 h-8 rounded-lg flex items-center justify-center mb-2">
-                  <BarChart3 className="w-4 h-4 text-green-400" />
-                </div>
-                <h4 className="text-xs font-semibold text-white">Business Growth</h4>
-                <p className="text-[10px] text-gray-400 mt-1">More leads. Higher conversions.</p>
-              </div>
-
-            </div>
+          {/* Action buttons shifted top-rightward on mobile and made smaller */}
+          <div className="flex flex-col items-end gap-1.5 sm:gap-2 shrink-0 self-end sm:self-start lg:self-center -mt-8 sm:mt-12 -translate-y-3 sm:-translate-y-4 lg:-translate-y-6">
+            <Link
+              href="/internship-training"
+              className="rounded-full border border-[#00F2FE]/60 bg-black/35 px-2.5 py-1.5 sm:px-3 sm:py-2 text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-cyan-300 transition-all duration-300 hover:bg-[#00F2FE] hover:text-black backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)] text-right"
+            >
+              Internship Training
+            </Link>          
+            <Link
+              href="/app-web-development"
+              className="inline-flex items-center justify-center rounded-full border border-[#00F2FE]/60 bg-black/35 px-2.5 py-1.5 sm:px-3 sm:py-2 text-[8px] sm:text-[9px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-cyan-300 transition-all duration-300 hover:bg-[#00F2FE] hover:text-black backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)] text-right"
+            >
+              App &amp; Web Development
+            </Link>
+             <Link
+              href="/audio-visual-manufacturing"
+              className="inline-flex items-center justify-center rounded-full border border-[#00F2FE]/60 bg-black/35 px-2.5 py-1.5 sm:px-3.5 sm:py-2 text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-cyan-300 transition-all duration-300 hover:bg-[#00F2FE] hover:text-black backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)] text-right"
+            >
+              Audio Visual Manufacturing
+            </Link>
           </div>
         </div>
 
-        {/* Bottom Section: Social Proof Metrics & Dashboard Mockup */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-          
-          {/* Key Metrics Grid */}
-          <div className="lg:col-span-5 grid grid-cols-2 gap-4">
-            <div className="bg-neutral-900/50 border border-neutral-800/80 rounded-xl p-4">
-              <div className="flex items-baseline gap-2">
-                <span className="text-2xl font-extrabold text-white">10K+</span>
-                <span className="text-xs text-green-400 font-medium">▲</span>
-              </div>
-              <p className="text-xs text-gray-400 mt-1">Businesses Automated</p>
-            </div>
+        {/* process cards */}
+        {/* process cards — editorial 4-column layout */}
+        <div className="relative mt-16 bg-[#151b2b7a]">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
+            {steps.map((step, index) => {
+              return (
+                <article
+                  key={step.number}
+                  className="group relative min-h-[195px] border-t border-[#D9DCE6] px-4 pt-5 pb-6 sm:pb-0 transition-all duration-500 xl:px-5 flex flex-col items-center text-center sm:items-start sm:text-left"
+                >
+                  {/* subtle hover background */}
+                  <div
+                    className="pointer-events-none absolute inset-x-0 top-0 h-full -z-10 opacity-0 transition-all duration-500 group-hover:opacity-100"
+                    style={{
+                      background: `linear-gradient(to bottom, ${step.accent}08, transparent 65%)`,
+                    }}
+                  />
 
-            <div className="bg-neutral-900/50 border border-neutral-800/80 rounded-xl p-4">
-              <div className="flex items-baseline gap-2">
-                <span className="text-2xl font-extrabold text-white">95%</span>
-                <span className="text-xs text-green-400 font-medium">▲</span>
-              </div>
-              <p className="text-xs text-gray-400 mt-1">Time Saved on Manual Tasks</p>
-            </div>
+                  {/* vertical divider */}
+                  {index !== steps.length - 1 && (
+                    <div className="absolute right-0 top-0 hidden h-full w-px bg-[#E1E3EA] xl:block" />
+                  )}
 
-            <div className="bg-neutral-900/50 border border-neutral-800/80 rounded-xl p-4">
-              <div className="flex items-baseline gap-2">
-                <span className="text-2xl font-extrabold text-white">3X</span>
-                <span className="text-xs text-green-400 font-medium">▲</span>
-              </div>
-              <p className="text-xs text-gray-400 mt-1">Average Growth in Conversions</p>
-            </div>
+                  {/* Step label */}
+                  <div className="flex w-full items-center justify-between">
+                    <span
+                      className="text-[9px] font-bold uppercase tracking-[0.18em] transition-all duration-300 group-hover:tracking-[0.24em] text-[#00F2FE]"
+                    >
+                      SITE-{step.number}
+                    </span>
 
-            <div className="bg-neutral-900/50 border border-neutral-800/80 rounded-xl p-4">
-              <div className="flex items-baseline gap-2">
-                <span className="text-2xl font-extrabold text-white">+68%</span>
-                <span className="text-xs text-green-400 font-medium">▲</span>
-              </div>
-              <p className="text-xs text-gray-400 mt-1">Increase in Qualified Leads</p>
-            </div>
-          </div>
-
-          {/* SaaS Dashboard Perspective Mockup */}
-          <div className="lg:col-span-7">
-            <div className="relative rounded-2xl border border-neutral-800 bg-[#121318] p-3 shadow-2xl transition-transform hover:scale-[1.01]">
-              
-              {/* Dashboard Bar */}
-              <div className="flex items-center justify-between pb-3 mb-3 border-b border-neutral-800 text-xs">
-                <div className="flex items-center gap-2">
-                  <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
-                  <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
-                  <span className="text-gray-400 text-[11px] ml-2 font-medium">FlowPro Dashboard</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="bg-neutral-800 px-2 py-0.5 rounded text-[10px] text-gray-400 flex items-center gap-1">
-                    <Search className="w-2.5 h-2.5" /> Search
-                  </div>
-                  <div className="w-5 h-5 rounded-full bg-red-600 text-[9px] flex items-center justify-center font-bold">JD</div>
-                </div>
-              </div>
-
-              {/* Dashboard Body */}
-              <div className="grid grid-cols-12 gap-3 text-xs">
-                {/* Sidebar */}
-                <div className="col-span-3 border-r border-neutral-800 pr-2 space-y-2">
-                  <div className="flex items-center gap-1.5 text-white bg-neutral-800/60 p-1.5 rounded font-medium text-[11px]">
-                    <LayoutDashboard className="w-3 h-3 text-red-500" /> Dashboard
-                  </div>
-                  <div className="flex items-center gap-1.5 text-gray-400 p-1.5 rounded text-[11px]">
-                    <Zap className="w-3 h-3" /> Automations
-                  </div>
-                  <div className="flex items-center gap-1.5 text-gray-400 p-1.5 rounded text-[11px]">
-                    <Users className="w-3 h-3" /> Leads
-                  </div>
-                  <div className="flex items-center gap-1.5 text-gray-400 p-1.5 rounded text-[11px]">
-                    <Layers className="w-3 h-3" /> Integrations
-                  </div>
-                </div>
-
-                {/* Dashboard Stats */}
-                <div className="col-span-9 space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="font-bold text-white text-sm">Good morning,</h3>
-                      <p className="text-[10px] text-gray-400">Your automations are running smoothly.</p>
-                    </div>
-                    <span className="bg-green-500/10 border border-green-500/30 text-green-400 text-[10px] px-2 py-0.5 rounded-full flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-green-400" /> 12 automation workflows active
+                    {/* small arrow appears on hover */}
+                    <span
+                      className="translate-x-[-6px] text-[14px] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 text-[#00F2FE]"
+                    >
+                      ↗
                     </span>
                   </div>
 
-                  {/* Summary Metric Strip */}
-                  <div className="grid grid-cols-4 gap-2 text-center bg-neutral-900/60 p-2 rounded-lg border border-neutral-800">
-                    <div>
-                      <div className="text-[9px] text-gray-400">Leads Captured</div>
-                      <div className="font-bold text-white text-xs">1,248</div>
-                      <div className="text-[8px] text-green-400">↑ 24%</div>
-                    </div>
-                    <div>
-                      <div className="text-[9px] text-gray-400">Emails Sent</div>
-                      <div className="font-bold text-white text-xs">892</div>
-                      <div className="text-[8px] text-green-400">↑ 17%</div>
-                    </div>
-                    <div>
-                      <div className="text-[9px] text-gray-400">Meetings Booked</div>
-                      <div className="font-bold text-white text-xs">156</div>
-                      <div className="text-[8px] text-green-400">↑ 33%</div>
-                    </div>
-                    <div>
-                      <div className="text-[9px] text-gray-400">Conversion Rate</div>
-                      <div className="font-bold text-white text-xs">12.6%</div>
-                      <div className="text-[8px] text-green-400">↑ 28%</div>
-                    </div>
-                  </div>
+                  {/* Title (centered on mobile) */}
+                  <h2 className="mt-4 max-w-[220px] mx-auto sm:mx-0 text-[15px] font-extrabold leading-[1.25] tracking-[-0.02em] text-[#11162A] transition-transform duration-300 group-hover:translate-x-1">
+                    {step.title}
+                  </h2>
 
-                  {/* Graph & Status Area */}
-                  <div className="grid grid-cols-3 gap-2">
-                    <div className="col-span-2 bg-neutral-900/60 p-2 rounded-lg border border-neutral-800">
-                      <div className="flex justify-between items-center text-[10px] text-gray-400 mb-2">
-                        <span>Lead Growth</span>
-                        <span className="text-green-400 font-bold">+68%</span>
-                      </div>
-                      {/* Simulated Chart */}
-                      <div className="h-14 flex items-end justify-between gap-1 pt-2 border-b border-neutral-800">
-                        <div className="w-full bg-blue-500/20 h-[30%] rounded-t" />
-                        <div className="w-full bg-blue-500/30 h-[45%] rounded-t" />
-                        <div className="w-full bg-blue-500/40 h-[40%] rounded-t" />
-                        <div className="w-full bg-blue-500/60 h-[65%] rounded-t" />
-                        <div className="w-full bg-blue-500/80 h-[80%] rounded-t" />
-                        <div className="w-full bg-blue-500 h-[100%] rounded-t" />
-                      </div>
-                    </div>
+                  {/* Description (centered on mobile) */}
+                  <p className="mt-3 max-w-[250px] mx-auto sm:mx-0 text-[11px] leading-[1.7] text-white transition-colors duration-300 group-hover:text-white/90">
+                    {step.text}
+                  </p>
 
-                    <div className="col-span-1 bg-neutral-900/60 p-2 rounded-lg border border-neutral-800 flex flex-col justify-between">
-                      <div className="text-[10px] text-gray-400">Automation Status</div>
-                      <div className="flex items-center justify-center my-1">
-                        <div className="w-10 h-10 rounded-full border-2 border-green-400 border-t-cyan-400 flex items-center justify-center text-[9px] font-bold">
-                          24
-                        </div>
-                      </div>
-                      <div className="text-[8px] space-y-0.5 text-gray-400">
-                        <div className="flex items-center justify-between">
-                          <span className="text-green-400">● Running</span>
-                          <span>18</span>
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <span className="text-blue-400">● Scheduled</span>
-                          <span>4</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  {/* Bottom accent line */}
+                  <div
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 h-[2px] w-0 transition-all duration-500 group-hover:w-12"
+                    style={{ backgroundColor: step.accent }}
+                  />
+                </article>
+              );
+            })}
+          </div>
+        </div> 
+        
+      </div>
+    </section>
+  );
+}
 
-                </div>
-              </div>
+/* =========================================================
+   PROJECT / PRODUCTION SECTION
+========================================================= */
 
+function ProjectsSection() {
+  return (
+    <section id="works" className="">
+      <div className="mx-auto max-w-[1400px] px-6 py-12 sm:px-8 lg:px-10 lg:py-16">
+        {/* heading */}
+        <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start -mt-4 lg:-mt-10">
+          <div>
+            <div className="mt-8 ml-7 flex items-center gap-3 text-[9px] font-bold uppercase tracking-[0.23em] text-[#4969FF]">
+              <span className="h-px w-8 bg-[#4969FF]" />
+              Projects
             </div>
+
+            <h2 className="mt-6 text-[30px] font-black leading-[0.98] tracking-[-0.045em] text-[#101529] sm:text-[35px]">
+              Builds we&apos;ve
+              <br />
+              actually shipped
+              <br />
+              <span className="bg-gradient-to-r from-[#236BFF] to-[#865BEA] bg-clip-text text-transparent">
+                — not mockups.
+              </span>
+            </h2>
+
+            <p className="mt-[20px] max-w-[420px] text-[15px] leading-5 text-[#11162A]">
+              Real systems built around real operational problems — from
+              warehouse workflows and marketplace analytics to financial
+              platforms and high-conversion websites.
+            </p>
           </div>
 
+          {/* production dashboard */}
+          <div className="relative">
+            <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-[#DDE2FF] blur-3xl" />
+
+            <div className="relative rounded-[18px] border border-[#DFE1ED] bg-white/90 backdrop-blur-md p-2 shadow-[0_22px_60px_rgba(35,45,95,0.12)]">
+              {/* browser bar */}
+              <div className="flex h-8 items-center justify-between border-b border-[#ECEEF4] px-3">
+                <div className="flex items-center gap-3">
+                  <BrowserDots />
+
+                  <span className="hidden text-[7px] font-semibold text-[#979AAA] sm:block">
+                    production-app-v2.1
+                  </span>
+                </div>
+
+                <span className="rounded-full bg-[#EAF8F2] px-2 py-1 text-[6px] font-bold text-[#14805D]">
+                  LIVE
+                </span>
+              </div>
+
+              <div className="grid min-h-[310px] grid-cols-[105px_1fr]">
+                {/* sidebar */}
+                <aside className="border-r border-[#ECEEF4] bg-[#F8F9FD]/90 p-3">
+                  <div className="mb-6 flex items-center gap-2">
+                    <div className="flex h-5 w-5 items-center justify-center rounded-md bg-gradient-to-br from-[#4969FF] to-[#8A58E8]">
+                      <Sparkles className="h-2.5 w-2.5 text-white" />
+                    </div>
+
+                    <span className="text-[8px] font-black">
+                      Nexora
+                    </span>
+                  </div>
+
+                  <div className="space-y-1 text-[7px] font-semibold text-[#8B8FA1]">
+                    <div className="rounded-md bg-[#EEF1FF] px-2 py-2 text-[#4969FF]">
+                      Dashboard
+                    </div>
+
+                    <div className="px-2 py-2">
+                      Projects
+                    </div>
+
+                    <div className="px-2 py-2">
+                      Analytics
+                    </div>
+
+                    <div className="px-2 py-2">
+                      Team
+                    </div>
+
+                    <div className="px-2 py-2">
+                      Settings
+                    </div>
+                  </div>
+                </aside>
+
+                {/* dashboard */}
+                <div className="p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="text-[7px] text-[#9A9EAE]">
+                        Overview
+                      </div>
+
+                      <h3 className="mt-1 text-[16px] font-black text-[#15192B]">
+                        Project performance
+                      </h3>
+                    </div>
+
+                    <div className="rounded-lg border border-[#ECEEF4] px-2.5 py-1.5 text-[7px] text-[#898D9F]">
+                      This month
+                    </div>
+                  </div>
+
+                  {/* stats */}
+                  <div className="mt-4 grid grid-cols-3 gap-2">
+                    {[
+                      ["24", "Total Projects", "+12%"],
+                      ["18", "Active Clients", "+8%"],
+                      ["$12.4k", "Revenue", "+22%"],
+                    ].map(([value, label, growth]) => (
+                      <div
+                        key={label}
+                        className="rounded-lg border border-[#ECEEF4] bg-white p-2.5 shadow-sm"
+                      >
+                        <div className="text-[13px] font-black text-[#161A2B]">
+                          {value}
+                        </div>
+
+                        <div className="mt-1 text-[6px] text-[#999DAC]">
+                          {label}
+                        </div>
+
+                        <div className="mt-2 text-[6px] font-bold text-emerald-500">
+                          {growth} from last month
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* graph */}
+                  <div className="mt-3 rounded-lg border border-[#ECEEF4] p-3">
+                    <div className="mb-2 flex items-center justify-between">
+                      <span className="text-[7px] font-bold">
+                        Project performance
+                      </span>
+
+                      <BarChart3 className="h-3.5 w-3.5 text-[#4969FF]" />
+                    </div>
+
+                    <svg
+                      viewBox="0 0 600 130"
+                      className="h-[95px] w-full"
+                      fill="none"
+                    >
+                      <path
+                        d="M5 105 C70 92 75 70 135 82 C200 95 220 45 280 60 C335 75 355 30 405 48 C470 70 500 18 595 32"
+                        stroke="#4969FF"
+                        strokeWidth="4"
+                        strokeLinecap="round"
+                      />
+
+                      <path
+                        d="M5 105 C70 92 75 70 135 82 C200 95 220 45 280 60 C335 75 355 30 405 48 C470 70 500 18 595 32 V130 H5 Z"
+                        fill="url(#projectArea)"
+                        opacity=".3"
+                      />
+
+                      <defs>
+                        <linearGradient
+                          id="projectArea"
+                          x1="0"
+                          y1="0"
+                          x2="0"
+                          y2="1"
+                        >
+                          <stop
+                            stopColor="#4969FF"
+                            stopOpacity=".4"
+                          />
+
+                          <stop
+                            offset="1"
+                            stopColor="#4969FF"
+                            stopOpacity="0"
+                          />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* floating project indicators */}
+            <div className="absolute -bottom-4 -left-4 rounded-xl border border-[#E4E5EE] bg-white px-3 py-2 shadow-xl sm:-left-7">
+              <div className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+
+                <span className="text-[7px] font-bold text-[#555A6B]">
+                  Real project
+                </span>
+              </div>
+
+              <div className="mt-1 text-[6px] text-[#999DAC]">
+                Built & deployed
+              </div>
+            </div>
+
+            <div className="absolute -right-2 top-7 rounded-xl border border-[#E4E5EE] bg-white px-3 py-2 shadow-xl sm:-right-5">
+              <div className="flex items-center gap-2">
+                <TrendingUp className="h-3.5 w-3.5 text-[#4969FF]" />
+
+                <span className="text-[8px] font-bold">
+                  +24%
+                </span>
+              </div>
+
+              <div className="mt-1 text-[6px] text-[#999DAC]">
+                monthly growth
+              </div>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </section>
+  );
+}
+
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
+export default function ProcessShowcasePage() {
+  return (
+    <main
+      className="min-h-screen overflow-x-hidden font-sans text-[#0B142B] selection:bg-[#4969FF] selection:text-white bg-cover bg-center bg-no-repeat bg-fixed"
+      style={{ backgroundImage: "url('/images/businesss%20bg.png')" }}
+    >
+      {/* Sticky / Fixed Top Navbar */}
+      <div className="fixed top-0 left-0 right-0 z-50 w-full bg-[#060b19]/90 backdrop-blur-md border-b border-slate-800/50">
+        <Navbar />
+      </div>
+
+      {/* REDESIGNED PAGE */}
+      <ProcessSection />
+
+      <ProjectsSection />
+
+      {/* YOUR EXISTING DEFAULT FOOTER */}
+      <Footer className="relative mt-auto w-full z-20" tone="dark" />
+    </main>
   );
 }

@@ -233,6 +233,12 @@ export default function AudioVideoManufacturingPage() {
               Internship Training
             </Link>
             <Link
+              href="/business-automation"
+              className="inline-flex items-center justify-center rounded-full border border-[#00F2FE]/60 bg-black/35 px-3.5 py-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-300 transition-all duration-300 hover:bg-[#00F2FE] hover:text-black backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)] text-right"
+            >
+              Business Automation
+            </Link>
+            <Link
               href="/app-web-development"
               className="inline-flex items-center justify-center rounded-full border border-[#00F2FE]/60 bg-black/35 px-3 py-2 text-[9px] font-bold uppercase tracking-[0.2em] text-cyan-300 transition-all duration-300 hover:bg-[#00F2FE] hover:text-black backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)] text-right"
             >
@@ -262,8 +268,10 @@ export default function AudioVideoManufacturingPage() {
                 } ${product.mobileImageHeight}`}
                 style={
                   {
-                    "--mobile-margin-top": product.mobileMarginTop || product.marginTop,
-                    "--mobile-margin-left": product.mobileMarginLeft || product.marginLeft,
+                    "--mobile-margin-top":
+                      product.mobileMarginTop || product.marginTop,
+                    "--mobile-margin-left":
+                      product.mobileMarginLeft || product.marginLeft,
                     "--desktop-margin-top": product.marginTop,
                     "--desktop-margin-left": product.marginLeft,
                     marginTop: "var(--margin-top)",
@@ -307,7 +315,9 @@ export default function AudioVideoManufacturingPage() {
                   <span className="w-6 h-px bg-[#00F2FE]/70" />
                 </div>
 
-                <div className={`flex flex-col ${product.mobileTextAlign} space-y-1 w-full`}>
+                <div
+                  className={`flex flex-col ${product.mobileTextAlign} space-y-1 w-full`}
+                >
                   <h3
                     className={`tracking-wider uppercase text-white ${
                       product.titleClass ||
@@ -332,7 +342,8 @@ export default function AudioVideoManufacturingPage() {
                       router.push(product.route);
                     }}
                     className={`relative z-40 mt-1.5 rounded-full border border-[#00F2FE]/60 bg-black/40 hover:bg-[#00F2FE] hover:text-black text-cyan-300 font-bold tracking-wider transition-all duration-300 flex items-center gap-1.5 cursor-pointer backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)] ${
-                      product.buttonClass || "px-3 py-1 text-[10px] sm:text-[11px]"
+                      product.buttonClass ||
+                      "px-3 py-1 text-[10px] sm:text-[11px]"
                     }`}
                   >
                     <span>EXPLORE</span>
