@@ -316,63 +316,65 @@ function ProcessSection() {
 
         {/* process cards */}
         {/* process cards — editorial 4-column layout */}
-        <div className="relative mt-16 bg-[#151b2b7a]">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4">
-            {steps.map((step, index) => {
-              return (
-                <article
-                  key={step.number}
-                  className="group relative min-h-[195px] border-t border-[#D9DCE6] px-4 pt-5 pb-6 sm:pb-0 transition-all duration-500 xl:px-5 flex flex-col items-center text-center sm:items-start sm:text-left"
-                >
-                  {/* subtle hover background */}
-                  <div
-                    className="pointer-events-none absolute inset-x-0 top-0 h-full -z-10 opacity-0 transition-all duration-500 group-hover:opacity-100"
-                    style={{
-                      background: `linear-gradient(to bottom, ${step.accent}08, transparent 65%)`,
-                    }}
-                  />
+       {/* process cards */}
+{/* process cards — editorial 4-column layout */}
+<div className="relative mt-16 bg-[#151b2b7a]">
+  <div className="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-4">
+    {steps.map((step, index) => {
+      return (
+        <article
+          key={step.number}
+          className="group relative min-h-[195px] border-t border-[#D9DCE6] px-4 pt-5 pb-6 sm:pb-0 transition-all duration-500 xl:px-5 flex flex-col items-center text-center sm:items-start sm:text-left"
+        >
+          {/* subtle hover background */}
+          <div
+            className="pointer-events-none absolute inset-x-0 top-0 h-full -z-10 opacity-0 transition-all duration-500 group-hover:opacity-100"
+            style={{
+              background: `linear-gradient(to bottom, ${step.accent}08, transparent 65%)`,
+            }}
+          />
 
-                  {/* vertical divider */}
-                  {index !== steps.length - 1 && (
-                    <div className="absolute right-0 top-0 hidden h-full w-px bg-[#E1E3EA] xl:block" />
-                  )}
+          {/* White vertical divider between columns */}
+          {index !== steps.length - 1 && (
+            <div className="absolute right-0 top-0 hidden h-full w-px bg-white md:block" />
+          )}
 
-                  {/* Step label */}
-                  <div className="flex w-full items-center justify-between">
-                    <span
-                      className="text-[9px] font-bold uppercase tracking-[0.18em] transition-all duration-300 group-hover:tracking-[0.24em] text-[#00F2FE]"
-                    >
-                      SITE-{step.number}
-                    </span>
+          {/* Step label */}
+          <div className="flex w-full items-center justify-between">
+            <span
+              className="text-[9px] font-bold uppercase tracking-[0.18em] transition-all duration-300 group-hover:tracking-[0.24em] text-[#00F2FE]"
+            >
+              SITE-{step.number}
+            </span>
 
-                    {/* small arrow appears on hover */}
-                    <span
-                      className="translate-x-[-6px] text-[14px] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 text-[#00F2FE]"
-                    >
-                      ↗
-                    </span>
-                  </div>
-
-                  {/* Title (centered on mobile) */}
-                  <h2 className="mt-4 max-w-[220px] mx-auto sm:mx-0 text-[15px] font-extrabold leading-[1.25] tracking-[-0.02em] text-[#11162A] transition-transform duration-300 group-hover:translate-x-1">
-                    {step.title}
-                  </h2>
-
-                  {/* Description (centered on mobile) */}
-                  <p className="mt-3 max-w-[250px] mx-auto sm:mx-0 text-[11px] leading-[1.7] text-white transition-colors duration-300 group-hover:text-white/90">
-                    {step.text}
-                  </p>
-
-                  {/* Bottom accent line */}
-                  <div
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 h-[2px] w-0 transition-all duration-500 group-hover:w-12"
-                    style={{ backgroundColor: step.accent }}
-                  />
-                </article>
-              );
-            })}
+            {/* small arrow appears on hover */}
+            <span
+              className="translate-x-[-6px] text-[14px] opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 text-[#00F2FE]"
+            >
+              ↗
+            </span>
           </div>
-        </div> 
+
+          {/* Title (centered on mobile) */}
+          <h2 className="mt-4 max-w-[220px] mx-auto sm:mx-0 text-[15px] font-extrabold leading-[1.25] tracking-[-0.02em] text-[#11162A] transition-transform duration-300 group-hover:translate-x-1">
+            {step.title}
+          </h2>
+
+          {/* Description (centered on mobile) */}
+          <p className="mt-3 max-w-[250px] mx-auto sm:mx-0 text-[11px] leading-[1.7] text-white transition-colors duration-300 group-hover:text-white/90">
+            {step.text}
+          </p>
+
+          {/* Bottom accent line */}
+          <div
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 h-[2px] w-0 transition-all duration-500 group-hover:w-12"
+            style={{ backgroundColor: step.accent }}
+          />
+        </article>
+      );
+    })}
+  </div>
+</div>
         
       </div>
     </section>
