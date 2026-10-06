@@ -17,8 +17,11 @@ export function Footer({
 
   return (
     <footer
-      className={`${footerClass} px-6 sm:px-12 py-4 flex flex-col sm:flex-row items-center justify-between text-xs ${textColor} drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] pointer-events-auto gap-3 sm:gap-0`}
+      className={`${footerClass} px-6 sm:px-12 py-4 flex flex-col sm:flex-row items-center justify-between text-xs ${textColor} pointer-events-auto gap-3 sm:gap-0`}
     >
+    {/* <footer
+      className={`${footerClass} px-6 sm:px-12 py-4 flex flex-col sm:flex-row items-center justify-between text-xs ${textColor} drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] pointer-events-auto gap-3 sm:gap-0`}
+    > */}
       {/* Social Media Links */}
       <div className="flex items-center gap-3">
         <a

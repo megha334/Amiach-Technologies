@@ -93,7 +93,7 @@ function StepVisual({
 }) {
   if (type === "idea") {
     return (
-      <div className="relative h-[104px] overflow-hidden rounded-xl border border-[#E9EAF2] bg-white p-3">
+      <div className="relative h-26 overflow-hidden rounded-xl border border-[#E9EAF2] bg-white p-3">
         <div className="flex items-center justify-between border-b border-[#F0F1F6] pb-2">
           <BrowserDots />
 
@@ -132,7 +132,7 @@ function StepVisual({
 
   if (type === "design") {
     return (
-      <div className="relative h-[104px] overflow-hidden rounded-xl border border-[#E7E2FA] bg-white p-3">
+      <div className="relative h-26 overflow-hidden rounded-xl border border-[#E7E2FA] bg-white p-3">
         <div className="mb-2 flex items-center justify-between">
           <div className="h-1.5 w-16 rounded-full bg-[#E7E2FA]" />
           <div className="h-4 w-4 rounded-full bg-[#F0EDFF]" />
@@ -140,7 +140,7 @@ function StepVisual({
 
         <div className="grid grid-cols-[1fr_35px] gap-2">
           <div className="rounded-md border border-[#ECE8FB] p-1.5">
-            <div className="mb-2 h-6 rounded bg-gradient-to-r from-[#F1EEFF] to-[#EEF4FF]" />
+            <div className="mb-2 h-6 rounded bg-linear-to-r from-[#F1EEFF] to-[#EEF4FF]" />
 
             <div className="space-y-1">
               <div className="h-1 w-full rounded bg-[#E8E3FA]" />
@@ -162,7 +162,7 @@ function StepVisual({
 
   if (type === "code") {
     return (
-      <div className="relative h-[104px] overflow-hidden rounded-xl bg-[#0D1530] p-3">
+      <div className="relative h-26 overflow-hidden rounded-xl bg-[#0D1530] p-3">
         <div className="flex items-center justify-between border-b border-white/10 pb-2">
           <BrowserDots />
 
@@ -201,7 +201,7 @@ function StepVisual({
   }
 
   return (
-    <div className="relative h-[104px] overflow-hidden rounded-xl border border-[#F1E6C9] bg-white p-3">
+    <div className="relative h-26 overflow-hidden rounded-xl border border-[#F1E6C9] bg-white p-3">
       <div className="flex items-center justify-between">
         <span className="rounded-full bg-[#E9F8F1] px-2 py-1 text-[6px] font-bold text-[#17855F]">
           LIVE
@@ -386,7 +386,7 @@ function ProcessSection() {
 function ProjectsSection() {
   return (
     <section id="works" className="">
-      <div className="mx-auto max-w-[1400px] px-6 py-12 sm:px-8 lg:px-10 lg:py-16">
+      <div className="mx-auto max-w-350 px-6 py-12 sm:px-8 lg:px-10 lg:py-16">
         {/* heading */}
         <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start -mt-4 lg:-mt-10">
           <div>
@@ -396,12 +396,10 @@ function ProjectsSection() {
             </div>
 
             <h2 className="mt-6 text-[30px] font-black leading-[0.98] tracking-[-0.045em] text-[#101529] sm:text-[35px]">
-              Builds we&apos;ve
-              <br />
-              actually shipped
-              <br />
-              <span className="bg-gradient-to-r from-[#236BFF] to-[#865BEA] bg-clip-text text-transparent">
-                — not mockups.
+              Application that perform — 
+          
+              <span className="bg-linear-to-r from-[#236BFF] to-[#865BEA] bg-clip-text text-transparent">
+                not just a concept.
               </span>
             </h2>
 
