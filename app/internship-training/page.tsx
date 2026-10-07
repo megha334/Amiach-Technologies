@@ -177,7 +177,7 @@ export default function InternshipTrainingPage() {
   ];
 
   return (
-    <div className="relative flex h-dvh max-h-dvh w-full flex-col overflow-hidden bg-[#0A0E1A] font-sans text-slate-900">
+    <div className="relative flex min-h-dvh w-full flex-col overflow-x-hidden bg-[#0A0E1A] font-sans text-slate-900 lg:h-dvh lg:max-h-dvh lg:overflow-hidden">
       <div className="relative z-30 w-full shrink-0">
         <Navbar variant="category" compact />
       </div>
@@ -193,7 +193,7 @@ export default function InternshipTrainingPage() {
         <div className="absolute inset-0 bg-black/20" />
       </div>
 
-      <main className="relative z-10 mx-auto flex min-h-0 w-full max-w-368 flex-1 flex-col justify-start gap-2 overflow-hidden px-3 py-1 sm:px-8 lg:gap-3 lg:px-12">
+      <main className="relative z-10 mx-auto flex min-h-0 w-full max-w-368 flex-1 flex-col justify-start gap-2 overflow-visible px-3 py-1 sm:px-8 lg:gap-3 lg:overflow-hidden lg:px-12">
         {/* Header Section */}
         <div className="relative flex w-full shrink-0 flex-row items-start justify-between gap-2 py-1 lg:py-0">
           <div className="flex min-w-0 flex-1 flex-col justify-center space-y-2 lg:w-[55%] lg:flex-none lg:space-y-3">
@@ -224,7 +224,7 @@ export default function InternshipTrainingPage() {
             </div>
           </div>
 
-          <div className="flex shrink-0 flex-col items-end gap-2 -translate-y-3 sm:-translate-y-4 lg:w-[45%] lg:translate-y-0">
+          <div className="mt-3 flex shrink-0 flex-col items-end gap-2 sm:mt-0 sm:-translate-y-4 lg:w-[45%] lg:translate-y-0">
             <Link
               href="/audio-visual-manufacturing"
               className="rounded-full border border-[#00F2FE]/60 bg-black/35 px-3 py-2 text-[9px] font-bold uppercase tracking-[0.2em] text-cyan-300 text-right backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)] transition-all duration-300 hover:bg-[#00F2FE] hover:text-black"
@@ -248,7 +248,7 @@ export default function InternshipTrainingPage() {
         </div>
 
         {/* 3D Showcase Pods Grid (Shifted Upward, Direct Inclined Text Overlay) */}
-        <div className="relative flex min-h-0 w-full flex-1 items-center justify-center overflow-hidden perspective-distant">
+        <div className="relative flex min-h-[45dvh] w-full flex-1 items-center justify-center overflow-hidden perspective-distant sm:min-h-[50dvh] lg:min-h-0">
           <motion.div
             initial="hidden"
             animate="visible"
