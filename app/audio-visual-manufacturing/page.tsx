@@ -68,14 +68,14 @@ const products: Product[] = [
     placeholder:
       "https://placehold.co/400x600/transparent/white?text=Smart+Podium",
     route: "/products/podium",
-    arcStyle: "lg:-translate-y-10 lg:translate-z-[-10px] lg:scale-[0.92]",
+    arcStyle: "lg:-translate-y-10 lg:-translate-x-8 lg:translate-z-[-10px] lg:scale-[0.92]",
     disableContainerHover: true, // Shivering/flickering band karne ke liye add kiya hai
     imageWidth: 480,
     imageHeight: 680,
     imageMaxWidth: "110%",
     imageMaxHeight: "100%",
     marginTop: "-55px",
-    marginLeft: "-50px",
+    marginLeft: "-80px",
     mobileMarginTop: "0px",
     mobileMarginLeft: "0px",
     mobileImageHeight: "h-[210px] lg:h-[390px]",

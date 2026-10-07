@@ -119,8 +119,8 @@ export function HeroSlider() {
             sizes="100vw"
             className="object-cover scale-105"
           />
-          <div className="absolute inset-0 bg-linear-to-r from-slate-950/50 via-slate-950/20 to-transparent" />
-          <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-transparent to-slate-950/40" />
+          {/* <div className="absolute inset-0 bg-linear-to-r from-slate-950/50 via-slate-950/20 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-transparent to-slate-950/40" /> */}
         </div>
       ))}
 

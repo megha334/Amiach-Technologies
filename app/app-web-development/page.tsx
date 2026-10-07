@@ -84,7 +84,7 @@ export default function AppWebDevelopmentPage() {
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
           {/* Left Side Content */}
           <div className="flex-1 space-y-4">
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 mt-12 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[11px] font-medium tracking-wide">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 mt-12 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[11px] font-medium tracking-wide ">
               <Code2 className="w-3.5 h-3.5 text-[#ff2a5f]" />
               <span>Application &amp; Web Development</span>
             </div>

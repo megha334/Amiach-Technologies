@@ -69,28 +69,53 @@ export function Navbar({
 
         <div className="ml-auto flex flex-col items-end gap-1.5 sm:gap-2">
           {/* Action Buttons: Vertical Circular Style */}
-          <div className="flex shrink-0 flex-col items-end gap-1.5 sm:gap-2">
-            <Link
-              href="/about"
-              className={`${navButtonClass} ${
-                isAboutActive
-                  ? "bg-slate-900/50 text-white ring-1 ring-white/80 shadow-[0_0_18px_rgba(255,255,255,0.25)]"
-                  : ""
-              }`}
-            >
+         {/* <div className="flex shrink-0 flex-col items-end gap-1.5 sm:gap-2">
+  <Link
+    href="/about"
+    className={`${navButtonClass} ${
+      isAboutActive
+        ? "bg-slate-900/50 !text-red-500 ring-1 ring-white/80 shadow-[0_0_18px_rgba(255,255,255,0.25)]"
+        : ""
+    }`}
+  >
               About
             </Link>
+          
             <Link
               href="/contact"
               className={`${navButtonClass} ${
                 isContactActive
-                  ? "bg-slate-900/50 text-white ring-1 ring-white/80 shadow-[0_0_18px_rgba(255,255,255,0.25)]"
+                  ? "bg-slate-900/50 !text-red-500 ring-1 ring-white/80 shadow-[0_0_18px_rgba(255,255,255,0.25)]"
                   : ""
               }`}
             >
               Contact
             </Link>
-          </div>
+          </div> */}
+
+<div className="flex shrink-0 flex-col items-end gap-1.5 sm:gap-2">
+  <Link
+    href="/about"
+    className={`${navButtonClass} !bg-black !text-white font-bold ${
+      isAboutActive
+        ? "ring-1 ring-white/80 shadow-[0_0_18px_rgba(255,255,255,0.25)]"
+        : ""
+    }`}
+  >
+    About
+  </Link>
+
+  <Link
+    href="/contact"
+    className={`${navButtonClass} !bg-black !text-white font-bold ${
+      isContactActive
+        ? "ring-1 ring-white/80 shadow-[0_0_18px_rgba(255,255,255,0.25)]"
+        : ""
+    }`}
+  >
+    Contact
+  </Link>
+</div>
 
           {categoryLinks.length > 0 && (
             <nav

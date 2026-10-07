@@ -154,7 +154,7 @@ export default function InternshipTrainingPage() {
       route: "/app-web-development",
       gallery: "app-web" as GalleryKey,
       image: "/images/web%20development.png",
-      arcStyle: "lg:rotate-y-[4deg] lg:-translate-y-7 lg:scale-[1.02]",
+      arcStyle: "lg:rotate-y-[4deg] lg:-translate-y-4 lg:scale-[1.02]",
     },
     {
       id: "app",
@@ -163,7 +163,7 @@ export default function InternshipTrainingPage() {
       route: "/app-web-development",
       gallery: "app-web" as GalleryKey,
       image: "/images/ios%20development.png",
-      arcStyle: "lg:rotate-y-[-4deg] lg:-translate-y-7 lg:scale-[1.02]",
+      arcStyle: "lg:rotate-y-[-4deg] lg:-translate-y-4 lg:scale-[1.02]",
     },
     {
       id: "languages",
@@ -177,7 +177,7 @@ export default function InternshipTrainingPage() {
   ];
 
   return (
-    <div className="relative flex min-h-dvh w-full flex-col overflow-x-hidden bg-[#0A0E1A] font-sans text-slate-900 lg:h-dvh lg:max-h-dvh lg:overflow-hidden">
+    <div className="relative flex h-dvh max-h-dvh w-full flex-col overflow-hidden bg-[#0A0E1A] font-sans text-slate-900">
       <div className="relative z-30 w-full shrink-0">
         <Navbar variant="category" compact />
       </div>
@@ -193,7 +193,7 @@ export default function InternshipTrainingPage() {
         <div className="absolute inset-0 bg-black/20" />
       </div>
 
-      <main className="relative z-10 mx-auto flex min-h-0 w-full max-w-368 flex-1 flex-col justify-start gap-2 overflow-visible px-3 py-1 sm:px-8 lg:gap-3 lg:overflow-hidden lg:px-12">
+      <main className="relative z-10 mx-auto flex min-h-0 w-full max-w-368 flex-1 flex-col justify-start gap-2 overflow-hidden px-3 py-1 sm:px-8 lg:gap-3 lg:px-12">
         {/* Header Section */}
         <div className="relative flex w-full shrink-0 flex-row items-start justify-between gap-2 py-1 lg:py-0">
           <div className="flex min-w-0 flex-1 flex-col justify-center space-y-2 lg:w-[55%] lg:flex-none lg:space-y-3">
@@ -202,12 +202,12 @@ export default function InternshipTrainingPage() {
               Project Expertise
             </span>
 
-            <h1 className="text-2xl lg:text-4xl font-black tracking-tight leading-tight text-white drop-shadow-md">
+            <h1 className="text-lg sm:text-2xl lg:text-4xl font-black tracking-tight leading-tight text-white drop-shadow-md mt-1.5">
               Learn, Build &amp; Grow with <br />
               <span className="text-[#B30E16]">Amiach Technologies</span>
             </h1>
 
-            <div className="grid grid-cols-2 gap-x-3 gap-y-2 pt-1 sm:flex sm:flex-wrap sm:items-center sm:gap-3 lg:gap-6">
+            <div className="flex flex-row flex-wrap gap-1.5 pt-1 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3 lg:gap-6">
               {[
                 { label: "Real Projects", icon: Target },
                 { label: "Expert Mentors", icon: Users },
@@ -216,22 +216,24 @@ export default function InternshipTrainingPage() {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="flex min-w-0 items-center gap-1.5 text-[10px] lg:text-xs font-bold text-slate-200 drop-shadow"
+                  className="flex min-w-0 items-center gap-1 text-[9px] font-bold text-slate-200 drop-shadow sm:gap-1.5 sm:text-[10px] lg:text-xs"
                 >
-                  <item.icon className="w-4 h-4 text-[#FF4C4C]" /> {item.label}
+                  <item.icon className="h-3 w-3 text-[#FF4C4C] sm:h-4 sm:w-4" />{" "}
+                  {item.label}
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="mt-3 flex shrink-0 flex-col items-end gap-2 sm:mt-0 sm:-translate-y-4 lg:w-[45%] lg:translate-y-0">
+          {/* <div className="flex shrink-0 flex-col items-end gap-2 -translate-y-3 sm:-translate-y-4 lg:w-[45%] lg:translate-y-0"> */}
+          <div className="mt-14 flex shrink-0 scale-85 flex-col items-end gap-1.5 -translate-y-3 sm:mt-0 sm:scale-100 sm:gap-2 sm:-translate-y-4 lg:w-[45%] lg:translate-y-0">
             <Link
               href="/audio-visual-manufacturing"
               className="rounded-full border border-[#00F2FE]/60 bg-black/35 px-3 py-2 text-[9px] font-bold uppercase tracking-[0.2em] text-cyan-300 text-right backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)] transition-all duration-300 hover:bg-[#00F2FE] hover:text-black"
             >
               Audio Visual Manufacturing
             </Link>
-              <Link
+            <Link
               href="/business-automation"
               className="inline-flex items-center justify-center rounded-full border border-[#00F2FE]/60 bg-black/35 px-3.5 py-2 text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-300 transition-all duration-300 hover:bg-[#00F2FE] hover:text-black backdrop-blur-sm shadow-[0_0_12px_rgba(0,242,254,0.25)] text-right"
             >
@@ -243,12 +245,11 @@ export default function InternshipTrainingPage() {
             >
               App &amp; Web Development
             </Link>
-            
           </div>
         </div>
 
         {/* 3D Showcase Pods Grid (Shifted Upward, Direct Inclined Text Overlay) */}
-        <div className="relative flex min-h-[45dvh] w-full flex-1 items-center justify-center overflow-hidden perspective-distant sm:min-h-[50dvh] lg:min-h-0">
+        <div className="relative flex min-h-0 w-full flex-1 items-center justify-center overflow-hidden perspective-distant">
           <motion.div
             initial="hidden"
             animate="visible"
